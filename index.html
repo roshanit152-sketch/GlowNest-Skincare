@@ -1,1550 +1,197 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GlowNest Skincare | Minimally Aesthetic Rituals</title>
-    <!-- Google Fonts for Minimalist Typography -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --bg-color: #faf8f5;
-            --text-main: #2b2927;
-            --text-muted: #6e6a66;
-            --accent: #8c7a6b;
-            --accent-light: #f3ece3;
-            --white: #ffffff;
-            --border: #e8e2da;
-            --transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
-        }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
-            overflow-x: hidden;
-        }
-
-        h1, h2, h3, .serif {
-            font-family: 'Playfair Display', serif;
-            font-weight: 400;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-            transition: var(--transition);
-        }
-
-        button {
-            cursor: pointer;
-            border: none;
-            background: none;
-            font-family: inherit;
-            transition: var(--transition);
-        }
-
-        input, textarea, select {
-            font-family: inherit;
-            border: 1px solid var(--border);
-            padding: 0.8rem 1rem;
-            background: var(--white);
-            border-radius: 0;
-            outline: none;
-            transition: var(--transition);
-        }
-
-        input:focus, textarea:focus, select:focus {
-            border-color: var(--accent);
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        /* --- Header & Navigation --- */
-        header {
-            position: sticky;
-            top: 0;
-            background-color: rgba(250, 248, 245, 0.9);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid var(--border);
-            z-index: 100;
-        }
-
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            height: 80px;
-        }
-
-        .logo {
-            font-size: 1.6rem;
-            letter-spacing: 2px;
-            font-weight: 500;
-        }
-
-        .logo span {
-            font-family: 'Inter', sans-serif;
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            display: block;
-            color: var(--text-muted);
-            margin-top: -2px;
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 2.5rem;
-        }
-
-        nav ul li a {
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            font-weight: 400;
-            color: var(--text-muted);
-            position: relative;
-            padding-bottom: 4px;
-        }
-
-        nav ul li a:hover, nav ul li a.active {
-            color: var(--text-main);
-        }
-
-        nav ul li a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 1px;
-            background-color: var(--accent);
-            transition: var(--transition);
-        }
-
-        nav ul li a:hover::after, nav ul li a.active::after {
-            width: 100%;
-        }
-
-        .nav-actions {
-            display: flex;
-            align-items: center;
-            gap: 1.5rem;
-        }
-
-        .cart-trigger {
-            position: relative;
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .cart-count {
-            background-color: var(--accent);
-            color: var(--white);
-            font-size: 0.75rem;
-            padding: 2px 6px;
-            border-radius: 10px;
-            font-weight: 500;
-        }
-
-        /* --- Content Layout Management --- */
-        .page-section {
-            display: none;
-            animation: fadeIn 0.6s ease forwards;
-        }
-
-        .page-section.active-page {
-            display: block;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* --- Home Page Styling --- */
-        .hero {
-            padding: 6rem 0;
-            display: flex;
-            align-items: center;
-            min-height: calc(100vh - 80px);
-        }
-
-        .hero-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .hero-text h1 {
-            font-size: 4rem;
-            line-height: 1.1;
-            margin-bottom: 1.5rem;
-        }
-
-        .hero-text p {
-            font-size: 1.1rem;
-            color: var(--text-muted);
-            margin-bottom: 2.5rem;
-            max-width: 480px;
-        }
-
-        .btn {
-            display: inline-block;
-            background-color: var(--text-main);
-            color: var(--white);
-            padding: 1rem 2.5rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            font-size: 0.85rem;
-            font-weight: 500;
-            border: 1px solid var(--text-main);
-        }
-
-        .btn:hover {
-            background-color: transparent;
-            color: var(--text-main);
-        }
-
-        .btn-secondary {
-            background-color: transparent;
-            color: var(--text-main);
-            border-color: var(--border);
-        }
-
-        .btn-secondary:hover {
-            border-color: var(--text-main);
-        }
-
-        .hero-image-wrapper {
-            position: relative;
-            background-color: var(--accent-light);
-            padding-bottom: 120%;
-            overflow: hidden;
-        }
-
-        .hero-image-wrapper img {
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            object-fit: cover;
-            mix-blend-mode: multiply;
-        }
-
-        .features-strip {
-            border-top: 1px solid var(--border);
-            border-bottom: 1px solid var(--border);
-            padding: 3rem 0;
-            background: var(--white);
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-            text-align: center;
-        }
-
-        .feature-item h3 {
-            font-size: 1.3rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .feature-item p {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-        }
-
-        /* --- Shop Page Styling --- */
-        .shop-layout {
-            padding: 4rem 0;
-        }
-
-        .section-header {
-            margin-bottom: 3rem;
-            text-align: center;
-        }
-
-        .section-header h2 {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .filter-tabs {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            margin-bottom: 3rem;
-            flex-wrap: wrap;
-        }
-
-        .filter-btn {
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            padding: 0.5rem 1.5rem;
-            border: 1px solid var(--border);
-            color: var(--text-muted);
-        }
-
-        .filter-btn.active, .filter-btn:hover {
-            border-color: var(--text-main);
-            color: var(--text-main);
-            background-color: var(--white);
-        }
-
-        .products-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 3rem 2rem;
-        }
-
-        .product-card {
-            background: transparent;
-            position: relative;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .product-image-container {
-            position: relative;
-            background-color: var(--white);
-            border: 1px solid var(--border);
-            width: 100%;
-            padding-bottom: 110%;
-            overflow: hidden;
-            margin-bottom: 1.2rem;
-        }
-
-        .product-image-container img {
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            object-fit: contain;
-            padding: 1.5rem;
-            transition: var(--transition);
-        }
-
-        .product-card:hover .product-image-container img {
-            transform: scale(1.04);
-        }
-
-        .product-badge {
-            position: absolute;
-            top: 1rem;
-            left: 1rem;
-            background: var(--accent-light);
-            color: var(--accent);
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            padding: 0.3rem 0.6rem;
-            z-index: 2;
-            font-weight: 500;
-        }
-
-        .product-info {
-            display: flex;
-            flex-direction: column;
-            flex-grow: 1;
-        }
-
-        .product-brand {
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            color: var(--text-muted);
-            margin-bottom: 0.3rem;
-        }
-
-        .product-title {
-            font-size: 1.1rem;
-            margin-bottom: 0.5rem;
-            font-family: 'Inter', sans-serif;
-            font-weight: 400;
-        }
-
-        .product-price {
-            font-size: 1rem;
-            font-weight: 500;
-            margin-bottom: 1rem;
-            color: var(--accent);
-        }
-
-        .add-to-cart-btn {
-            margin-top: auto;
-            width: 100%;
-            background-color: transparent;
-            border: 1px solid var(--text-main);
-            color: var(--text-main);
-            padding: 0.8rem;
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-        }
-
-        .add-to-cart-btn:hover {
-            background-color: var(--text-main);
-            color: var(--white);
-        }
-
-        /* --- About Us Page Styling --- */
-        .about-section {
-            padding: 6rem 0;
-        }
-
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 5rem;
-            align-items: center;
-        }
-
-        .about-text h2 {
-            font-size: 2.8rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .about-text p {
-            color: var(--text-muted);
-            margin-bottom: 1.5rem;
-            font-size: 1.05rem;
-        }
-
-        /* --- Blog (Skincare Tips for Nepalese) Styling --- */
-        .blog-section {
-            padding: 5rem 0;
-        }
-
-        .blog-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-            gap: 2.5rem;
-        }
-
-        .blog-card {
-            background: var(--white);
-            border: 1px solid var(--border);
-            padding: 2.5rem;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .blog-tag {
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            color: var(--accent);
-            font-weight: 500;
-            margin-bottom: 1rem;
-            display: inline-block;
-        }
-
-        .blog-card h3 {
-            font-size: 1.6rem;
-            margin-bottom: 1rem;
-            line-height: 1.3;
-        }
-
-        .blog-excerpt {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .read-more {
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-weight: 500;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: var(--text-main);
-        }
-
-        .read-more::after {
-            content: '→';
-            transition: var(--transition);
-        }
-
-        .read-more:hover::after {
-            transform: translateX(4px);
-        }
-
-        /* --- Contact Page Styling --- */
-        .contact-section {
-            padding: 5rem 0;
-        }
-
-        .contact-grid {
-            display: grid;
-            grid-template-columns: 1fr 1.2fr;
-            gap: 5rem;
-        }
-
-        .contact-info h2 {
-            font-size: 2.8rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .contact-details {
-            margin-top: 2.5rem;
-        }
-
-        .contact-detail-item {
-            margin-bottom: 1.5rem;
-        }
-
-        .contact-detail-item h4 {
-            text-transform: uppercase;
-            font-size: 0.8rem;
-            letter-spacing: 1px;
-            color: var(--text-muted);
-            margin-bottom: 0.3rem;
-        }
-
-        .contact-detail-item p {
-            font-size: 1.1rem;
-        }
-
-        .contact-form {
-            background: var(--white);
-            border: 1px solid var(--border);
-            padding: 3rem;
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-        }
-
-        .form-group {
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-        }
-
-        .form-group label {
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: var(--text-muted);
-        }
-
-        /* --- Slide-Out Cart Drawer --- */
-        .cart-drawer {
-            position: fixed;
-            top: 0; right: -450px;
-            width: 450px; max-width: 100%; height: 100vh;
-            background-color: var(--white);
-            border-left: 1px solid var(--border);
-            box-shadow: -5px 0 30px rgba(0,0,0,0.02);
-            z-index: 200;
-            transition: var(--transition);
-            display: flex;
-            flex-direction: column;
-            padding: 2.5rem;
-        }
-
-        .cart-drawer.open {
-            right: 0;
-        }
-
-        .cart-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 2rem;
-            border-bottom: 1px solid var(--border);
-            padding-bottom: 1rem;
-        }
-
-        .close-cart {
-            font-size: 1.5rem;
-            color: var(--text-muted);
-        }
-
-        .cart-items-container {
-            flex-grow: 1;
-            overflow-y: auto;
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-            padding-right: 0.5rem;
-        }
-
-        .cart-item {
-            display: flex;
-            gap: 1rem;
-            align-items: center;
-            border-bottom: 1px solid #f5f0e9;
-            padding-bottom: 1rem;
-        }
-
-        .cart-item-img {
-            width: 60px; height: 60px;
-            object-fit: contain;
-            background: var(--bg-color);
-            border: 1px solid var(--border);
-            padding: 5px;
-        }
-
-        .cart-item-details {
-            flex-grow: 1;
-        }
-
-        .cart-item-title {
-            font-size: 0.95rem;
-            font-weight: 400;
-        }
-
-        .cart-item-price {
-            font-size: 0.85rem;
-            color: var(--accent);
-        }
-
-        .remove-item-btn {
-            font-size: 0.8rem;
-            color: #c97d7d;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-top: 4px;
-        }
-
-        .cart-footer {
-            border-top: 1px solid var(--border);
-            padding-top: 1.5rem;
-            margin-top: 1rem;
-        }
-
-        .cart-total-row {
-            display: flex;
-            justify-content: space-between;
-            font-size: 1.1rem;
-            font-weight: 500;
-            margin-bottom: 1.5rem;
-        }
-
-        .checkout-btn {
-            width: 100%;
-            text-align: center;
-        }
-
-        /* --- Checkout Modal --- */
-        .modal-overlay {
-            position: fixed;
-            top: 0; left: 0; width: 100vw; height: 100vh;
-            background: rgba(43, 41, 39, 0.4);
-            backdrop-filter: blur(4px);
-            z-index: 300;
-            display: none;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            transition: var(--transition);
-        }
-
-        .modal-overlay.open {
-            display: flex;
-            opacity: 1;
-        }
-
-        .checkout-modal {
-            background: var(--white);
-            width: 550px; max-width: 90%;
-            padding: 3rem;
-            position: relative;
-            animation: modalSlide 0.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
-        }
-
-        @keyframes modalSlide {
-            from { transform: translateY(30px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
-
-        .close-modal {
-            position: absolute;
-            top: 1.5rem; right: 1.5rem;
-            font-size: 1.5rem;
-            color: var(--text-muted);
-        }
-
-        .modal-title {
-            font-size: 2rem;
-            margin-bottom: 1.5rem;
-            border-bottom: 1px solid var(--border);
-            padding-bottom: 0.5rem;
-        }
-
-        /* --- Footer --- */
-        footer {
-            background-color: var(--white);
-            border-top: 1px solid var(--border);
-            padding: 4rem 0 2rem 0;
-            margin-top: 6rem;
-            font-size: 0.9rem;
-            color: var(--text-muted);
-        }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: 1.5fr repeat(3, 1fr);
-            gap: 3rem;
-            margin-bottom: 3rem;
-        }
-
-        .footer-brand h3 {
-            color: var(--text-main);
-            font-size: 1.4rem;
-            margin-bottom: 0.8rem;
-            letter-spacing: 1px;
-        }
-
-        .footer-col h4 {
-            color: var(--text-main);
-            text-transform: uppercase;
-            font-size: 0.8rem;
-            letter-spacing: 1.5px;
-            margin-bottom: 1.2rem;
-        }
-
-        .footer-col ul {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 0.6rem;
-        }
-
-        .footer-bottom {
-            border-top: 1px solid var(--border);
-            padding-top: 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 0.8rem;
-        }
-
-        /* --- Overlay Backdrops --- */
-        .drawer-overlay {
-            position: fixed;
-            top:0; left:0; width: 100vw; height: 100vh;
-            background: rgba(0,0,0,0.1);
-            z-index: 150;
-            display: none;
-        }
-        .drawer-overlay.open { display: block; }
-
-        /* --- Responsive Tweaks --- */
-        @media (max-width: 900px) {
-            .hero-grid, .about-grid, .contact-grid {
-                grid-template-columns: 1fr;
-                gap: 3rem;
-            }
-            .hero-text h1 { font-size: 2.8rem; }
-            .features-grid { grid-template-columns: 1fr; gap: 1.5rem; }
-            .footer-grid { grid-template-columns: 1fr 1fr; }
-            nav ul { display: none; } /* Simplified for structural elegance */
-        }
-    </style>
-</head>
-<body>
-
-    <!-- Global Cart Backdrop overlay -->
-    <div class="drawer-overlay" id="drawerOverlay"></div>
-
-    <!-- --- Header --- -->
-    <header>
-        <div class="container nav-container">
-            <a href="#" class="logo" onclick="navigateTo('home')">
-                GLOWNEST
-                <span>Skincare Rituals</span>
-            </a>
-            <nav>
-                <ul>
-                    <li><a href="#" id="nav-home" class="active" onclick="navigateTo('home')">Home</a></li>
-                    <li><a href="#" id="nav-shop" onclick="navigateTo('shop')">Shop</a></li>
-                    <li><a href="#" id="nav-about" onclick="navigateTo('about')">About Us</a></li>
-                    <li><a href="#" id="nav-blog" onclick="navigateTo('blog')">Skincare Tips</a></li>
-                    <li><a href="#" id="nav-contact" onclick="navigateTo('contact')">Contact</a></li>
-                </ul>
-            </nav>
-            <div class="nav-actions">
-                <button class="cart-trigger" onclick="toggleCart(true)">
-                    Cart <span class="cart-count" id="cartCount">0</span>
-                </button>
-            </div>
-        </div>
-    </header>
-
-    <!-- --- PAGE CONTENT WRAPPERS --- -->
-    <main>
-
-        <!-- 1. HOME PAGE SECTION -->
-        <section id="page-home" class="page-section active-page">
-            <div class="hero">
-                <div class="container hero-grid">
-                    <div class="hero-text">
-                        <h1>Honest Beauty.<br>Radiant Results.</h1>
-                        <p>A thoughtfully balanced curation of advanced Korean innovation and pure Nepalese herbal formulations. Mindfully packaged, delivered to Butwal, and optimized for your skin.</p>
-                        <div style="display: flex; gap: 1rem;">
-                            <button class="btn" onclick="navigateTo('shop')">Explore Shop</button>
-                            <button class="btn btn-secondary" onclick="navigateTo('blog')">Read Our Blog</button>
-                        </div>
-                    </div>
-                    <div class="hero-image-wrapper">
-                        <!-- Graceful default representation of aesthetic clinical clean cosmetics -->
-                        <img src="https://www.uniquebunny.com/cdn/shop/files/SKIN1004_Centella_Ampoule_1_1200x.webp?v=1751049255" alt="Clean K-Beauty Skincare Collection Grid">
-                    </div>
-                </div>
-            </div>
-
-            <div class="features-strip">
-                <div class="container features-grid">
-                    <div class="feature-item">
-                        <h3>Authentic Curation</h3>
-                        <p>100% verified, authentic Korean and clinical local brands direct from official source channels.</p>
-                    </div>
-                    <div class="feature-item">
-                        <h3>Located in Butwal</h3>
-                        <p>Local hub guarantees lightning fast shipping across Rupandehi and standard delivery Nepal-wide.</p>
-                    </div>
-                    <div class="feature-item">
-                        <h3>Tailored Advice</h3>
-                        <p>Formulations specifically filtered to counteract high UV indices and seasonal humidity shifts.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 2. SHOP PAGE SECTION -->
-        <section id="page-shop" class="page-section">
-            <div class="container shop-layout">
-                <div class="section-header">
-                    <h2>The Skincare Curation</h2>
-                    <p style="color: var(--text-muted);">Carefully selected solutions sorted by source type and ritual application.</p>
-                </div>
-
-                <div class="filter-tabs">
-                    <button class="filter-btn active" onclick="filterProducts('all', this)">All Products</button>
-                    <button class="filter-btn" onclick="filterProducts('korean', this)">Korean Focus</button>
-                    <button class="filter-btn" onclick="filterProducts('nepalese', this)">Nepalese Natural</button>
-                    <button class="filter-btn" onclick="filterProducts('sunscreen', this)">Sunscreens</button>
-                    <button class="filter-btn" onclick="filterProducts('serum', this)">Serums & Ampoules</button>
-                    <button class="filter-btn" onclick="filterProducts('toner', this)">Toners</button>
-                </div>
-
-                <div class="products-grid" id="productsGrid">
-                    <!-- Products dynamically rendered from Javascript configuration array below -->
-                </div>
-            </div>
-        </section>
-
-        <!-- 3. ABOUT US PAGE SECTION -->
-        <section id="page-about" class="page-section">
-            <div class="container about-section">
-                <div class="about-grid">
-                    <div class="about-image">
-                        <div class="hero-image-wrapper" style="padding-bottom: 100%;">
-                            <img src="https://img.drz.lazcdn.com/static/np/p/345af59250d222686e2288c9ed85325d.jpg_720x720q80.jpg" alt="Aesthetic minimal skincare toners container display">
-                        </div>
-                    </div>
-                    <div class="about-text">
-                        <h2>Rooted in Butwal,<br>Inspired by Global Standards.</h2>
-                        <p>GlowNest Skincare emerged from a straightforward requirement: access to authentic, non-counterfeit dermatological solutions capable of managing regional environmental elements—such as extreme summer conditions and dust transitions in Butwal.</p>
-                        <p>We combine advanced formulations from top South Korean laboratories (such as Anua, Beauty of Joseon, and Medicube) with clean, herbal traditions native to Nepal (such as Aura Herbs and Himalayan essences). Every single bottle on our shelves is rigorously authenticated, stored temperature-controlled, and transparently valued in Nepalese Rupees.</p>
-                        <p>We do not support unrealistic beauty targets. We believe in providing functional protection, repairing the skin barrier, and supporting skin health through honest science.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 4. BLOG PAGE SECTION (Skincare Tips Specially for Nepalese People) -->
-        <section id="page-blog" class="page-section">
-            <div class="container blog-section">
-                <div class="section-header">
-                    <h2>The Journal</h2>
-                    <p style="color: var(--text-muted);">Targeted routines, skin barrier preservation strategies, and environmental tips designed for the Nepalese climate.</p>
-                </div>
-
-                <div class="blog-grid">
-                    <div class="blog-card">
-                        <div>
-                            <span class="blog-tag">Climate Defense</span>
-                            <h3>Surviving Butwal Summers: Preventing UV Hyperpigmentation</h3>
-                            <p class="blog-excerpt">With summer temperatures regularly climbing, UV protection isn't just about avoiding burns—it's essential for stopping deep melasma and skin barrier damage. Discover how to layer centella and soothing antioxidants effectively underneath your daily SPF.</p>
-                        </div>
-                        <a href="#" class="read-more" onclick="alert('Full article feature system coming soon!')">Read Article</a>
-                    </div>
-
-                    <div class="blog-card">
-                        <div>
-                            <span class="blog-tag">Ingredient Focus</span>
-                            <h3>Why Korean Centella is a Game-Changer for Local Skin Stress</h3>
-                            <p class="blog-excerpt">Dust, smoke, and changing seasons frequently disrupt our skin barriers. Centella Asiatica offers notable soothing benefits to lower facial redness and support skin repair without feeling heavy during humid periods.</p>
-                        </div>
-                        <a href="#" class="read-more" onclick="alert('Full article feature system coming soon!')">Read Article</a>
-                    </div>
-
-                    <div class="blog-card">
-                        <div>
-                            <span class="blog-tag">Routine Advice</span>
-                            <h3>Balancing Herbal Traditions with Modern Active Ingredients</h3>
-                            <p class="blog-excerpt">How to combine trusted, purifying local botanicals like neem, tulsi, and Himalayan herbs with powerful clinical actives like Hyaluronic Acid and Niacinamide safely, avoiding unnecessary irritation.</p>
-                        </div>
-                        <a href="#" class="read-more" onclick="alert('Full article feature system coming soon!')">Read Article</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 5. CONTACT PAGE SECTION -->
-        <section id="page-contact" class="page-section">
-            <div class="container contact-section">
-                <div class="contact-grid">
-                    <div class="contact-info">
-                        <h2>Connect With Us</h2>
-                        <p style="color: var(--text-muted);">Have questions about building an effective custom skincare routine or confirming product authenticity? Visit our Butwal office or drop a line below.</p>
-                        
-                        <div class="contact-details">
-                            <div class="contact-detail-item">
-                                <h4>Physical Hub Address</h4>
-                                <p>GlowNest Boutique, Ward No. 11, Milanchowk, Butwal, Nepal</p>
-                            </div>
-                            <div class="contact-detail-item">
-                                <h4>Direct Correspondence</h4>
-                                <p>info@glownestnepal.com<br>+977-71-550123</p>
-                            </div>
-                            <div class="contact-detail-item">
-                                <h4>Business Availability Hours</h4>
-                                <p>Sunday – Friday: 10:00 AM – 7:00 PM (Saturday Closed)</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <form class="contact-form" onsubmit="event.preventDefault(); alert('Thank you for reaching out! A GlowNest skincare specialist will contact you shortly.'); this.reset();">
-                        <div class="form-group">
-                            <label for="contact-name">Full Name</label>
-                            <input type="text" id="contact-name" placeholder="Siddharth Thapa" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="contact-email">Email Address</label>
-                            <input type="email" id="contact-email" placeholder="siddharth@gmail.com" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="contact-topic">Consultation Subject</label>
-                            <select id="contact-topic">
-                                <option>Routine Recommendation Support</option>
-                                <option>Order Status / Delivery Tracking</option>
-                                <option>Product Authenticity Validation</option>
-                                <option>Other General Inquiry</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="contact-message">Your Message</label>
-                            <textarea id="contact-message" rows="5" placeholder="Share your skin type or inquiry details..." required></textarea>
-                        </div>
-                        <button type="submit" class="btn" style="width: 100%;">Send Message</button>
-                    </form>
-                </div>
-            </div>
-        </section>
-
-    </main>
-
-    <!-- --- SLIDE OUT CART DRAWER --- -->
-    <div class="cart-drawer" id="cartDrawer">
-        <div class="cart-header">
-            <h3>Your Ritual Cart</h3>
-            <button class="close-cart" onclick="toggleCart(false)">✕</button>
-        </div>
-        
-        <div class="cart-items-container" id="cartItemsContainer">
-            <!-- Items appear via Javascript dynamic template binding -->
-            <p style="color:var(--text-muted); text-align:center; margin-top:3rem;">Your cart is currently empty.</p>
-        </div>
-
-        <div class="cart-footer">
-            <div class="cart-total-row">
-                <span>Estimated Total:</span>
-                <span id="cartTotalValue">Rs. 0</span>
-            </div>
-            <button class="btn checkout-btn" onclick="openCheckoutModal()">Proceed to Checkout</button>
-        </div>
-    </div>
-
-    <!-- --- INTERACTIVE CHECKOUT MODAL SYSTEM --- -->
-    <div class="modal-overlay" id="checkoutModalOverlay">
-        <div class="checkout-modal">
-            <button class="close-modal" onclick="closeCheckoutModal()">✕</button>
-            <h3 class="modal-title">Secure Checkout</h3>
-            
-            <form id="checkoutForm" onsubmit="handleCheckoutSubmit(event)">
-                <div style="display:flex; flex-direction:column; gap: 1.2rem;">
-                    <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
-                        <div class="form-group">
-                            <label>First Name *</label>
-                            <input type="text" required placeholder="Aayusha">
-                        </div>
-                        <div class="form-group">
-                            <label>Last Name *</label>
-                            <input type="text" required placeholder="Sharma">
-                        </div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label>Delivery Address (Street/Ward/City) *</label>
-                        <input type="text" required placeholder="Golpark, Ward 3, Butwal">
-                    </div>
-
-                    <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
-                        <div class="form-group">
-                            <label>Contact Number *</label>
-                            <input type="tel" required placeholder="98XXXXXXXX">
-                        </div>
-                        <div class="form-group">
-                            <label>Payment Mode *</label>
-                            <select id="paymentMethod">
-                                <option value="cod">Cash on Delivery (Butwal Hub Special)</option>
-                                <option value="esewa">eSewa / Fonepay Transfer</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div style="background: var(--accent-light); padding: 1rem; margin-top: 0.5rem;">
-                        <p style="font-size: 0.9rem; font-weight: 500; display:flex; justify-content:space-between;">
-                            <span>Final Amount Due:</span>
-                            <span id="modalTotalValue" style="color:var(--accent);">Rs. 0</span>
-                        </p>
-                        <p style="font-size:0.75rem; color: var(--text-muted); margin-top:4px;">* Standard delivery timeline to locations outside Butwal runs 2-4 corporate days.</p>
-                    </div>
-
-                    <button type="submit" class="btn" style="width:100%; margin-top:0.5rem;">Place Order Now</button>
-                </div>
-            </form>
-        </div>
-    </div>
-
-    <!-- --- FOOTER --- -->
-    <footer>
-        <div class="container footer-grid">
-            <div class="footer-brand">
-                <h3>GLOWNEST</h3>
-                <p>Curating exceptional global and native skincare rituals. Ethically formulated, transparently handled, and localized for structural integrity.</p>
-            </div>
-            <div class="footer-col">
-                <h4>Navigation</h4>
-                <ul>
-                    <li><a href="#" onclick="navigateTo('home')">Home Hub</a></li>
-                    <li><a href="#" onclick="navigateTo('shop')">Browse All Shop</a></li>
-                    <li><a href="#" onclick="navigateTo('blog')">Skincare Tips</a></li>
-                    <li><a href="#" onclick="navigateTo('contact')">Reach Support</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>Core Curation Brands</h4>
-                <ul>
-                    <li>Beauty of Joseon</li>
-                    <li>Skin1004 Centella</li>
-                    <li>Anua Heartleaf</li>
-                    <li>Medicube Innovation</li>
-                    <li>Aura Herbs & Himalayan</li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>GlowNest Hub</h4>
-                <p style="font-size:0.85rem; line-height:1.5;">
-                    Milanchowk, Butwal-11<br>
-                    Rupandehi, Nepal<br>
-                    Open: Sun-Fri (10AM - 7PM)
-                </p>
-            </div>
-        </div>
-        <div class="container footer-bottom">
-            <p>&copy; 2026 GlowNest Skincare Inc. All rights reserved.</p>
-            <p>Aesthetic Functional Curation &bull; Butwal, Nepal</p>
-        </div>
-    </footer>
-
-    <!-- --- JAVASCRIPT APPLICATION CORE --- -->
-    <script>
-        // --- 1. Authentic Product Database Configuration ---
-        const products = [
-            {
-                id: 1,
-                title: "Relief Sun : Rice + Probiotics SPF50+",
-                brand: "Beauty of Joseon",
-                price: 2450,
-                category: "korean",
-                tag: "sunscreen",
-                badge: "Best Seller",
-                image: "image_agent_tag_6990138684818808756"
-            },
-            {
-                id: 2,
-                title: "Madagascar Centella Ampoule Serum",
-                brand: "Skin1004",
-                price: 2800,
-                category: "korean",
-                tag: "serum",
-                badge: "Barrier Repair",
-                image: "image_agent_tag_6990138684818805905"
-            },
-            {
-                id: 3,
-                title: "Heartleaf 77% Soothing Toner",
-                brand: "Anua",
-                price: 3100,
-                category: "korean",
-                tag: "toner",
-                badge: "Calming Trend",
-                image: "image_agent_tag_6990138684818807150"
-            },
-            {
-                id: 4,
-                title: "Age-R Booster Pro Clinical Device",
-                brand: "Medicube",
-                price: 26500,
-                category: "korean",
-                tag: "vitamins",
-                badge: "Advanced Tech",
-                image: "image_agent_tag_6990138684818808395"
-            },
-            {
-                id: 5,
-                title: "Pure Neem & Tea Tree Face Wash",
-                brand: "Himalayan Organics",
-                price: 650,
-                category: "nepalese",
-                tag: "facewash",
-                badge: "Natural Purification",
-                image: "https://www.healme.com.np/storage/Product/PR-1724514296-4166720.webp" 
-            },
-            {
-                id: 6,
-                title: "Intense Hydration Lip Butter Balm",
-                brand: "Aura Herbs",
-                price: 450,
-                category: "nepalese",
-                tag: "lipbalm",
-                badge: "Local Organic",
-                image: "https://img.drz.lazcdn.com/static/np/p/345af59250d222686e2288c9ed85325d.jpg_720x720q80.jpg"
-            },
-            {
-                id: 7,
-                title: "Snail Peptide Eye Cream",
-                brand: "COSRX",
-                price: 2950,
-                category: "korean",
-                tag: "moisturizer",
-                badge: "Skin Plumping",
-                image: "https://www.uniquebunny.com/cdn/shop/files/SKIN1004_Centella_Ampoule_1_1200x.webp?v=1751049255"
-            },
-            {
-                id: 8,
-                title: "Kumkumadi Radiance Facial Oil Serum",
-                brand: "Aura Herbs",
-                price: 1850,
-                category: "nepalese",
-                tag: "serum",
-                badge: "Ayurvedic Glow",
-                image: "https://img.drz.lazcdn.com/static/np/p/345af59250d222686e2288c9ed85325d.jpg_720x720q80.jpg"
-            }
-        ];
-
-        // --- 2. Shopping Cart Internal Management State ---
-        let cart = [];
-
-        // --- 3. Single Page Architecture Application Router Navigation ---
-        function navigateTo(pageId) {
-            // Update active header selection styling state links
-            document.querySelectorAll('nav ul li a').forEach(link => {
-                link.classList.remove('active');
-            });
-            const targetNavLink = document.getElementById(`nav-${pageId}`);
-            if (targetNavLink) targetNavLink.classList.add('active');
-
-            // Toggle visual tab panel sections visibility state toggle
-            document.querySelectorAll('.page-section').forEach(section => {
-                section.classList.remove('active-page');
-            });
-            
-            const targetSection = document.getElementById(`page-${pageId}`);
-            if (targetSection) {
-                targetSection.classList.add('active-page');
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            }
-        }
-
-        // --- 4. Render Dynamic Catalog Method ---
-        function renderProducts(productsList) {
-            const grid = document.getElementById('productsGrid');
-            if(!grid) return;
-            
-            grid.innerHTML = '';
-            
-            productsList.forEach(prod => {
-                const card = document.createElement('div');
-                card.className = `product-card`;
-                card.innerHTML = `
-                    <div class="product-image-container">
-                        <span class="product-badge">${prod.badge}</span>
-                        <img src="${prod.image}" alt="${prod.title} container bottle design styling">
-                    </div>
-                    <div class="product-info">
-                        <span class="product-brand">${prod.brand}</span>
-                        <h3 class="product-title">${prod.title}</h3>
-                        <span class="product-price">Rs. ${prod.price.toLocaleString()}</span>
-                        <button class="add-to-cart-btn" onclick="addToCart(${prod.id})">Add To Cart</button>
-                    </div>
-                `;
-                grid.appendChild(card);
-            });
-        }
-
-        // --- 5. Catalog Search/Filter Filtering Mechanisms ---
-        function filterProducts(filterType, element) {
-            // Update selected navigation active filter tab button UI
-            document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
-            if(element) element.classList.add('active');
-
-            if (filterType === 'all') {
-                renderProducts(products);
-            } else if (filterType === 'korean' || filterType === 'nepalese') {
-                const filtered = products.filter(p => p.category === filterType);
-                renderProducts(filtered);
-            } else {
-                const filtered = products.filter(p => p.tag === filterType);
-                renderProducts(filtered);
-            }
-        }
-
-        // --- 6. Core Cart Functionality Mutation Engines ---
-        function toggleCart(openState) {
-            const drawer = document.getElementById('cartDrawer');
-            const overlay = document.getElementById('drawerOverlay');
-            if(openState) {
-                drawer.classList.add('open');
-                overlay.classList.add('open');
-            } else {
-                drawer.classList.remove('open');
-                overlay.classList.remove('open');
-            }
-        }
-
-        function addToCart(productId) {
-            const targetProduct = products.find(p => p.id === productId);
-            if(!targetProduct) return;
-
-            // Simple item presence increments state validation logic 
-            const existingCartItem = cart.find(item => item.product.id === productId);
-            if(existingCartItem) {
-                existingCartItem.quantity += 1;
-            } else {
-                cart.push({ product: targetProduct, quantity: 1 });
-            }
-
-            updateCartUI();
-            toggleCart(true); // Bring out the cart visual overlay automatically
-        }
-
-        function removeCartItem(productId) {
-            cart = cart.filter(item => item.product.id !== productId);
-            updateCartUI();
-        }
-
-        function updateCartUI() {
-            // 1. Badge total summary indicator metrics update
-            const totalItemsCount = cart.reduce((acc, item) => acc + item.quantity, 0);
-            document.getElementById('cartCount').innerText = totalItemsCount;
-
-            // 2. Clear element context node bindings and map internal objects state data structure
-            const container = document.getElementById('cartItemsContainer');
-            container.innerHTML = '';
-
-            if(cart.length === 0) {
-                container.innerHTML = `<p style="color:var(--text-muted); text-align:center; margin-top:3rem;">Your cart is currently empty.</p>`;
-                document.getElementById('cartTotalValue').innerText = "Rs. 0";
-                return;
-            }
-
-            let computedTotalPriceSum = 0;
-
-            cart.forEach(item => {
-                const totalItemCost = item.product.price * item.quantity;
-                computedTotalPriceSum += totalItemCost;
-
-                const row = document.createElement('div');
-                row.className = 'cart-item';
-                row.innerHTML = `
-                    <img src="${item.product.image}" class="cart-item-img" alt="${item.product.title}">
-                    <div class="cart-item-details">
-                        <h4 class="cart-item-title">${item.product.title} (x${item.quantity})</h4>
-                        <span class="cart-item-price">Rs. ${totalItemCost.toLocaleString()}</span>
-                        <br>
-                        <button class="remove-item-btn" onclick="removeCartItem(${item.product.id})">Remove</button>
-                    </div>
-                `;
-                container.appendChild(row);
-            });
-
-            document.getElementById('cartTotalValue').innerText = `Rs. ${computedTotalPriceSum.toLocaleString()}`;
-        }
-
-        // --- 7. Checkout Process Flow Modals Orchestrators ---
-        function openCheckoutModal() {
-            if(cart.length === 0) {
-                alert("Your cart is empty. Please select products before checking out.");
-                return;
-            }
-            toggleCart(false); // Drop the sidebar tray presentation frame view out safely
-            
-            // Calculate final cost values matrix variables
-            const sumTotal = cart.reduce((acc, item) => acc + (item.product.price * item.quantity), 0);
-            document.getElementById('modalTotalValue').innerText = `Rs. ${sumTotal.toLocaleString()}`;
-
-            document.getElementById('checkoutModalOverlay').classList.add('open');
-        }
-
-        function closeCheckoutModal() {
-            document.getElementById('checkoutModalOverlay').classList.remove('open');
-        }
-
-        function handleCheckoutSubmit(event) {
-            event.preventDefault();
-            alert("Order Successfully Captured!\nThank you for choosing GlowNest Skincare. Our processing team in Milanchowk, Butwal will verify your coordinates shortly via telephone or SMS message.");
-            
-            // Complete state resets clean routines
-            cart = [];
-            updateCartUI();
-            closeCheckoutModal();
-        }
-
-        // --- 8. Application Initial Boot Sequence Execution Block ---
-        window.addEventListener('DOMContentLoaded', () => {
-            renderProducts(products);
-            
-            // Simple backdrop layer background event listener triggers hooks
-            document.getElementById('drawerOverlay').addEventListener('click', () => toggleCart(false));
-        });
-    </script>
-</body>
-</html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>GlowNest Skincare | Premium Korean & Nepalese Skincare</title>
+<title>GlowyNest Skincare | Korean & Nepalese Beauty Store</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
 
 <style>
 
+
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Poppins',sans-serif;
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
 }
 
-html{
-    scroll-behavior:smooth;
-}
 
 body{
-    background:#fffaf8;
-    color:#333;
+
+background:#fff9f7;
+color:#333;
+
+}
+
+
+html{
+
+scroll-behavior:smooth;
+
 }
 
 
 /* NAVBAR */
 
+
 header{
-    width:100%;
-    position:fixed;
-    top:0;
-    z-index:1000;
-    background:rgba(255,255,255,0.95);
-    backdrop-filter:blur(10px);
-    box-shadow:0 2px 15px rgba(0,0,0,0.08);
+
+position:fixed;
+top:0;
+width:100%;
+background:white;
+z-index:999;
+box-shadow:0 5px 20px rgba(0,0,0,0.08);
+
 }
 
+
 .navbar{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:20px 8%;
+
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 8%;
+
 }
 
 
 .logo{
-    font-size:28px;
-    font-weight:700;
-    color:#c97b8e;
+
+font-size:30px;
+font-weight:700;
+color:#d7869d;
+
 }
+
 
 .logo span{
-    color:#333;
+
+color:#333;
+
 }
 
 
-.nav-links{
-    display:flex;
-    gap:30px;
-    list-style:none;
+.navbar ul{
+
+display:flex;
+gap:30px;
+list-style:none;
+
 }
 
 
-.nav-links a{
-    text-decoration:none;
-    color:#444;
-    font-size:15px;
-    transition:.3s;
+.navbar ul li a{
+
+text-decoration:none;
+color:#444;
+font-size:15px;
+
 }
 
 
-.nav-links a:hover{
-    color:#c97b8e;
-}
+.navbar ul li a:hover{
 
+color:#d7869d;
 
-.cart-icon{
-    position:relative;
-    cursor:pointer;
-    font-size:22px;
-}
-
-
-.cart-count{
-    position:absolute;
-    top:-10px;
-    right:-12px;
-    background:#c97b8e;
-    color:white;
-    width:20px;
-    height:20px;
-    border-radius:50%;
-    font-size:12px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
 }
 
 
 
-/* HERO SECTION */
+.cart{
+
+font-size:22px;
+color:#d7869d;
+
+}
+
+
+
+
+
+/* HERO */
 
 
 .hero{
 
-    height:100vh;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    padding:100px 8% 50px;
-    background:
-    linear-gradient(
-    rgba(255,250,248,.85),
-    rgba(255,250,248,.85)),
-    url("https://images.unsplash.com/photo-1612817288484-6f916006741a")
-    center/cover;
+height:100vh;
+display:flex;
+align-items:center;
+padding:100px 8%;
+
+background:
+linear-gradient(
+rgba(255,249,247,.8),
+rgba(255,249,247,.8)
+),
+url("https://images.unsplash.com/photo-1612817288484-6f916006741a")
+center/cover;
+
 
 }
 
 
 
-.hero-content{
-    width:50%;
-}
+.hero-text{
 
-
-.hero h1{
-
-    font-size:55px;
-    line-height:1.2;
-    color:#3b3030;
+width:55%;
 
 }
 
 
-.hero h1 span{
 
-    color:#c97b8e;
+.hero-text h1{
+
+font-size:55px;
+line-height:1.3;
+
+}
+
+
+.hero-text h1 span{
+
+color:#d7869d;
 
 }
 
 
-.hero p{
 
-    margin:25px 0;
-    font-size:18px;
-    color:#666;
-    line-height:1.8;
+.hero-text p{
+
+margin:25px 0;
+font-size:18px;
+color:#666;
+line-height:1.8;
 
 }
+
 
 
 .btn{
 
-    display:inline-block;
-    padding:14px 35px;
-    border-radius:30px;
-    background:#c97b8e;
-    color:white;
-    text-decoration:none;
-    transition:.3s;
+background:#d7869d;
+padding:14px 35px;
+border-radius:30px;
+color:white;
+text-decoration:none;
+display:inline-block;
 
 }
 
 
+
 .btn:hover{
 
-    background:#ad6175;
-    transform:translateY(-3px);
+background:#bb607d;
 
 }
 
@@ -1552,16 +199,15 @@ header{
 
 .hero-image{
 
-    width:40%;
-    text-align:center;
+width:45%;
 
 }
 
 
 .hero-image img{
 
-    width:420px;
-    border-radius:30px;
+width:100%;
+border-radius:30px;
 
 }
 
@@ -1569,31 +215,39 @@ header{
 
 
 
-/* SECTION TITLE */
+/* GENERAL SECTION */
 
 
-.section-title{
+.section{
 
-    text-align:center;
-    margin:80px 0 40px;
-
-}
-
-
-.section-title h2{
-
-    font-size:38px;
-    color:#3b3030;
+padding:80px 8%;
 
 }
 
 
-.section-title p{
 
-    color:#777;
-    margin-top:10px;
+.title{
+
+text-align:center;
+margin-bottom:50px;
 
 }
+
+
+.title h2{
+
+font-size:38px;
+
+}
+
+
+.title p{
+
+color:#777;
+
+}
+
+
 
 
 
@@ -1602,47 +256,42 @@ header{
 
 .features{
 
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:25px;
-    padding:0 8%;
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:25px;
 
 }
 
 
-.feature-box{
 
-    background:white;
-    padding:30px;
-    text-align:center;
-    border-radius:20px;
-    box-shadow:0 10px 25px rgba(0,0,0,.05);
+.feature{
 
-}
-
-
-.feature-box i{
-
-    font-size:35px;
-    color:#c97b8e;
-    margin-bottom:15px;
+background:white;
+padding:30px;
+border-radius:20px;
+text-align:center;
+box-shadow:0 10px 25px rgba(0,0,0,.05);
 
 }
 
 
-.feature-box h3{
 
-    margin-bottom:10px;
+.feature i{
+
+font-size:35px;
+color:#d7869d;
+margin-bottom:15px;
+
+}
+
+
+
+.feature h3{
+
+margin-bottom:10px;
 
 }
 
-
-.feature-box p{
-
-    color:#777;
-    font-size:14px;
-
-}
 
 
 
@@ -1651,207 +300,114 @@ header{
 
 .categories{
 
-    display:grid;
-    grid-template-columns:repeat(6,1fr);
-    gap:20px;
-    padding:0 8%;
+display:grid;
+grid-template-columns:repeat(6,1fr);
+gap:20px;
 
 }
+
 
 
 .category{
 
-    background:#fff;
-    padding:25px;
-    text-align:center;
-    border-radius:20px;
-    transition:.3s;
-
-}
-
-
-.category:hover{
-
-    transform:translateY(-8px);
+background:white;
+padding:20px;
+border-radius:20px;
+text-align:center;
 
 }
 
 
 .category img{
 
-    width:80px;
-    height:80px;
-    object-fit:cover;
-    border-radius:50%;
+width:80px;
+height:80px;
+border-radius:50%;
+object-fit:cover;
 
 }
 
 
-.category h3{
+.category h4{
 
-    margin-top:15px;
-    font-size:15px;
+margin-top:15px;
+
+}
+
+
+
+
+
+/* PRODUCTS */
+
+
+.products{
+
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:25px;
 
 }
 
 
 
+.card{
 
-/* PRODUCTS PREVIEW */
-
-
-.product-container{
-
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:25px;
-    padding:0 8%;
+background:white;
+border-radius:20px;
+overflow:hidden;
+box-shadow:0 8px 20px rgba(0,0,0,.08);
 
 }
 
 
-.product-card{
 
-    background:white;
-    border-radius:20px;
-    overflow:hidden;
-    box-shadow:0 8px 25px rgba(0,0,0,.08);
-    transition:.3s;
+.card img{
 
-}
-
-
-.product-card:hover{
-
-    transform:translateY(-10px);
+width:100%;
+height:260px;
+object-fit:cover;
 
 }
 
 
-.product-card img{
+.card-content{
 
-    width:100%;
-    height:250px;
-    object-fit:cover;
+padding:20px;
 
 }
 
 
-.product-info{
+.card-content h3{
 
-    padding:20px;
-
-}
-
-
-.product-info h3{
-
-    font-size:17px;
+font-size:17px;
 
 }
 
 
 .price{
 
-    color:#c97b8e;
-    font-size:20px;
-    font-weight:600;
-    margin:10px 0;
-
-}
-
-
-.add-cart{
-
-    width:100%;
-    padding:12px;
-    border:none;
-    background:#c97b8e;
-    color:white;
-    border-radius:25px;
-    cursor:pointer;
+color:#d7869d;
+font-size:20px;
+font-weight:600;
+margin:10px 0;
 
 }
 
 
 
-/* FOOTER */
+.add{
 
-
-footer{
-
-    background:#302526;
-    color:white;
-    padding:50px 8%;
-    margin-top:80px;
-
-}
-
-
-.footer-grid{
-
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:30px;
-
-}
-
-
-footer h3{
-
-    margin-bottom:20px;
-
-}
-
-
-footer p{
-
-    color:#ddd;
-    line-height:1.8;
-
-}
-
-
-footer a{
-
-    color:#ddd;
-    text-decoration:none;
-
-}
-
-
-
-@media(max-width:900px){
-
-.nav-links{
-display:none;
-}
-
-.hero{
-flex-direction:column;
-text-align:center;
-}
-
-.hero-content,
-.hero-image{
 width:100%;
-}
-
-.hero h1{
-font-size:38px;
-}
-
-.features,
-.product-container{
-grid-template-columns:repeat(2,1fr);
-}
-
-.categories{
-grid-template-columns:repeat(3,1fr);
-}
-
+padding:12px;
+border:none;
+border-radius:30px;
+background:#d7869d;
+color:white;
+cursor:pointer;
 
 }
+
 
 
 
@@ -1863,75 +419,91 @@ grid-template-columns:repeat(3,1fr);
 <body>
 
 
+
 <header>
+
 
 <nav class="navbar">
 
+
 <div class="logo">
-Glow<span>Nest</span>
+Glowy<span>Nest</span>
 </div>
 
 
-<ul class="nav-links">
+
+<ul>
 
 <li><a href="#home">Home</a></li>
+
 <li><a href="#shop">Shop</a></li>
+
 <li><a href="#about">About Us</a></li>
+
 <li><a href="#blog">Blog</a></li>
+
 <li><a href="#contact">Contact</a></li>
+
 
 </ul>
 
 
-<div class="cart-icon">
+
+<div class="cart">
 
 <i class="fa-solid fa-bag-shopping"></i>
-
-<span class="cart-count">0</span>
 
 </div>
 
 
+
 </nav>
+
 
 </header>
 
 
 
-<!-- HOME -->
-
 
 <section class="hero" id="home">
 
 
-<div class="hero-content">
+<div class="hero-text">
 
 
 <h1>
-Healthy Skin Starts With
-<span>GlowNest</span>
+Your Daily Dose Of
+<span>Healthy Glow</span>
 </h1>
 
 
+
 <p>
-Discover premium Korean and Nepalese skincare products
-specially selected for Nepalese climate, skin types,
-and everyday beauty routines.
+
+Discover authentic Korean and Nepalese skincare
+products specially selected for Nepalese skin,
+weather and lifestyle.
+
 </p>
 
 
+
 <a href="#shop" class="btn">
-Shop Now
+Shop Collection
 </a>
+
 
 
 </div>
 
 
 
+
 <div class="hero-image">
 
+
 <img src="https://images.unsplash.com/photo-1556229010-6c3f2c9ca5f8">
+
 
 </div>
 
@@ -1941,14 +513,21 @@ Shop Now
 
 
 
-<section>
 
 
-<div class="section-title">
+<section class="section">
 
-<h2>Why Choose GlowNest?</h2>
 
-<p>Your trusted skincare destination in Butwal, Nepal</p>
+<div class="title">
+
+<h2>
+Why Choose GlowyNest?
+</h2>
+
+<p>
+Premium skincare delivered from Butwal, Nepal
+</p>
+
 
 </div>
 
@@ -1957,36 +536,73 @@ Shop Now
 <div class="features">
 
 
-<div class="feature-box">
+<div class="feature">
+
 <i class="fa-solid fa-leaf"></i>
-<h3>Natural Beauty</h3>
-<p>Safe skincare inspired by Korean innovation and Nepalese herbs.</p>
+
+<h3>
+Natural Ingredients
+</h3>
+
+<p>
+Korean innovation with Nepalese herbal goodness.
+</p>
+
 </div>
 
 
-<div class="feature-box">
-<i class="fa-solid fa-truck-fast"></i>
-<h3>Fast Delivery</h3>
-<p>Delivery available across Nepal.</p>
+
+<div class="feature">
+
+<i class="fa-solid fa-certificate"></i>
+
+<h3>
+Authentic Products
+</h3>
+
+<p>
+Original beauty products from trusted brands.
+</p>
+
 </div>
 
 
-<div class="feature-box">
-<i class="fa-solid fa-shield"></i>
-<h3>Authentic Products</h3>
-<p>100% genuine skincare products.</p>
+
+
+<div class="feature">
+
+<i class="fa-solid fa-truck"></i>
+
+<h3>
+Nepal Wide Delivery
+</h3>
+
+<p>
+Fast delivery from Butwal.
+</p>
+
 </div>
 
 
-<div class="feature-box">
+
+<div class="feature">
+
 <i class="fa-solid fa-heart"></i>
-<h3>Skin Love</h3>
-<p>Products selected for every skin type.</p>
+
+<h3>
+Skin Friendly
+</h3>
+
+<p>
+Products for every skin type.
+</p>
+
 </div>
 
 
+
 </div>
+
 
 </section>
-
 
