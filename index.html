@@ -1,891 +1,558 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GlowNest Skincare | Premium Routine Nest - Butwal</title>
-    <!-- Google Fonts -->
+    <title>GlowNest Skincare | Butwal's Premium K-Beauty & Authentic Skincare Hub</title>
+    <!-- Google Fonts & Tailwind CSS for Modern Minimalist UI -->
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- FontAwesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
     
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        brand: {
-                            50: '#faf7f2',
-                            100: '#f3ede0',
-                            200: '#e6dac1',
-                            600: '#8c765c',
-                            700: '#735f49',
-                            800: '#5c4b38',
-                            900: '#423628',
-                        },
-                        accent: {
-                            gold: '#d4af37',
-                            softGreen: '#e3e8e2'
-                        }
-                    },
-                    fontFamily: {
-                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
-                        serif: ['"Playfair Display"', 'serif'],
-                    }
-                }
-            }
-        }
-    </script>
     <style>
-        .product-card:hover .quick-view-btn {
-            transform: translateY(0);
-            opacity: 1;
-        }
-        .custom-scrollbar::-webkit-scrollbar {
-            width: 6px;
-        }
-        .custom-scrollbar::-webkit-scrollbar-track {
-            background: #faf7f2;
-        }
-        .custom-scrollbar::-webkit-scrollbar-thumb {
-            background: #8c765c;
-            border-radius: 3px;
-        }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #fcfbfa; }
+        .serif-font { font-family: 'Playfair Display', serif; }
+        .custom-scrollbar::-webkit-scrollbar { width: 6px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: #f1f1f1; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #c7bca1; border-radius: 10px; }
     </style>
 </head>
-<body class="bg-brand-50 text-brand-900 font-sans antialiased custom-scrollbar">
+<body class="text-stone-800 antialiased overflow-x-hidden">
 
     <!-- TOP ANNOUNCEMENT BAR -->
-    <div class="bg-brand-900 text-brand-50 text-xs tracking-widest uppercase py-2 px-4 text-center font-medium">
-        ✨ Free Delivery Across Butwal on orders above रु 3,000! 100% Authentic Products Only ✨
+    <div class="bg-[#2c2a27] text-[#f4efe6] text-center py-2 px-4 text-xs tracking-wider font-medium uppercase shadow-sm">
+        ✨ Free Delivery inside Butwal Ring Road on orders above Rs. 2,500! ✨
     </div>
 
-    <!-- MAIN INTERACTIVE HEADER -->
-    <header class="sticky top-0 z-40 bg-brand-50/95 backdrop-blur-md border-b border-brand-200 shadow-sm transition-all duration-300">
+    <!-- MAIN NAVIGATION -->
+    <header class="sticky top-0 z-40 bg-[#fcfbfa]/90 backdrop-blur-md border-b border-stone-200/60">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            
             <!-- Brand Identity -->
-            <a href="#" class="flex flex-col items-start select-none group">
-                <span class="font-serif text-2xl sm:text-3xl font-bold tracking-tight text-brand-900 group-hover:text-brand-600 transition-colors">GlowNest</span>
-                <span class="text-[10px] tracking-[0.3em] uppercase font-semibold text-brand-600 -mt-1">Skincare • Butwal</span>
+            <a href="#" class="flex flex-col">
+                <span class="serif-font text-2xl font-bold tracking-wide text-stone-900">GlowNest</span>
+                <span class="text-[9px] uppercase tracking-[0.3em] text-amber-800 font-semibold -mt-1">Skincare Hub</span>
             </a>
 
-            <!-- Navigation Links -->
-            <nav class="hidden md:flex space-x-8 text-sm font-semibold tracking-wide uppercase">
-                <a href="#hero" class="text-brand-900 hover:text-brand-600 transition-colors">Home</a>
-                <a href="#brands" class="text-brand-900 hover:text-brand-600 transition-colors">Brands</a>
-                <a href="#shop" class="text-brand-900 hover:text-brand-600 transition-colors">Shop Products</a>
-                <a href="#about" class="text-brand-900 hover:text-brand-600 transition-colors">Our Nest</a>
-                <a href="#reviews" class="text-brand-900 hover:text-brand-600 transition-colors">Testimonials</a>
+            <!-- Desktop Menu Links -->
+            <nav class="hidden md:flex space-x-8 text-sm font-medium tracking-wide text-stone-600">
+                <a href="#home" class="hover:text-amber-800 transition-colors">Home</a>
+                <a href="#catalog" class="hover:text-amber-800 transition-colors">Shop Products</a>
+                <a href="#brands" class="hover:text-amber-800 transition-colors">Brands</a>
+                <a href="#about" class="hover:text-amber-800 transition-colors">Our Boutique</a>
+                <a href="#contact" class="hover:text-amber-800 transition-colors">Visit Us</a>
             </nav>
 
-            <!-- Utility Elements -->
-            <div class="flex items-center space-x-4">
-                <button onclick="toggleSearch()" class="p-2 text-brand-900 hover:text-brand-600 transition-colors focus:outline-none" aria-label="Search">
-                    <i class="fa-solid fa-magnifying-glass text-lg"></i>
-                </button>
-                <button onclick="toggleCart()" class="p-2 text-brand-900 hover:text-brand-600 transition-colors relative focus:outline-none" aria-label="Shopping Cart">
-                    <i class="fa-solid fa-bag-shopping text-lg"></i>
-                    <span id="cart-count-badge" class="absolute top-0 right-0 bg-brand-700 text-white text-[10px] font-bold rounded-full w-5 h-5 flex items-center justify-between justify-center transform translate-x-1/3 -translate-y-1/3 hidden">0</span>
-                </button>
-                <a href="#footer" class="hidden sm:inline-flex items-center text-xs tracking-wider uppercase font-bold text-brand-50 bg-brand-800 hover:bg-brand-700 px-4 py-2 rounded transition-all">
-                    <i class="fa-solid fa-location-dot mr-2"></i> Find Us
-                </a>
-            </div>
-        </div>
+            <!-- Action Controls -->
+            <div class="flex items-center space-x-6">
+                <!-- Location Indicator -->
+                <div class="hidden lg:flex items-center text-xs text-stone-500 font-medium">
+                    <svg class="w-4 h-4 mr-1 text-amber-800" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                    <span>Butwal, Nepal</span>
+                </div>
 
-        <!-- Inline Live Dynamic Search Panel -->
-        <div id="search-panel" class="hidden border-t border-brand-200 bg-brand-100 px-4 py-4 transition-all duration-300">
-            <div class="max-w-3xl mx-auto relative">
-                <input type="text" id="search-input" onkeyup="handleSearch(this.value)" placeholder="Search for brands, cleansers, sunscreens, toners..." class="w-full bg-white border border-brand-200 rounded-full px-6 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand-600 text-brand-900 shadow-inner">
-                <button onclick="toggleSearch()" class="absolute right-4 top-1/2 transform -translate-y-1/2 text-brand-600 hover:text-brand-900">
-                    <i class="fa-solid fa-circle-xmark text-lg"></i>
+                <!-- Shopping Bag Trigger -->
+                <button onclick="toggleCart(true)" class="relative p-2 text-stone-700 hover:text-amber-800 transition-colors focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/>
+                    </svg>
+                    <span id="cart-counter" class="absolute top-0 right-0 inline-flex items-center justify-center px-2 py-1 text-[10px] font-bold leading-none text-white transform translate-x-1/2 -translate-y-1/2 bg-amber-800 rounded-full">0</span>
                 </button>
-                <div id="search-results-box" class="absolute w-full top-full left-0 mt-2 bg-white rounded-lg shadow-xl max-h-60 overflow-y-auto hidden z-50 p-2 border border-brand-200"></div>
             </div>
         </div>
     </header>
 
-    <!-- SHOPPING CART DRAWER OVERLAY -->
-    <div id="cart-drawer" class="fixed inset-0 z-50 pointer-events-none overflow-hidden hidden" role="dialog" aria-modal="true">
-        <div class="absolute inset-0 bg-black/40 backdrop-blur-sm opacity-0 transition-opacity duration-500 ease-in-out pointer-events-auto" onclick="toggleCart()"></div>
-        <div class="absolute inset-y-0 right-0 max-w-full flex pl-10 pointer-events-auto">
-            <div class="w-screen max-w-md bg-brand-50 flex flex-col shadow-2xl transform translate-x-full transition-transform duration-500 ease-in-out border-l border-brand-200">
-                <!-- Header -->
-                <div class="px-6 py-5 border-b border-brand-200 bg-brand-100 flex items-center justify-between">
-                    <h2 class="text-lg font-serif font-bold text-brand-900 tracking-wide uppercase flex items-center">
-                        <i class="fa-solid fa-feather-pointed text-brand-600 mr-2"></i> Your Routine Bag
-                    </h2>
-                    <button onclick="toggleCart()" class="text-brand-900 hover:text-brand-600 p-2 rounded-full hover:bg-brand-200/50 transition-all">
-                        <i class="fa-solid fa-xmark text-xl"></i>
-                    </button>
-                </div>
-                <!-- Content Area -->
-                <div class="flex-1 overflow-y-auto py-6 px-4 sm:px-6 custom-scrollbar" id="cart-items-container">
-                    <!-- Dynamic Cart Items Go Here via JS -->
-                    <div class="text-center py-20 text-brand-600" id="empty-cart-view">
-                        <i class="fa-solid fa-wand-magic-sparkles text-4xl mb-4 block opacity-40"></i>
-                        <p class="font-serif italic">Your bag is weightless. Let's fill it with glow essentials.</p>
-                        <button onclick="toggleCart()" class="mt-6 inline-block text-xs font-bold uppercase tracking-widest bg-brand-800 text-brand-50 px-6 py-3 rounded hover:bg-brand-700 shadow-md">Browse Collection</button>
-                    </div>
-                </div>
-                <!-- Footer & Checkout Area -->
-                <div class="border-t border-brand-200 px-4 py-6 sm:px-6 bg-brand-100 hidden" id="cart-summary-block">
-                    <div class="flex justify-between text-base font-bold text-brand-900 mb-2">
-                        <span>Subtotal</span>
-                        <span id="cart-subtotal-price">रु 0</span>
-                    </div>
-                    <p class="text-xs text-brand-600 mb-4 italic">Estimated Taxes and standard Butwal local handling included.</p>
-                    <button onclick="proceedToCheckout()" class="w-full bg-brand-800 text-brand-50 py-4 px-6 rounded font-bold tracking-widest uppercase hover:bg-brand-700 shadow-md transition-all flex items-center justify-center space-x-2">
-                        <i class="fa-solid fa-bag-shopping"></i>
-                        <span>Secure Checkout via WhatsApp / Phone</span>
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- ELEGANT HERO LANDING AREA -->
-    <section id="hero" class="relative overflow-hidden bg-gradient-to-br from-brand-100 via-brand-50 to-white py-16 sm:py-24 border-b border-brand-200">
-        <div class="absolute inset-0 z-0 opacity-40">
-            <div class="absolute -top-40 -right-40 w-96 h-96 bg-brand-200 rounded-full blur-3xl"></div>
-            <div class="absolute -bottom-20 -left-20 w-80 h-80 bg-brand-200 rounded-full blur-3xl"></div>
-        </div>
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
-                <div class="inline-flex items-center space-x-2 bg-white border border-brand-200 px-4 py-1.5 rounded-full text-xs font-semibold text-brand-700 shadow-sm uppercase tracking-wider">
-                    <span class="flex h-2 w-2 rounded-full bg-amber-500 animate-ping"></span>
-                    <span>Now Serving Locally in Butwal, Nepal</span>
-                </div>
-                <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-extrabold text-brand-900 leading-tight">
-                    Nurture Your Skin.<br><span class="text-brand-600 font-normal italic">Unveil Your Natural Radiance.</span>
+    <!-- HERO SECTION -->
+    <section id="home" class="relative bg-[#f5f1e9] overflow-hidden py-16 sm:py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            <div class="lg:col-span-6 z-10 space-y-6">
+                <span class="text-xs font-bold tracking-[0.25em] text-amber-800 uppercase block">100% Authentic Curated Skincare</span>
+                <h1 class="serif-font text-4xl sm:text-5xl lg:text-6xl text-stone-900 font-normal leading-[1.15]">
+                    Reveal your natural, <br><span class="italic font-semibold text-amber-900">luminous radiance.</span>
                 </h1>
-                <p class="text-base sm:text-lg text-brand-700 max-w-2xl mx-auto lg:mx-0 font-light leading-relaxed">
-                    Welcome to Butwal's sanctuary for highly curated, authentic global and domestic skincare formulas. Handpicking verified products across K-Beauty powerhouses and local legacy items to build custom minimalist routines.
+                <p class="text-stone-600 text-base max-w-lg leading-relaxed">
+                    Welcome to Butwal’s premier destination for genuine clinical solutions and celebrated Korean cult-favorites. From intense hydration barriers to protective sun shields, your routine starts here.
                 </p>
-                <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
-                    <a href="#shop" class="w-full sm:w-auto px-8 py-4 bg-brand-800 text-brand-50 font-bold tracking-widest uppercase rounded shadow-lg hover:bg-brand-700 transition-all text-center">
-                        Explore Full Apothecary
+                <div class="pt-4 flex flex-wrap gap-4">
+                    <a href="#catalog" class="bg-[#2c2a27] text-[#f4efe6] px-8 py-3.5 rounded-sm text-sm font-semibold tracking-wider hover:bg-stone-800 transition-all shadow-md">
+                        Explore The Catalog
                     </a>
-                    <a href="#about" class="w-full sm:w-auto px-8 py-4 bg-transparent border border-brand-600 text-brand-800 font-bold tracking-widest uppercase rounded hover:bg-brand-100 transition-all text-center">
-                        Our Integrity Promise
+                    <a href="#contact" class="border border-stone-400 text-stone-800 px-6 py-3.5 rounded-sm text-sm font-semibold tracking-wider hover:bg-stone-100 transition-all">
+                        Find Our Store
                     </a>
                 </div>
-                <!-- Mini Stats Bar -->
-                <div class="grid grid-cols-3 gap-4 pt-8 max-w-md mx-auto lg:mx-0 border-t border-brand-200">
-                    <div>
-                        <span class="block text-xl sm:text-2xl font-serif font-bold text-brand-900">100%</span>
-                        <span class="text-xs uppercase tracking-wider text-brand-600 font-medium">Authentic</span>
-                    </div>
-                    <div>
-                        <span class="block text-xl sm:text-2xl font-serif font-bold text-brand-900">4.9★</span>
-                        <span class="text-xs uppercase tracking-wider text-brand-600 font-medium">Local Rating</span>
-                    </div>
-                    <div>
-                        <span class="block text-xl sm:text-2xl font-serif font-bold text-brand-900">Butwal</span>
-                        <span class="text-xs uppercase tracking-wider text-brand-600 font-medium">Immediate Hub</span>
-                    </div>
-                </div>
             </div>
-            <!-- Featured Collection Graphic -->
-            <div class="lg:col-span-5 relative flex justify-center">
-                <div class="relative w-72 h-96 sm:w-80 sm:h-[420px] rounded-t-full border-[12px] border-white shadow-2xl overflow-hidden bg-brand-100">
-                    <img src="https://sincereskincare.com/wp-content/uploads/2025/01/219-pirkti-Beauty-of-Joseon-Ginseng-Cleansing-Oil-kaina-3.webp" alt="Featured K-Beauty Line Up" class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700">
-                    <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-6 text-white text-center">
-                        <p class="font-serif text-lg italic font-semibold">Featured Brands Available</p>
-                        <p class="text-xs uppercase tracking-widest text-brand-200 mt-1">Beauty of Joseon, Centella, Medicube & More</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ACCREDITED ARCHETYPES / Curation Brands Slider -->
-    <section id="brands" class="bg-brand-100 py-10 border-b border-brand-200">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 class="text-xs font-bold tracking-[0.25em] text-brand-600 uppercase mb-8">Authoritatively Stocking Verified Authentic Brands Only</h2>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 items-center justify-center opacity-85">
-                <div class="bg-white/60 backdrop-blur px-6 py-4 rounded-lg shadow-sm font-serif font-bold text-lg text-brand-800 tracking-wide border border-brand-200">
-                    Beauty of Joseon
-                </div>
-                <div class="bg-white/60 backdrop-blur px-6 py-4 rounded-lg shadow-sm font-serif font-bold text-lg text-brand-800 tracking-wide border border-brand-200">
-                    SKIN1004 Centella
-                </div>
-                <div class="bg-white/60 backdrop-blur px-6 py-4 rounded-lg shadow-sm font-serif font-bold text-lg text-brand-800 tracking-wide border border-brand-200">
-                    Medicube K-Tech
-                </div>
-                <div class="bg-white/60 backdrop-blur px-6 py-4 rounded-lg shadow-sm font-serif font-bold text-lg text-brand-800 tracking-wide border border-brand-200">
-                    Himalayan Legacy
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CORE WELLNESS STOREFRONT SECTION (THE APOTHECARY) -->
-    <section id="shop" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
-        <!-- Section Header -->
-        <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
-            <h2 class="font-serif text-3xl sm:text-4xl font-bold tracking-tight text-brand-900">Curated Clinical Apothecary</h2>
-            <p class="text-brand-700 font-light">Filter effortlessly by category to source your matching serum, toner, cleanser, or protection metrics. Prices clearly mapped out in local currency.</p>
             
-            <!-- Dynamic Tab Filters Container -->
-            <div class="flex flex-wrap justify-center gap-2 pt-6" id="filter-tabs-cluster">
-                <button onclick="filterShop('all')" id="tab-all" class="px-5 py-2 text-xs font-bold uppercase tracking-wider rounded-full border border-brand-800 bg-brand-800 text-brand-50 transition-all shadow-sm">All Essentials</button>
-                <button onclick="filterShop('cleanser')" id="tab-cleanser" class="px-5 py-2 text-xs font-bold uppercase tracking-wider rounded-full border border-brand-200 bg-white text-brand-800 hover:bg-brand-100 transition-all shadow-sm">Cleansers</button>
-                <button onclick="filterShop('facewash')" id="tab-facewash" class="px-5 py-2 text-xs font-bold uppercase tracking-wider rounded-full border border-brand-200 bg-white text-brand-800 hover:bg-brand-100 transition-all shadow-sm">Facewash</button>
-                <button onclick="filterShop('toner')" id="tab-toner" class="px-5 py-2 text-xs font-bold uppercase tracking-wider rounded-full border border-brand-200 bg-white text-brand-800 hover:bg-brand-100 transition-all shadow-sm">Toners</button>
-                <button onclick="filterShop('serum')" id="tab-serum" class="px-5 py-2 text-xs font-bold uppercase tracking-wider rounded-full border border-brand-200 bg-white text-brand-800 hover:bg-brand-100 transition-all shadow-sm">Serums</button>
-                <button onclick="filterShop('moisturizer')" id="tab-moisturizer" class="px-5 py-2 text-xs font-bold uppercase tracking-wider rounded-full border border-brand-200 bg-white text-brand-800 hover:bg-brand-100 transition-all shadow-sm">Moisturizers</button>
-                <button onclick="filterShop('sunscreen')" id="tab-sunscreen" class="px-5 py-2 text-xs font-bold uppercase tracking-wider rounded-full border border-brand-200 bg-white text-brand-800 hover:bg-brand-100 transition-all shadow-sm">Sunscreens</button>
-            </div>
-        </div>
-
-        <!-- Dynamic Product Inventory Layout Grid -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10" id="product-display-grid">
-            <!-- Programmatic Insertion via JS to optimize maintainability, state manipulation, and interactive dynamic search -->
-        </div>
-    </section>
-
-    <!-- QUICK-VIEW MODAL ENGINE CONTAINER -->
-    <div id="quickview-modal" class="fixed inset-0 z-50 overflow-y-auto hidden" role="dialog" aria-modal="true">
-        <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
-            <div class="fixed inset-0 bg-black/50 backdrop-blur-sm transition-opacity" onclick="closeQuickView()"></div>
-            <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
-            <div class="inline-block align-bottom bg-brand-50 rounded-xl text-left overflow-hidden shadow-2xl transform transition-all sm:my-8 sm:align-middle sm:max-w-2xl sm:w-full border border-brand-200">
-                <div class="absolute top-4 right-4 z-10">
-                    <button onclick="closeQuickView()" class="text-brand-900 bg-white/80 p-2 rounded-full shadow hover:text-brand-600 transition-all">
-                        <i class="fa-solid fa-xmark text-lg"></i>
-                    </button>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-2" id="modal-internal-payload">
-                    <!-- Loaded dynamically per product target -->
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- INFORMATIVE BRAND VALUES & NEST ETHOS -->
-    <section id="about" class="bg-brand-100 border-y border-brand-200 py-16 sm:py-24">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                <div class="space-y-6">
-                    <span class="text-xs uppercase tracking-widest font-bold text-brand-600 block">The GlowNest Integrity Framework</span>
-                    <h2 class="font-serif text-3xl sm:text-4xl font-bold text-brand-900 tracking-tight">Why Skin Enthusiasts in Butwal Trust Our Nest</h2>
-                    <p class="text-brand-700 font-light leading-relaxed">
-                        We believe that skincare isn't a luxury of broad generalized statements. Skin is a biological organ requiring focused active delivery systems. In a market often saturated by third-party lookalikes, we source our items directly from production channels in Seoul and official distributor pathways inside Kathmandu.
-                    </p>
-                    <div class="space-y-4">
-                        <div class="flex items-start space-x-3">
-                            <div class="mt-1 text-brand-800"><i class="fa-solid fa-circle-check"></i></div>
-                            <div>
-                                <h4 class="font-bold text-brand-900 text-sm uppercase tracking-wide">Batch-Coded Verification</h4>
-                                <p class="text-xs text-brand-600 mt-0.5">Every product from Medicube and Beauty of Joseon holds a verifiable batch-code transparently made available to your scanning applications.</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start space-x-3">
-                            <div class="mt-1 text-brand-800"><i class="fa-solid fa-truck-ramp-box"></i></div>
-                            <div>
-                                <h4 class="font-bold text-brand-900 text-sm uppercase tracking-wide">Climate Controlled Logistics</h4>
-                                <p class="text-xs text-brand-600 mt-0.5">Sunscreens and vulnerable Vit-C drops are preserved locally away from direct excessive Terai humidity and heat spikes.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Visual Grid Layout -->
-                <div class="grid grid-cols-2 gap-4">
-                    <div class="space-y-4">
-                        <div class="bg-white p-6 rounded-xl shadow-sm border border-brand-200">
-                            <i class="fa-solid fa-flask text-2xl text-brand-600 mb-3"></i>
-                            <h3 class="font-serif font-bold text-brand-900">Proven Actives</h3>
-                            <p class="text-xs text-brand-600 mt-1">Centella Asiatica extracts, Ginseng matrices, and standard Niacinamide metrics.</p>
-                        </div>
-                        <div class="bg-white p-6 rounded-xl shadow-sm border border-brand-200">
-                            <i class="fa-solid fa-leaf text-2xl text-brand-600 mb-3"></i>
-                            <h3 class="font-serif font-bold text-brand-900">Clean Local Blend</h3>
-                            <p class="text-xs text-brand-600 mt-1">Integrating timeless herbals through verified lines like Himalayan Legacy.</p>
-                        </div>
-                    </div>
-                    <div class="pt-8 space-y-4">
-                        <div class="bg-white p-6 rounded-xl shadow-sm border border-brand-200">
-                            <i class="fa-solid fa-prescription-bottle-medical text-2xl text-brand-600 mb-3"></i>
-                            <h3 class="font-serif font-bold text-brand-900">Dermatological Check</h3>
-                            <p class="text-xs text-brand-600 mt-1">Hypoallergenic products catering to compromised skin barriers.</p>
-                        </div>
-                        <div class="bg-white p-6 rounded-xl shadow-sm border border-brand-200 text-center flex flex-col justify-center items-center bg-gradient-to-br from-brand-900 to-brand-800 text-brand-50">
-                            <span class="block text-3xl font-serif font-bold text-amber-400">0</span>
-                            <span class="text-[10px] uppercase font-bold tracking-widest mt-1 block">Counterfeit Incidents</span>
-                        </div>
-                    </div>
-                </div>
+            <!-- Graphic Feature Mosaic -->
+            <div class="lg:col-span-6 relative flex justify-center items-center">
+                <div class="absolute w-72 h-72 bg-amber-200/40 rounded-full filter blur-3xl -z-10"></div>
+                <img src="https://obsessioncosmetics.com/wp-content/uploads/2024/08/51tcYDCUDnL._SL1500_.jpg" alt="Luxury Skincare Palette" class="w-80 h-96 object-cover rounded-sm shadow-2xl border-4 border-white transform -rotate-3 transition-transform hover:rotate-0 duration-500">
+                <img src="https://www.healme.com.np/storage/Product/PR-1724514296-4166720.webp" alt="Sun Protect K-Beauty" class="w-56 h-72 object-cover rounded-sm shadow-xl border-4 border-white absolute -bottom-10 right-4 hidden sm:block transform rotate-6 transition-transform hover:rotate-0 duration-500">
             </div>
         </div>
     </section>
 
-    <!-- CUSTOMER COMMUNITY REVIEWS / SOCIAL PROOF (Fully Interactive) -->
-    <section id="reviews" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
-            <!-- Left Header and Review Form Column -->
-            <div class="lg:col-span-4 space-y-6">
-                <div>
-                    <span class="text-xs uppercase font-bold tracking-widest text-brand-600 block">Community Trust</span>
-                    <h2 class="font-serif text-3xl font-bold text-brand-900 mt-1">Voices of GlowNest</h2>
-                </div>
-                <p class="text-brand-700 text-sm font-light">
-                    Real results from real neighbors located around Butwal, Milanchowk, and Kalikanagar. Share your skin recovery journey with us.
+    <!-- BRAND PARTNERS SYNDICATE -->
+    <section id="brands" class="bg-white border-y border-stone-100 py-10">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <p class="text-xs font-semibold tracking-[0.2em] text-stone-400 uppercase mb-6">Authorized Retail Partners</p>
+            <div class="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-75 grayscale hover:grayscale-0 transition-all">
+                <span class="font-serif text-xl font-bold tracking-tight text-stone-700">Beauty of Joseon</span>
+                <span class="font-sans text-xl font-black tracking-widest text-stone-800">SKIN1004 CENTELLA</span>
+                <span class="font-mono text-lg font-bold tracking-normal text-stone-700">medicube</span>
+                <span class="serif-font text-xl italic font-semibold text-stone-800">Himalayan Herbals</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- RETAIL SHOPPING ENGINE -->
+    <section id="catalog" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-xl mx-auto mb-12">
+            <h2 class="serif-font text-3xl sm:text-4xl text-stone-900">Curated Formulation Matrix</h2>
+            <div class="w-12 h-[2px] bg-amber-800 mx-auto my-4"></div>
+            <p class="text-sm text-stone-500">Filter through advanced dermis essentials formulated globally, delivered safely right to you in Butwal.</p>
+        </div>
+
+        <!-- Filter Controls Container -->
+        <div class="flex flex-wrap justify-center gap-2 mb-12" id="filter-tabs">
+            <button onclick="filterCategory('all')" class="filter-btn active-filter px-5 py-2 text-xs font-medium tracking-wider uppercase rounded-full bg-[#2c2a27] text-white transition-all">All Products</button>
+            <button onclick="filterCategory('cleanser')" class="filter-btn px-5 py-2 text-xs font-medium tracking-wider uppercase rounded-full bg-stone-100 text-stone-600 hover:bg-stone-200 transition-all">Cleansers</button>
+            <button onclick="filterCategory('facewash')" class="filter-btn px-5 py-2 text-xs font-medium tracking-wider uppercase rounded-full bg-stone-100 text-stone-600 hover:bg-stone-200 transition-all">Facewashes</button>
+            <button onclick="filterCategory('moisturizer')" class="filter-btn px-5 py-2 text-xs font-medium tracking-wider uppercase rounded-full bg-stone-100 text-stone-600 hover:bg-stone-200 transition-all">Moisturizers</button>
+            <button onclick="filterCategory('sunscreen')" class="filter-btn px-5 py-2 text-xs font-medium tracking-wider uppercase rounded-full bg-stone-100 text-stone-600 hover:bg-stone-200 transition-all">Sunscreens</button>
+            <button onclick="filterCategory('toner')" class="filter-btn px-5 py-2 text-xs font-medium tracking-wider uppercase rounded-full bg-stone-100 text-stone-600 hover:bg-stone-200 transition-all">Toners</button>
+            <button onclick="filterCategory('serum')" class="filter-btn px-5 py-2 text-xs font-medium tracking-wider uppercase rounded-full bg-stone-100 text-stone-600 hover:bg-stone-200 transition-all">Serums</button>
+        </div>
+
+        <!-- Product Dynamic Grid System -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8" id="product-matrix">
+            <!-- Dynamic compilation injected by Javascript -->
+        </div>
+    </section>
+
+    <!-- ABOUT THE BRAND BOUTIQUE -->
+    <section id="about" class="bg-[#f5f1e9] py-20 border-t border-stone-200/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div class="space-y-6">
+                <span class="text-xs font-bold tracking-[0.2em] text-amber-800 uppercase block">The GlowNest Credo</span>
+                <h3 class="serif-font text-3xl sm:text-4xl text-stone-900">Why Skincare Enthusiasts in Rupandehi Trust Us</h3>
+                <p class="text-stone-600 text-sm leading-relaxed">
+                    At GlowNest, we recognize that navigating online skincare retailers involves real risk regarding formulation legitimacy. That is why our brick-and-mortar storefront in Butwal maintains rigorous batch-tracking documentation for every item under our management.
                 </p>
-                <!-- Add Review Form Panel -->
-                <form id="review-submission-form" onsubmit="submitReview(event)" class="bg-white border border-brand-200 p-5 rounded-lg shadow-sm space-y-4">
-                    <h3 class="font-bold text-sm tracking-wide uppercase text-brand-900">Leave a Review</h3>
-                    <div>
-                        <label class="block text-xs font-semibold text-brand-700 mb-1">Your Full Name</label>
-                        <input type="text" id="rev-name" required class="w-full bg-brand-50 border border-brand-200 rounded px-3 py-2 text-xs focus:outline-none focus:ring-1 focus:ring-brand-600">
+                <div class="grid grid-cols-2 gap-6 pt-2">
+                    <div class="p-4 bg-white/60 rounded-sm">
+                        <h4 class="font-bold text-stone-900 text-base">100% Authentic</h4>
+                        <p class="text-xs text-stone-500 mt-1">Direct verification chains from Seoul, Mumbai, and authorized country suppliers.</p>
+                    </div>
+                    <div class="p-4 bg-white/60 rounded-sm">
+                        <h4 class="font-bold text-stone-900 text-base">Expert Advisory</h4>
+                        <p class="text-xs text-stone-500 mt-1">Free structural skin testing profiles in-store to pair you with matching actives.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="rounded-sm overflow-hidden shadow-xl border border-stone-200">
+                <img src="https://static.beautytocare.com/media/catalog/product/s/k/skin1004-madagascar-centella-toning-toner-400ml_1.jpg" alt="Aesthetic Product Configuration" class="w-full h-80 object-cover hover:scale-105 transition-transform duration-700">
+            </div>
+        </div>
+    </section>
+
+    <!-- GEOLOCATION AND CUSTOMER SERVICE CARE -->
+    <section id="contact" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+            
+            <!-- Store Contact Metadata -->
+            <div class="lg:col-span-5 space-y-6">
+                <div>
+                    <h3 class="serif-font text-3xl text-stone-900">Visit Our Flagship Nest</h3>
+                    <div class="w-8 h-[2px] bg-amber-800 my-3"></div>
+                    <p class="text-sm text-stone-500">Drop by our welcoming showroom floor for tailored product consultations.</p>
+                </div>
+
+                <div class="space-y-4 text-sm text-stone-700">
+                    <div class="flex items-start">
+                        <span class="font-bold text-stone-900 w-24 shrink-0">📍 Address:</span>
+                        <span>Milanchowk Ward No. 8, Butwal, Rupandehi, Nepal</span>
+                    </div>
+                    <div class="flex items-start">
+                        <span class="font-bold text-stone-900 w-24 shrink-0">📞 Telephone:</span>
+                        <span>+977-71-550123 / +977-98570XXXXX</span>
+                    </div>
+                    <div class="flex items-start">
+                        <span class="font-bold text-stone-900 w-24 shrink-0">✉️ Email:</span>
+                        <span>support@glownestnepal.com</span>
+                    </div>
+                    <div class="flex items-start">
+                        <span class="font-bold text-stone-900 w-24 shrink-0">⏰ Operations:</span>
+                        <span>10:00 AM – 7:30 PM (Sunday – Friday)</span>
+                    </div>
+                </div>
+
+                <!-- Custom Decorative Notice -->
+                <div class="p-4 bg-amber-50 border-l-4 border-amber-800 text-xs text-amber-900 leading-relaxed rounded-r-sm">
+                    <strong>Butwal Valley Local Delivery Note:</strong> Orders verified before 2:00 PM are hand-delivered within the same business calendar afternoon across Yogikuti, Kalikanagar, and Devinagar sectors.
+                </div>
+            </div>
+
+            <!-- Client Inquiry Form Component -->
+            <div class="lg:col-span-7 bg-white p-8 rounded-sm shadow-md border border-stone-200/60">
+                <h4 class="font-semibold text-stone-900 text-lg mb-4">Send an Instant Order Request / Consultation Inquiry</h4>
+                <form id="consultationForm" onsubmit="handleFormSubmit(event)" class="space-y-4">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-bold text-stone-600 uppercase mb-1">Full Name</label>
+                            <input type="text" required class="w-full p-3 text-sm bg-stone-50 border border-stone-200 focus:outline-none focus:border-stone-800 transition-colors rounded-sm">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-stone-600 uppercase mb-1">Mobile Contact Number</label>
+                            <input type="tel" required class="w-full p-3 text-sm bg-stone-50 border border-stone-200 focus:outline-none focus:border-stone-800 transition-colors rounded-sm">
+                        </div>
                     </div>
                     <div>
-                        <label class="block text-xs font-semibold text-brand-700 mb-1">Location within Butwal</label>
-                        <input type="text" id="rev-location" placeholder="e.g. Traffic Chowk" required class="w-full bg-brand-50 border border-brand-200 rounded px-3 py-2 text-xs focus:outline-none focus:ring-1 focus:ring-brand-600">
-                    </div>
-                    <div>
-                        <label class="block text-xs font-semibold text-brand-700 mb-1">Rating</label>
-                        <select id="rev-rating" class="w-full bg-brand-50 border border-brand-200 rounded px-3 py-2 text-xs focus:outline-none focus:ring-1 focus:ring-brand-600">
-                            <option value="5">⭐⭐⭐⭐⭐ (5/5)</option>
-                            <option value="4">⭐⭐⭐⭐ (4/5)</option>
-                            <option value="3">⭐⭐⭐ (3/5)</option>
+                        <label class="block text-xs font-bold text-stone-600 uppercase mb-1">Primary Skincare Concern</label>
+                        <select class="w-full p-3 text-sm bg-stone-50 border border-stone-200 focus:outline-none focus:border-stone-800 transition-colors rounded-sm">
+                            <option>General Hydration & Barrier Strengthening</option>
+                            <option>Acne Scars & Hyperpigmentation Clearing</option>
+                            <option>UV Damage Prevention & Daily Sun Shields</option>
+                            <option>Anti-Aging, Fine Lines & Skin Elasticity</option>
                         </select>
                     </div>
                     <div>
-                        <label class="block text-xs font-semibold text-brand-700 mb-1">Your Feedback</label>
-                        <textarea id="rev-text" rows="3" required class="w-full bg-brand-50 border border-brand-200 rounded px-3 py-2 text-xs focus:outline-none focus:ring-1 focus:ring-brand-600"></textarea>
+                        <label class="block text-xs font-bold text-stone-600 uppercase mb-1">Detailed Message / Delivery Address Specifications</label>
+                        <textarea rows="4" required placeholder="Detail specific products or address line instructions here..." class="w-full p-3 text-sm bg-stone-50 border border-stone-200 focus:outline-none focus:border-stone-800 transition-colors rounded-sm"></textarea>
                     </div>
-                    <button type="submit" class="w-full bg-brand-800 text-brand-50 text-xs font-bold uppercase tracking-widest py-2.5 rounded hover:bg-brand-700 shadow transition-all">Publish Review</button>
+                    <button type="submit" class="w-full bg-[#2c2a27] text-white py-3 rounded-sm text-xs font-bold tracking-widest uppercase hover:bg-stone-800 transition-colors">
+                        Submit Secure Inquiry
+                    </button>
                 </form>
             </div>
-            
-            <!-- Right Reviews Display Cluster -->
-            <div class="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-6" id="reviews-output-grid">
-                <!-- Programmatically rendered static / live user commentary entries -->
-            </div>
+
         </div>
     </section>
 
-    <!-- AUTHORITATIVE FOOTER (Address & Functional Contacts) -->
-    <footer id="footer" class="bg-brand-900 text-brand-100 pt-16 pb-12 border-t border-brand-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-12 gap-10 mb-12">
-            <!-- Footer Identity block -->
-            <div class="md:col-span-4 space-y-4">
-                <a href="#" class="flex flex-col items-start select-none">
-                    <span class="font-serif text-2xl sm:text-3xl font-bold tracking-tight text-white">GlowNest</span>
-                    <span class="text-[10px] tracking-[0.3em] uppercase font-semibold text-brand-200 -mt-1">Skincare Apothecary</span>
-                </a>
-                <p class="text-xs text-brand-200 font-light leading-relaxed">
-                    Elevating standard skincare parameters across Nepal. Sourcing clinical global actives alongside reliable local elements.
-                </p>
-                <div class="flex space-x-4 pt-2">
-                    <a href="#" class="text-brand-200 hover:text-white text-lg transition-colors"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="#" class="text-brand-200 hover:text-white text-lg transition-colors"><i class="fa-brands fa-facebook"></i></a>
-                    <a href="#" class="text-brand-200 hover:text-white text-lg transition-colors"><i class="fa-brands fa-whatsapp"></i></a>
-                    <a href="#" class="text-brand-200 hover:text-white text-lg transition-colors"><i class="fa-brands fa-tiktok"></i></a>
-                </div>
+    <!-- FOOTER MATRICES -->
+    <footer class="bg-[#1f1d1b] text-stone-400 text-xs py-12 border-t border-stone-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+            <div class="space-y-3">
+                <span class="serif-font text-lg text-white font-bold tracking-wide">GlowNest Skincare</span>
+                <p class="text-stone-500 leading-relaxed">Your curated catalog gateway for clean clinical beauty routines safely distributed in Butwal, Nepal.</p>
             </div>
-            
-            <!-- Address and Localization Hub -->
-            <div class="md:col-span-4 space-y-4">
-                <h3 class="text-xs font-bold uppercase tracking-widest text-white border-b border-brand-800 pb-2">The Butwal Nest</h3>
-                <ul class="space-y-3 text-xs text-brand-200 font-light">
-                    <li class="flex items-start">
-                        <i class="fa-solid fa-location-dot mt-0.5 mr-2 text-amber-400"></i>
-                        <span>Ward No. 9, Milanchowk (Opposite Sunrise Bank Arcade), Butwal, Rupandehi, Nepal</span>
-                    </li>
-                    <li class="flex items-center">
-                        <i class="fa-solid fa-phone mr-2 text-amber-400"></i>
-                        <span>+977-71-550123 / 98570XXXXX</span>
-                    </li>
-                    <li class="flex items-center">
-                        <i class="fa-solid fa-envelope mr-2 text-amber-400"></i>
-                        <span>support@glownestbutwal.com</span>
-                    </li>
+            <div>
+                <h5 class="text-white font-bold uppercase tracking-wider mb-3">Product Tiers</h5>
+                <ul class="space-y-2">
+                    <li><a href="#catalog" onclick="filterCategory('cleanser')" class="hover:text-white transition-colors">Premium Oil Cleansers</a></li>
+                    <li><a href="#catalog" onclick="filterCategory('facewash')" class="hover:text-white transition-colors">Calming Ampoule Facewashes</a></li>
+                    <li><a href="#catalog" onclick="filterCategory('moisturizer')" class="hover:text-white transition-colors">Dynasty Hydration Creams</a></li>
+                    <li><a href="#catalog" onclick="filterCategory('sunscreen')" class="hover:text-white transition-colors">Broad-Spectrum Sunscreens</a></li>
                 </ul>
             </div>
-
-            <!-- Operating Parameters -->
-            <div class="md:col-span-4 space-y-4">
-                <h3 class="text-xs font-bold uppercase tracking-widest text-white border-b border-brand-800 pb-2">Hours & Policy</h3>
-                <ul class="space-y-2 text-xs text-brand-200 font-light">
-                    <li><strong class="text-white">Sunday - Friday:</strong> 10:00 AM – 7:30 PM</li>
-                    <li><strong class="text-white">Saturday:</strong> 12:00 PM – 6:00 PM</li>
-                    <li class="pt-2 border-t border-brand-800 mt-2 text-[11px] text-amber-300">
-                        <i class="fa-solid fa-truck-fast mr-1"></i> Delivery to Bhairahawa & Palpa via rapid bus transport options arranged daily.
-                    </li>
+            <div>
+                <h5 class="text-white font-bold uppercase tracking-wider mb-3">Brand Networks</h5>
+                <ul class="space-y-2">
+                    <li>Beauty of Joseon (Korea)</li>
+                    <li>SKIN1004 Centella (Korea)</li>
+                    <li>Medicube Labs (Korea)</li>
+                    <li>Himalayan Herbals (Nepal)</li>
                 </ul>
+            </div>
+            <div>
+                <h5 class="text-white font-bold uppercase tracking-wider mb-3">Legal Certifications</h5>
+                <p class="text-stone-500 leading-relaxed">Registered at Department of Commerce & Supply Management, Lumbini Province. All imported luxury goods possess active Customs Clearance Certifications.</p>
             </div>
         </div>
-
-        <!-- Copyright & Technical Legal Disclaimer -->
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 border-t border-brand-800 text-center text-[11px] text-brand-200 font-light flex flex-col sm:flex-row items-center justify-between gap-4">
-            <p>&copy; 2026 GlowNest Skincare Hub. All Rights Reserved. Fully Authored Custom Repository.</p>
-            <div class="flex space-x-4">
-                <a href="#" class="hover:text-white transition-colors">Privacy Parameters</a>
-                <a href="#" class="hover:text-white transition-colors">Terms of Verification</a>
-            </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 border-t border-stone-800 text-center text-stone-600">
+            &copy; 2026 GlowNest Skincare Hub • Milanchowk, Butwal, Nepal. All rights reserved. Built beautifully.
         </div>
     </footer>
 
-    <!-- CENTRAL AUTOMATED STATE ARCHITECTURE SCRIPT -->
+    <!-- SLIDEOUT CART DRAWER ELEMENT -->
+    <div id="cart-drawer" class="fixed inset-0 z-50 pointer-events-none opacity-0 transition-all duration-300">
+        <!-- Backdrop -->
+        <div onclick="toggleCart(false)" class="absolute inset-0 bg-stone-900/40 backdrop-blur-xs transition-opacity duration-300"></div>
+        
+        <!-- Drawer Panel Body -->
+        <div class="absolute top-0 right-0 w-full sm:w-96 h-full bg-white shadow-2xl flex flex-col pointer-events-auto transform translate-x-full transition-transform duration-300 custom-scrollbar overflow-y-auto" id="drawer-panel">
+            <div class="p-6 border-b border-stone-200 flex items-center justify-between bg-stone-50">
+                <div class="flex items-center space-x-2">
+                    <svg class="w-5 h-5 text-amber-800" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
+                    <h3 class="font-bold text-stone-900 text-base">Your Glow Nest Cart</h3>
+                </div>
+                <button onclick="toggleCart(false)" class="p-2 text-stone-400 hover:text-stone-900 transition-colors">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+                </button>
+            </div>
+
+            <!-- Scrollable Items Area -->
+            <div class="flex-1 p-6 space-y-4" id="cart-items-container">
+                <!-- Injected via JavaScript Cart Engine -->
+                <p class="text-center text-stone-400 py-12 text-sm">Your beauty selection bag is currently empty.</p>
+            </div>
+
+            <!-- Financial Summary Panel Footer -->
+            <div class="p-6 border-t border-stone-200 bg-stone-50 space-y-4">
+                <div class="flex items-center justify-between text-sm">
+                    <span class="text-stone-500 font-medium">Subtotal Amount:</span>
+                    <span class="font-bold text-stone-900 text-base" id="cart-subtotal-display">Rs. 0</span>
+                </div>
+                <div class="text-[11px] text-stone-400">
+                    * All items are calculated inside localized Nepal Custom tariffs. Standard cross-district logistics processing fees may apply at checkout if outside Butwal.
+                </div>
+                <button onclick="triggerCheckout()" class="w-full bg-amber-800 text-white py-3 text-center text-xs font-bold tracking-widest uppercase hover:bg-amber-900 transition-colors shadow-md rounded-sm">
+                    Proceed to Cash on Delivery (COD)
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- CORE APPLICATION DATABASE & USER INTERACTION SCRIPTS -->
     <script>
-        // IMMUTABLE PRODUCT DATABASE SOURCE (With local pricing structure & real Google/Sincere assets tags)
-        const PRODUCT_CATALOG = [
+        // In-memory catalog database specifying required labels, categories, real image links & prices in Nepalese Rupees
+        const GLOWNEST_DATABASE = [
             {
-                id: 'p1',
-                name: 'Ginseng Cleansing Oil',
-                brand: 'Beauty of Joseon',
-                category: 'cleanser',
-                priceNpr: 2650,
-                rating: 4.8,
-                reviewsCount: 34,
-                imageUrl: 'image_agent_tag_16077456538614594107',
-                shortDescription: 'Lightweight micellar oil texturing that melts away heavy sebum, stubborn sunblock metrics, and environmental city impurities cleanly.',
-                longDescription: 'Formulated with 50% premium therapeutic Ginseng root extract fluid matrix mixed carefully with Glycine Soja oil. This K-Beauty powerhouse formulation maintains complete barrier protection stability while acting as the initial step in essential double cleansing techniques.'
+                id: 1,
+                name: "Ginseng Cleansing Oil",
+                brand: "Beauty of Joseon",
+                category: "cleanser",
+                price: 2450,
+                volume: "210ml",
+                image: "image_agent_tag_12413183490597911111",
+                description: "Lightweight formula carefully emulsifying oil impurities, leaving delicate facial zones perfectly purified without clogging skin pore frameworks."
             },
             {
-                id: 'p2',
-                name: 'Madagascar Centella Ampoule Foam',
-                brand: 'SKIN1004 Centella',
-                category: 'facewash',
-                priceNpr: 1850,
-                rating: 4.9,
-                reviewsCount: 52,
-                imageUrl: 'image_agent_tag_16077456538614594848',
-                shortDescription: 'Ultra-pure soothing botanical cleansing lather built natively around high concentration Madagascan harvested extract blocks.',
-                longDescription: 'An exceptional sub-acidic everyday foaming facewash compound balancing an optimal pH scale of 5.5. Blended using 33% pure high-grade Centella extract to completely mitigate skin surface redness, flaking, or immediate irritation patterns experienced by sensitive temperaments.'
+                id: 2,
+                name: "Madagascar Centella Ampoule Foam",
+                brand: "Skin1004 Centella",
+                category: "facewash",
+                price: 1850,
+                volume: "125ml",
+                image: "image_agent_tag_12413183490597910980",
+                description: "Deep soothing foam wash powered directly by pure botanic leaf extractions from pristine fields. Excellent for redness balancing."
             },
             {
-                id: 'p3',
-                name: 'Zero Pore Pad 2.0',
-                brand: 'Medicube',
-                category: 'toner',
-                priceNpr: 3200,
-                rating: 4.7,
-                reviewsCount: 41,
-                imageUrl: 'image_agent_tag_16077456538614592625',
-                shortDescription: 'Dual-textured toning pads designed to systematically extract deep pore wall debris and balance surface oil production metrics.',
-                longDescription: 'An advanced clinical skin-refining mechanism engineered with active standard Salicylic Acid (BHA) and natural Alpha Hydroxy Acids (AHA). Proven to diminish global sebum accumulation variables while clearing localized cellular keratinization blocks.'
+                id: 3,
+                name: "Dynasty Nourishing Cream",
+                brand: "Beauty of Joseon",
+                category: "moisturizer",
+                price: 2900,
+                volume: "50ml",
+                image: "image_agent_tag_12413183490597912413",
+                description: "Ornate traditional formulation structure infusing deep internal cellular matrix hydration. Provides unique glass-skin complexions."
             },
             {
-                id: 'p4',
-                name: 'Deep Vita C Ampoule',
-                brand: 'Medicube',
-                category: 'serum',
-                priceNpr: 3850,
-                rating: 4.6,
-                reviewsCount: 28,
-                imageUrl: 'image_agent_tag_16077456538614591884',
-                shortDescription: 'High-potency multi-vitamin complex targeting stubborn hyperpigmentation, uneven skin tone, and dullness cascades.',
-                longDescription: 'Contains a certified 14.5% content concentration metric of stable ascorbic acid compound elements. Packed within custom safety dropper mechanics to avoid oxidation spikes. A true master key for rapid skin brightness recovery.'
+                id: 4,
+                name: "Deep Vita C Clinical Ampoule",
+                brand: "Medicube Labs",
+                category: "serum",
+                price: 4200,
+                volume: "3 x 10g",
+                image: "image_agent_tag_12413183490597911242",
+                description: "Advanced stabilization matrix loaded with concentrated pure ascorbic active serums to lift dark pigmentation fast."
             },
             {
-                id: 'p5',
-                name: 'Relief Sun: Rice + Probiotics (SPF50+)',
-                brand: 'Beauty of Joseon',
-                category: 'sunscreen',
-                priceNpr: 2400,
-                rating: 4.9,
-                reviewsCount: 94,
-                imageUrl: 'image_agent_tag_16077456538614593366',
-                shortDescription: 'The global benchmark in lightweight organic protective barriers. Leaves zero white-cast residue.',
-                longDescription: 'Infused elegantly with 30% organic rice grain fermentation extracts and grain-derived natural probiotics. Provides absolute chemical screening metrics without heavy congestion or standard pore clogging problems, matching flawlessly under cosmetic application bases.'
+                id: 5,
+                name: "Centella Toning Renewal Water",
+                brand: "Skin1004 Centella",
+                category: "toner",
+                price: 2600,
+                volume: "400ml",
+                image: "image_agent_tag_12413183490597911373",
+                description: "Gentle daily exfoliating fluid maximizing moisture absorption metrics downstream in your morning routines."
             },
             {
-                id: 'p6',
-                name: 'Centella Toning Toner',
-                brand: 'SKIN1004 Centella',
-                category: 'toner',
-                priceNpr: 2350,
-                rating: 4.8,
-                reviewsCount: 19,
-                imageUrl: 'image_agent_tag_16077456538614595239',
-                shortDescription: 'Hypoallergenic PHA daily clarifying fluid that exfoliates dead surface cells softly while maximizing dermal moisture levels.',
-                longDescription: 'A delicate everyday custom toner utilizing Gluconolactone (PHA) structures to gently lift surface dullness without stripping deep internal lipophilic storage reservoirs. Safe for daily use even across high-vulnerability acne-prone surfaces.'
+                id: 6,
+                name: "Relief Sun: Rice + Probiotics",
+                brand: "Beauty of Joseon",
+                category: "sunscreen",
+                price: 2350,
+                volume: "50ml",
+                image: "image_agent_tag_12413183490597911504",
+                description: "Organic lightweight screen offering robust SPF 50 filters with zero white-cast texture residue. The global holy-grail."
             },
             {
-                id: 'p7',
-                name: 'Himalayan Intensive Neem Hydrator',
-                brand: 'Himalayan Legacy',
-                category: 'moisturizer',
-                priceNpr: 950,
-                rating: 4.5,
-                reviewsCount: 61,
-                imageUrl: 'image_agent_tag_16077456538614594848', // Fallback context anchor asset
-                shortDescription: 'Deeply balancing local formulation fusing standard high-altitude pure Neem essences with modern lightweight hydration gels.',
-                longDescription: 'A beautiful local synthesis built primarily to cater toward the intense transitional weather patterns of Butwal. Keeps excess shine down while feeding moisture blocks to cells for hours.'
+                id: 7,
+                name: "Natural Neem Deep Cleansing Wash",
+                brand: "Himalayan Herbals",
+                category: "facewash",
+                price: 350,
+                volume: "200ml",
+                image: "https://static-01.daraz.com.np/p/eac53e20ec4e4e963bcbb21204689255.jpg",
+                description: "Authentic homegrown herbal formulation standard trusted across generations to neutralize excessive sebum secretions."
+            },
+            {
+                id: 8,
+                name: "Intense Moisture Shield Cream",
+                brand: "Himalayan Herbals",
+                category: "moisturizer",
+                price: 480,
+                volume: "150ml",
+                image: "https://static-01.daraz.com.np/p/5a92da6fdfbe6beedbf17088b776de11.jpg",
+                description: "Budget skin enrichment lotion locking internal fluid balance efficiently during seasonal wind sweeps across Lumbini plains."
             }
         ];
 
-        // MOCK USER CUSTOM REVIEWS DATABASE STATE
-        let USER_REVIEWS = [
-            { name: 'Aarav Sharma', location: 'Milanchowk', rating: 5, comment: 'Finding genuine Beauty of Joseon sunscreen in Rupandehi was a massive chore until I found GlowNest. Batch checked out perfectly. Highly recommend their delivery setup!' },
-            { name: 'Pooja Thapa', location: 'Kalikanagar', rating: 5, comment: 'The Medicube Zero Pore Pads completely fixed my texturing anomalies within three weeks. Extremely helpful staff who understand active chemical compositions.' },
-            { name: 'Rohan Shrestha', location: 'Golpark', rating: 4, comment: 'Excellent pricing matrix compared to random Instagram pages in KTM. Immediate local delivery in Butwal within 3 hours of calling.' }
-        ];
+        // State Machine Management Core
+        let internalCart = [];
 
-        // SHOPPING CART ACTIVE MEMORY STATE
-        let GLOBAL_CART = [];
-
-        // INITIALIZATION HOOK
-        document.addEventListener("DOMContentLoaded", () => {
-            renderProductGrid(PRODUCT_CATALOG);
-            renderReviewsSection();
+        // Initalizer hook to build application elements on boot
+        window.addEventListener('DOMContentLoaded', () => {
+            renderProducts(GLOWNEST_DATABASE);
+            syncCartUI();
         });
 
-        // INVENTORY UI INJECTION ENGINE
-        function renderProductGrid(products) {
-            const grid = document.getElementById('product-display-grid');
-            grid.innerHTML = '';
-            
-            if(products.length === 0) {
-                grid.innerHTML = `
-                    <div class="col-span-full text-center py-12 text-brand-600">
-                        <i class="fa-solid fa-magnifying-glass-minus text-3xl mb-2 opacity-50"></i>
-                        <p class="font-serif italic">No matching products discovered in our current batch inventory.</p>
-                    </div>`;
+        // Procedural View Builder targeting grid matrices
+        function renderProducts(collection) {
+            const grid = document.getElementById('product-matrix');
+            if(collection.length === 0) {
+                grid.innerHTML = `<div class="col-span-full py-12 text-center text-stone-400">No matched catalog segments found.</div>`;
                 return;
             }
 
-            products.forEach(prod => {
-                const card = document.createElement('div');
-                card.className = "product-card bg-white rounded-xl overflow-hidden border border-brand-200 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col group relative";
-                card.innerHTML = `
-                    <!-- Brand Label Overlay Tag -->
-                    <div class="absolute top-3 left-3 z-10 bg-brand-50/90 backdrop-blur border border-brand-200 text-[10px] uppercase tracking-widest font-bold px-2.5 py-1 rounded text-brand-800">
-                        ${prod.brand}
-                    </div>
-                    <!-- Graphic frame -->
-                    <div class="relative bg-brand-50 aspect-square overflow-hidden border-b border-brand-100">
-                        <img src="${prod.imageUrl}" alt="${prod.name}" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
-                        <!-- Quick Action Slate Overlay -->
-                        <div class="absolute inset-0 bg-brand-900/10 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center p-4">
-                            <button onclick="openQuickView('${prod.id}')" class="quick-view-btn transform translate-y-4 opacity-0 bg-white text-brand-900 px-4 py-2 text-xs font-bold uppercase tracking-widest rounded shadow hover:bg-brand-900 hover:text-white transition-all duration-300">
-                                <i class="fa-solid fa-eye mr-1"></i> Quick View
-                            </button>
-                        </div>
-                    </div>
-                    <!-- Information Content Packet -->
-                    <div class="p-5 flex-1 flex flex-col justify-between space-y-3">
-                        <div class="space-y-1">
-                            <div class="flex items-center text-[11px] text-amber-600 space-x-1 font-medium">
-                                <span>${'★'.repeat(Math.floor(prod.rating))}</span>
-                                <span class="text-brand-600">(${prod.reviewsCount})</span>
-                            </div>
-                            <h3 class="font-serif text-base font-bold text-brand-900 tracking-tight leading-snug group-hover:text-brand-700 transition-colors">${prod.name}</h3>
-                            <p class="text-xs text-brand-600 line-clamp-2 font-light">${prod.shortDescription}</p>
-                        </div>
-                        <div class="pt-2 flex items-center justify-between border-t border-brand-100">
-                            <span class="text-base font-bold text-brand-900 font-sans">रु ${prod.priceNpr.toLocaleString()}</span>
-                            <button onclick="addToCart('${prod.id}')" class="bg-brand-800 text-brand-50 text-xs font-bold uppercase tracking-wider px-3 py-2 rounded hover:bg-brand-700 shadow-sm transition-all flex items-center space-x-1">
-                                <i class="fa-solid fa-plus text-[10px]"></i>
-                                <span>Add To Bag</span>
-                            </button>
-                        </div>
-                    </div>
-                `;
-                grid.appendChild(card);
-            });
-        }
-
-        // TAB FILTER CONTROLLER ARCHITECTURE
-        function filterShop(categorySelection) {
-            // Update active state visuals across cluster buttons
-            const tabsContainer = document.getElementById('filter-tabs-cluster');
-            const buttons = tabsContainer.getElementsByTagName('button');
-            for (let btn of buttons) {
-                btn.className = "px-5 py-2 text-xs font-bold uppercase tracking-wider rounded-full border border-brand-200 bg-white text-brand-800 hover:bg-brand-100 transition-all shadow-sm";
-            }
-            
-            const targetActiveTab = document.getElementById(`tab-${categorySelection}`);
-            if(targetActiveTab) {
-                targetActiveTab.className = "px-5 py-2 text-xs font-bold uppercase tracking-wider rounded-full border border-brand-800 bg-brand-800 text-brand-50 transition-all shadow-sm";
-            }
-
-            // Executing array evaluation filter logic
-            if(categorySelection === 'all') {
-                renderProductGrid(PRODUCT_CATALOG);
-            } else {
-                const subset = PRODUCT_CATALOG.filter(item => item.category === categorySelection);
-                renderProductGrid(subset);
-            }
-        }
-
-        // DYNAMIC IN-LINE SEARCH UTILITY ENGINE
-        function toggleSearch() {
-            const panel = document.getElementById('search-panel');
-            panel.classList.toggle('hidden');
-            if(!panel.classList.contains('hidden')) {
-                document.getElementById('search-input').focus();
-            }
-        }
-
-        function handleSearch(queryText) {
-            const cleanQuery = queryText.toLowerCase().trim();
-            const resultBox = document.getElementById('search-results-box');
-            
-            if(cleanQuery.length === 0) {
-                resultBox.classList.add('hidden');
-                resultBox.innerHTML = '';
-                return;
-            }
-
-            const matchedSubset = PRODUCT_CATALOG.filter(item => 
-                item.name.toLowerCase().includes(cleanQuery) || 
-                item.brand.toLowerCase().includes(cleanQuery) ||
-                item.category.toLowerCase().includes(cleanQuery)
-            );
-
-            resultBox.classList.remove('hidden');
-            resultBox.innerHTML = '';
-
-            if(matchedSubset.length === 0) {
-                resultBox.innerHTML = `<p class="text-xs text-brand-600 p-3 italic text-center">No exact dynamic matches for "${queryText}" found.</p>`;
-                return;
-            }
-
-            matchedSubset.forEach(item => {
-                const row = document.createElement('div');
-                row.className = "flex items-center space-x-3 p-2 hover:bg-brand-50 rounded cursor-pointer transition-colors border-b border-brand-100 last:border-0";
-                row.onclick = () => {
-                    openQuickView(item.id);
-                    resultBox.classList.add('hidden');
-                };
-                row.innerHTML = `
-                    <img src="${item.imageUrl}" class="w-10 h-10 object-cover rounded border border-brand-200">
-                    <div class="flex-1 text-left">
-                        <p class="text-xs font-bold text-brand-900 leading-none">${item.name}</p>
-                        <p class="text-[10px] text-brand-600 mt-0.5 uppercase tracking-wider">${item.brand} • रु ${item.priceNpr}</p>
-                    </div>
-                `;
-                resultBox.appendChild(row);
-            });
-        }
-
-        // MODAL ENGINE FOR INDIVIDUAL INVENTORY ITEMS
-        function openQuickView(id) {
-            const targetProd = PRODUCT_CATALOG.find(p => p.id === id);
-            if(!targetProd) return;
-
-            const modalContainer = document.getElementById('quickview-modal');
-            const innerPayload = document.getElementById('modal-internal-payload');
-
-            innerPayload.innerHTML = `
-                <!-- Graphic Frame Left -->
-                <div class="bg-brand-100 p-6 flex items-center justify-center border-r border-brand-200">
-                    <img src="${targetProd.imageUrl}" alt="${targetProd.name}" class="w-full h-auto max-h-72 object-cover rounded-lg shadow-md">
-                </div>
-                <!-- Text Meta Right -->
-                <div class="p-6 sm:p-8 flex flex-col justify-between space-y-4">
-                    <div class="space-y-2">
-                        <span class="text-[10px] font-bold tracking-widest text-brand-600 uppercase block">${targetProd.brand}</span>
-                        <h3 class="font-serif text-xl font-bold text-brand-900 tracking-tight leading-snug">${targetProd.name}</h3>
-                        <div class="text-xs text-amber-600 flex items-center space-x-1">
-                            <span>${'★'.repeat(Math.floor(targetProd.rating))}</span>
-                            <span class="text-brand-700 font-medium">(${targetProd.reviewsCount} local reviews)</span>
-                        </div>
-                        <p class="text-xs text-brand-700 leading-relaxed pt-2 font-light">${targetProd.longDescription}</p>
+            grid.innerHTML = collection.map(prod => `
+                <div class="bg-white border border-stone-200/60 rounded-sm overflow-hidden group hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
+                    <div class="relative bg-stone-50 overflow-hidden pt-[100%]">
+                        <img src="${prod.image}" alt="${prod.name}" class="absolute inset-0 w-full h-full object-contain p-6 transform group-hover:scale-105 transition-transform duration-500">
+                        <span class="absolute top-3 left-3 bg-stone-900/80 backdrop-blur-xs text-[#f4efe6] px-2.5 py-1 text-[10px] uppercase font-bold tracking-widest rounded-xs">
+                            ${prod.brand}
+                        </span>
                     </div>
                     
-                    <div class="pt-4 border-t border-brand-200 flex flex-col space-y-3">
-                        <div class="flex items-baseline justify-between">
-                            <span class="text-xs font-medium text-brand-600 uppercase tracking-wider">Price Point</span>
-                            <span class="text-2xl font-bold text-brand-900">रु ${targetProd.priceNpr.toLocaleString()}</span>
+                    <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                        <div class="space-y-2">
+                            <span class="text-[10px] uppercase tracking-wider text-amber-800 font-bold block">${prod.category} • ${prod.volume}</span>
+                            <h4 class="serif-font text-stone-950 font-semibold text-lg leading-tight group-hover:text-amber-900 transition-colors">${prod.name}</h4>
+                            <p class="text-xs text-stone-500 line-clamp-2 leading-relaxed font-light">${prod.description}</p>
                         </div>
-                        <button onclick="addToCart('${targetProd.id}'); closeQuickView();" class="w-full bg-brand-800 text-brand-50 py-3 rounded font-bold tracking-widest uppercase hover:bg-brand-700 shadow transition-all flex items-center justify-center space-x-2">
-                            <i class="fa-solid fa-cart-plus"></i>
-                            <span>Inject Into Routine Bag</span>
-                        </button>
+
+                        <div class="pt-2 flex items-center justify-between border-t border-stone-100">
+                            <span class="text-stone-950 font-bold text-base tracking-tight">Rs. ${prod.price.toLocaleString()}</span>
+                            <button onclick="addProductToCart(${prod.id})" class="bg-[#2c2a27] text-white text-xs font-semibold px-4 py-2 rounded-sm uppercase tracking-wider hover:bg-amber-800 transition-colors">
+                                Add to Bag
+                            </button>
+                        </div>
                     </div>
                 </div>
-            `;
-            
-            modalContainer.classList.remove('hidden');
-            document.body.classList.add('overflow-hidden');
+            `).join('');
         }
 
-        function closeQuickView() {
-            document.getElementById('quickview-modal').classList.add('hidden');
-            document.body.classList.remove('overflow-hidden');
+        // Functional Filter Router Logic
+        function filterCategory(targetTag) {
+            // Recalibrate UI tabs states
+            const buttons = document.querySelectorAll('#filter-tabs button');
+            buttons.forEach(btn => {
+                btn.classList.remove('bg-[#2c2a27]', 'text-white');
+                btn.classList.add('bg-stone-100', 'text-stone-600');
+            });
+
+            // Set activation state visual
+            const clickedBtn = event.currentTarget;
+            clickedBtn.classList.remove('bg-stone-100', 'text-stone-600');
+            clickedBtn.classList.add('bg-[#2c2a27]', 'text-white');
+
+            if(targetTag === 'all') {
+                renderProducts(GLOWNEST_DATABASE);
+            } else {
+                const filtered = GLOWNEST_DATABASE.filter(p => p.category === targetTag);
+                renderProducts(filtered);
+            }
         }
 
-        // SHOPPING CART CONTROLLER FUNCTIONS
-        function toggleCart() {
+        // Dynamic Drawer Toggle Functions
+        function toggleCart(shouldOpen) {
             const drawer = document.getElementById('cart-drawer');
-            const innerPanel = drawer.querySelector('.w-screen');
-            const overlay = drawer.querySelector('.bg-black\\/40');
+            const panel = document.getElementById('drawer-panel');
             
-            if(drawer.classList.contains('hidden')) {
-                drawer.classList.remove('hidden');
-                setTimeout(() => {
-                    overlay.classList.remove('opacity-0');
-                    innerPanel.classList.remove('translate-x-full');
-                }, 10);
+            if(shouldOpen) {
+                drawer.classList.remove('opacity-0', 'pointer-events-none');
+                panel.classList.remove('translate-x-full');
             } else {
-                overlay.classList.add('opacity-0');
-                innerPanel.classList.add('translate-x-full');
-                setTimeout(() => {
-                    drawer.classList.add('hidden');
-                }, 500);
+                drawer.classList.add('opacity-0', 'pointer-events-none');
+                panel.classList.add('translate-x-full');
             }
         }
 
-        function addToCart(productId) {
-            const targetProd = PRODUCT_CATALOG.find(p => p.id === productId);
-            if(!targetProd) return;
-
-            const preExisting = GLOBAL_CART.find(item => item.product.id === productId);
-            if(preExisting) {
-                preExisting.quantity += 1;
+        // Mutation Array Logic handlers
+        function addProductToCart(itemId) {
+            const existingMatch = internalCart.find(item => item.product.id === itemId);
+            if(existingMatch) {
+                existingMatch.quantity += 1;
             } else {
-                GLOBAL_CART.push({ product: targetProd, quantity: 1 });
+                const specProduct = GLOWNEST_DATABASE.find(p => p.id === itemId);
+                internalCart.push({ product: specProduct, quantity: 1 });
             }
-            
-            updateCartUiState();
-            // Automatically open cart drawer to signal operation completion cleanly
-            toggleCart();
+            syncCartUI();
+            toggleCart(true);
         }
 
-        function mutateCartQuantity(productId, modifier) {
-            const targetItem = GLOBAL_CART.find(item => item.product.id === productId);
-            if(!targetItem) return;
-
-            targetItem.quantity += modifier;
-            if(targetItem.quantity <= 0) {
-                GLOBAL_CART = GLOBAL_CART.filter(item => item.product.id !== productId);
+        function mutateItemQuantity(itemId, step) {
+            const item = internalCart.find(i => i.product.id === itemId);
+            if(item) {
+                item.quantity += step;
+                if(item.quantity <= 0) {
+                    internalCart = internalCart.filter(i => i.product.id !== itemId);
+                }
             }
-            updateCartUiState();
+            syncCartUI();
         }
 
-        function updateCartUiState() {
-            const badge = document.getElementById('cart-count-badge');
+        // UI View State syncer for cart drawer elements
+        function syncCartUI() {
+            const counter = document.getElementById('cart-counter');
             const container = document.getElementById('cart-items-container');
-            const emptyView = document.getElementById('empty-cart-view');
-            const summaryBlock = document.getElementById('cart-summary-block');
-            const subtotalText = document.getElementById('cart-subtotal-price');
+            const subtotalText = document.getElementById('cart-subtotal-display');
 
-            let overallCount = 0;
-            let netSubtotal = 0;
+            const cumulativeTotalCount = internalCart.reduce((sum, current) => sum + current.quantity, 0);
+            counter.innerText = cumulativeTotalCount;
 
-            // Compute global matrix dimensions
-            GLOBAL_CART.forEach(item => {
-                overallCount += item.quantity;
-                netSubtotal += (item.product.priceNpr * item.quantity);
-            });
-
-            // Updating Badge State
-            if(overallCount > 0) {
-                badge.innerText = overallCount;
-                badge.classList.remove('hidden');
-                emptyView.classList.add('hidden');
-                summaryBlock.classList.remove('hidden');
-            } else {
-                badge.classList.add('hidden');
-                emptyView.classList.remove('hidden');
-                summaryBlock.classList.add('hidden');
+            if(internalCart.length === 0) {
+                container.innerHTML = `<div class="py-16 text-center space-y-2">
+                    <p class="text-sm text-stone-400">Your selection bag is empty.</p>
+                    <a href="#catalog" onclick="toggleCart(false)" class="text-xs text-amber-800 underline font-semibold">Browse formulation ranks</a>
+                </div>`;
+                subtotalText.innerText = "Rs. 0";
+                return;
             }
 
-            // Purge dynamic items except the static empty message template anchor
-            const dynamicRows = container.querySelectorAll('.cart-item-row');
-            dynamicRows.forEach(row => row.remove());
+            let computedSubtotal = 0;
+            container.innerHTML = internalCart.map(lineItem => {
+                const computedRowCost = lineItem.product.price * lineItem.quantity;
+                computedSubtotal += computedRowCost;
 
-            // Build item blocks sequentially
-            GLOBAL_CART.forEach(item => {
-                const itemRow = document.createElement('div');
-                itemRow.className = "cart-item-row flex items-center justify-between space-x-4 py-4 border-b border-brand-200 transition-all animate-fadeIn";
-                itemRow.innerHTML = `
-                    <img src="${item.product.imageUrl}" class="w-16 h-16 object-cover rounded-md border border-brand-200 bg-white">
-                    <div class="flex-1 text-left min-w-0">
-                        <h4 class="text-sm font-bold text-brand-900 truncate leading-tight">${item.product.name}</h4>
-                        <p class="text-[11px] text-brand-600 uppercase tracking-wider mt-0.5">${item.product.brand}</p>
-                        <div class="flex items-center space-x-2 mt-2">
-                            <button onclick="mutateCartQuantity('${item.product.id}', -1)" class="w-5 h-5 bg-brand-200 rounded text-brand-900 text-xs font-bold hover:bg-brand-300 transition-all flex items-center justify-center">-</button>
-                            <span class="text-xs font-semibold text-brand-900 w-4 text-center">${item.quantity}</span>
-                            <button onclick="mutateCartQuantity('${item.product.id}', 1)" class="w-5 h-5 bg-brand-200 rounded text-brand-900 text-xs font-bold hover:bg-brand-300 transition-all flex items-center justify-center">+</button>
+                return `
+                    <div class="flex items-center space-x-4 pb-4 border-b border-stone-100">
+                        <img src="${lineItem.product.image}" alt="${lineItem.product.name}" class="w-16 h-16 object-contain bg-stone-50 p-1 border rounded-sm">
+                        <div class="flex-1 min-w-0">
+                            <h5 class="text-xs text-stone-900 font-bold truncate">${lineItem.product.name}</h5>
+                            <p class="text-[10px] text-stone-400">${lineItem.product.brand}</p>
+                            <span class="text-xs text-amber-900 font-semibold block mt-1">Rs. ${lineItem.product.price.toLocaleString()}</span>
+                        </div>
+                        <div class="flex items-center space-x-2 border border-stone-200 rounded-sm bg-stone-50">
+                            <button onclick="mutateItemQuantity(${lineItem.product.id}, -1)" class="px-2 py-1 text-xs font-bold hover:bg-stone-200 transition-colors text-stone-600">-</button>
+                            <span class="text-xs font-medium text-stone-900 px-1">${lineItem.quantity}</span>
+                            <button onclick="mutateItemQuantity(${lineItem.product.id}, 1)" class="px-2 py-1 text-xs font-bold hover:bg-stone-200 transition-colors text-stone-600">+</button>
                         </div>
                     </div>
-                    <div class="text-right">
-                        <span class="text-sm font-bold text-brand-900 block">रु ${(item.product.priceNpr * item.quantity).toLocaleString()}</span>
-                        <button onclick="mutateCartQuantity('${item.product.id}', -${item.quantity})" class="text-[10px] uppercase font-bold text-red-700 tracking-wider hover:underline mt-1">Remove</button>
-                    </div>
                 `;
-                container.appendChild(itemRow);
-            });
+            }).join('');
 
-            subtotalText.innerText = `रु ${netSubtotal.toLocaleString()}`;
+            subtotalText.innerText = `Rs. ${computedSubtotal.toLocaleString()}`;
         }
 
-        // CHECKOUT HANDLER LINKING TO WIDER COMMUNICATION CHANNELS
-        function proceedToCheckout() {
-            let messagePacket = `Hello GlowNest Butwal! I would like to lock in an order configuration:\n\n`;
-            let netCalculation = 0;
-            
-            GLOBAL_CART.forEach((item, index) => {
-                messagePacket += `${index + 1}. ${item.product.brand} - ${item.product.name} (Qty: ${item.quantity}) -> रु ${(item.product.priceNpr * item.quantity).toLocaleString()}\n`;
-                netCalculation += (item.product.priceNpr * item.quantity);
-            });
-
-            messagePacket += `\n🌟 Total Amount: रु ${netCalculation.toLocaleString()}`;
-            messagePacket += `\n📍 Destination: [Please insert your specific street address here inside Butwal]`;
-
-            // Standard target encoding for immediate dispatch execution redirect
-            const whatsappString = `https://wa.me/98570XXXXX?text=${encodeURIComponent(messagePacket)}`;
-            window.open(whatsappString, '_blank');
-        }
-
-        // SOCIAL COMMUNITY REVIEWS GENERATION ARCHITECTURE
-        function renderReviewsSection() {
-            const targetGrid = document.getElementById('reviews-output-grid');
-            targetGrid.innerHTML = '';
-
-            USER_REVIEWS.forEach(rev => {
-                const entryCard = document.createElement('div');
-                entryCard.className = "bg-white p-5 rounded-xl border border-brand-200 shadow-sm space-y-3 flex flex-col justify-between hover:shadow-md transition-shadow";
-                entryCard.innerHTML = `
-                    <div class="space-y-2">
-                        <div class="flex items-center justify-between">
-                            <h4 class="font-serif font-bold text-brand-900 text-sm">${rev.name}</h4>
-                            <span class="text-[10px] text-brand-600 bg-brand-100 px-2 py-0.5 rounded-full font-medium"><i class="fa-solid fa-location-dot mr-0.5 text-brand-700"></i> ${rev.location}</span>
-                        </div>
-                        <div class="text-xs text-amber-500">${'★'.repeat(rev.rating)}</div>
-                        <p class="text-xs text-brand-700 font-light italic leading-relaxed">"${rev.comment}"</p>
-                    </div>
-                    <div class="text-[10px] uppercase tracking-wider text-brand-600 font-semibold pt-2 border-t border-brand-50 flex items-center">
-                        <i class="fa-solid fa-square-rss text-emerald-600 mr-1"></i> Verified Local Resident
-                    </div>
-                `;
-                targetGrid.appendChild(entryCard);
-            });
-        }
-
-        function submitReview(event) {
+        // Generic Event Actions handlers
+        function handleFormSubmit(event) {
             event.preventDefault();
-            const nameField = document.getElementById('rev-name');
-            const locField = document.getElementById('rev-location');
-            const ratingField = document.getElementById('rev-rating');
-            const textField = document.getElementById('rev-text');
+            alert("✨ GlowNest System Status: Thank you for reaching out! Our dedicated skin advisory team in Milanchowk, Butwal will contact you via your provided mobile number shortly.");
+            event.target.reset();
+        }
 
-            const conceptualReviewObject = {
-                name: nameField.value.trim(),
-                location: locField.value.trim(),
-                rating: parseInt(ratingField.value),
-                comment: textField.value.trim()
-            };
-
-            // Prepend new record to visibility layout storage structures
-            USER_REVIEWS.unshift(conceptualReviewObject);
-            
-            // Clean interface variables down to fresh pristine levels
-            nameField.value = '';
-            locField.value = '';
-            textField.value = '';
-
-            renderReviewsSection();
+        function triggerCheckout() {
+            if(internalCart.length === 0) {
+                alert("Your bag is currently empty. Please select active cosmetics lines to generate an invoice request.");
+                return;
+            }
+            alert("🛍️ Order Routed Successfully! \n\nThank you for choosing GlowNest Skincare Butwal. Your dispatch ticket is generated under Cash on Delivery protocol. A support representative will phone you shortly to confirm coordinates.");
+            internalCart = [];
+            syncCartUI();
+            toggleCart(false);
         }
     </script>
 </body>
