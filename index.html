@@ -1,56 +1,327 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SeoulGlow Nepal | Premium K-Beauty</title>
-    <style>
-        /* CSS: 500 lines of custom styling omitted for brevity in display, 
-           incorporating flexbox, grid, and animations */
-        :root { --primary: #ffb7c5; --dark: #333; --light: #fdfdfd; }
-        body { font-family: 'Segoe UI', sans-serif; background: #fafafa; }
-        .hero { height: 80vh; background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('https://images.unsplash.com/photo-1596704017254-9b6c10972b2c'); background-size: cover; display: flex; align-items: center; justify-content: center; color: white; }
-        .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; padding: 40px; }
-        .card { background: white; padding: 20px; border-radius: 15px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: 0.3s; }
-        .card:hover { transform: translateY(-10px); }
-        .price { color: #e91e63; font-weight: bold; font-size: 1.2em; }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>GlowNest Korea | Korean Skincare Nepal</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+scroll-behavior:smooth;
+}
+
+body{
+background:#fffafc;
+color:#333;
+}
+
+header{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+background:white;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:18px 8%;
+box-shadow:0 5px 15px rgba(0,0,0,.08);
+z-index:999;
+}
+
+.logo{
+font-size:30px;
+font-weight:700;
+color:#ff4f81;
+}
+
+.logo span{
+color:#7f5af0;
+}
+
+nav a{
+text-decoration:none;
+margin-left:30px;
+color:#444;
+font-weight:500;
+transition:.3s;
+}
+
+nav a:hover{
+color:#ff4f81;
+}
+
+.btn{
+background:#ff4f81;
+color:white;
+padding:10px 24px;
+border-radius:30px;
+text-decoration:none;
+transition:.3s;
+}
+
+.btn:hover{
+background:#7f5af0;
+}
+
+.hero{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:150px 8% 90px;
+background:linear-gradient(120deg,#fff0f5,#f8ecff);
+}
+
+.hero-text{
+width:50%;
+}
+
+.hero-text h1{
+font-size:55px;
+line-height:1.2;
+margin-bottom:20px;
+color:#222;
+}
+
+.hero-text h1 span{
+color:#ff4f81;
+}
+
+.hero-text p{
+font-size:18px;
+line-height:1.8;
+margin-bottom:35px;
+color:#666;
+}
+
+.hero-image{
+width:45%;
+}
+
+.hero-image img{
+width:100%;
+border-radius:25px;
+box-shadow:0 15px 35px rgba(0,0,0,.15);
+}
+
+.section-title{
+text-align:center;
+font-size:38px;
+margin-top:80px;
+margin-bottom:15px;
+color:#222;
+}
+
+.section-title span{
+color:#ff4f81;
+}
+
+.subtitle{
+text-align:center;
+color:#777;
+margin-bottom:40px;
+}
+
+.brands{
+padding:30px 8% 80px;
+}
+
+.brand-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+gap:25px;
+}
+
+.brand-card{
+background:white;
+padding:25px;
+border-radius:18px;
+box-shadow:0 10px 20px rgba(0,0,0,.08);
+text-align:center;
+transition:.4s;
+}
+
+.brand-card:hover{
+transform:translateY(-8px);
+}
+
+.brand-card img{
+width:100%;
+height:150px;
+object-fit:cover;
+border-radius:15px;
+margin-bottom:15px;
+}
+
+.brand-card h3{
+margin-bottom:10px;
+}
+
+.brand-card p{
+color:#666;
+font-size:14px;
+}
+
+@media(max-width:900px){
+
+header{
+padding:20px;
+flex-direction:column;
+}
+
+nav{
+margin-top:15px;
+}
+
+nav a{
+margin:10px;
+display:inline-block;
+}
+
+.hero{
+flex-direction:column;
+text-align:center;
+padding-top:180px;
+}
+
+.hero-text{
+width:100%;
+}
+
+.hero-image{
+width:90%;
+margin-top:40px;
+}
+
+.hero-text h1{
+font-size:40px;
+}
+
+}
+
+</style>
+
 </head>
+
 <body>
 
 <header>
-    <nav><h1>SeoulGlow Nepal</h1></nav>
+
+<div class="logo">
+Glow<span>Nest</span>
+</div>
+
+<nav>
+
+<a href="#">Home</a>
+<a href="#brands">Brands</a>
+<a href="#shop">Shop</a>
+<a href="#blog">Blog</a>
+<a href="#contact">Contact</a>
+
+</nav>
+
 </header>
 
 <section class="hero">
-    <h2>Authentic Korean Skincare Delivered in Nepal</h2>
+
+<div class="hero-text">
+
+<h1>Discover Authentic <span>Korean Skincare</span> in Nepal</h1>
+
+<p>
+
+Shop the world's most loved Korean beauty brands at affordable prices.
+100% genuine skincare products delivered across Nepal.
+
+</p>
+
+<a href="#shop" class="btn">Shop Now</a>
+
+</div>
+
+<div class="hero-image">
+
+<img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=900&q=80">
+
+</div>
+
 </section>
 
-<main class="product-grid">
-    <!-- Product 1 -->
-    <div class="card">
-        <img src="https://images.unsplash.com/photo-1556228453-efd6c1ff04f6" alt="Anua Serum" style="width:100%">
-        <h3>Anua Niacinamide 10% Serum</h3>
-        <p class="price">Rs. 3,300</p>
-    </div>
-    <!-- Product 2 -->
-    <div class="card">
-        <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be" alt="Beauty of Joseon" style="width:100%">
-        <h3>Beauty of Joseon Relief Sun</h3>
-        <p class="price">Rs. 2,400</p>
-    </div>
-    <!-- Product 3 -->
-    <div class="card">
-        <img src="https://images.unsplash.com/photo-1612817288484-6f916006741a" alt="Cosrx" style="width:100%">
-        <h3>COSRX Acne Pimple Master Patch</h3>
-        <p class="price">Rs. 515</p>
-    </div>
-    <!-- Add more cards to reach desired length -->
-</main>
+<section class="brands" id="brands">
 
-<footer>
-    <p>&copy; 2026 SeoulGlow Nepal. All products authentic.</p>
-</footer>
+<h2 class="section-title">
+Popular <span>K-Beauty Brands</span>
+</h2>
+
+<p class="subtitle">
+Trusted Korean skincare brands loved worldwide
+</p>
+
+<div class="brand-grid">
+
+<div class="brand-card">
+
+<img src="https://images.unsplash.com/photo-1556228578-dd6c7f0d7b3f?auto=format&fit=crop&w=600&q=80">
+
+<h3>COSRX</h3>
+
+<p>
+Gentle skincare famous for Snail Mucin Essence and Acne Care.
+</p>
+
+</div>
+
+<div class="brand-card">
+
+<img src="https://images.unsplash.com/photo-1571781926291-c477ebfd024b?auto=format&fit=crop&w=600&q=80">
+
+<h3>Beauty of Joseon</h3>
+
+<p>
+Traditional Korean herbal skincare with modern ingredients.
+</p>
+
+</div>
+
+<div class="brand-card">
+
+<img src="https://images.unsplash.com/photo-1596755389378-c31d21fd1273?auto=format&fit=crop&w=600&q=80">
+
+<h3>SKIN1004</h3>
+
+<p>
+Centella-based soothing skincare from Madagascar.
+</p>
+
+</div>
+
+<div class="brand-card">
+
+<img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=600&q=80">
+
+<h3>Anua</h3>
+
+<p>
+Known for Heartleaf Toner and calming skincare.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- SHOP SECTION STARTS HERE -->
+<!-- Continue in Part 2 -->
 
 </body>
 </html>
