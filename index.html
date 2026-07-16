@@ -3,66 +3,87 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GlowNest Skincare | Butwal's Premium K-Beauty & Nepali Skincare</title>
+    <title>GlowNest Skincare | Best K-Beauty in Nepal</title>
     <style>
-        /* CSS: Minimalist, Modern Aesthetics */
-        :root { --primary: #f8a5c2; --dark: #333; --light: #fff; }
-        body { font-family: 'Segoe UI', sans-serif; margin: 0; color: var(--dark); }
-        nav { display: flex; justify-content: space-between; padding: 20px 5%; background: var(--light); }
-        .hero { height: 400px; background: var(--primary); display: flex; align-items: center; justify-content: center; color: white; text-align: center; }
-        .container { padding: 50px 5%; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
-        .card { border: 1px solid #ddd; padding: 15px; text-align: center; border-radius: 8px; }
-        .btn { background: var(--dark); color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; }
-        footer { background: #333; color: white; text-align: center; padding: 20px; }
+        :root { --soft-pink: #f8a5c2; --dark-gray: #333; --white: #ffffff; }
+        body { font-family: 'Helvetica Neue', Arial, sans-serif; margin: 0; color: var(--dark-gray); }
+        header { background: var(--white); padding: 20px 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #eee; }
+        .hero { background: var(--soft-pink); color: white; padding: 60px 10%; text-align: center; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 30px; padding: 40px 5%; }
+        .product-card { border: 1px solid #f0f0f0; padding: 15px; text-align: center; border-radius: 12px; transition: 0.3s; }
+        .product-card:hover { box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        .product-card img { width: 100%; height: 200px; object-fit: contain; }
+        .price { font-weight: bold; color: #e74c3c; margin: 10px 0; }
+        footer { background: #f9f9f9; padding: 40px 5%; text-align: center; border-top: 1px solid #eee; }
     </style>
 </head>
 <body>
 
-<nav>
-    <h1>GlowNest</h1>
-    <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#shop">Shop</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#contact">Contact</a></li>
-        <li><a href="#cart">Cart</a></li>
-    </ul>
-</nav>
+<header>
+    <h2>GlowNest</h2>
+    <nav>
+        <a href="#">Shop</a> | <a href="#">About</a> | <a href="#">Contact (Butwal)</a>
+    </nav>
+</header>
 
-<section id="home" class="hero">
-    <div>
-        <h1>Welcome to GlowNest Skincare</h1>
-        <p>Curated Korean & Nepali Beauty in Butwal</p>
+<section class="hero">
+    <h1>Authentic K-Beauty & Local Favorites</h1>
+    <p>Premium Skincare Delivered to Your Door in Nepal</p>
+</section>
+
+<section class="grid">
+    <!-- Product 1: COSRX -->
+    <div class="product-card">
+        <img src="https://via.placeholder.com/200?text=Cosrx+Snail+Essence" alt="Cosrx Advanced Snail 96 Essence">
+        <h3>Cosrx Advanced Snail 96 Essence</h3>
+        <p class="price">Rs. 2,400</p>
+        <button>Add to Cart</button>
     </div>
-</section>
 
-<section id="shop" class="container">
-    <h2>Our Collection</h2>
-    <div class="grid">
-        <!-- Product Example -->
-        <div class="card">
-            <img src="https://images.unsplash.com/photo-1611080626939-61b99948a130?w=300" alt="COSRX Essence">
-            <h3>Cosrx Advanced Snail 96 Essence</h3>
-            <p>Price: Rs. 2,400</p>
-            <a href="#" class="btn">View Details</a>
-        </div>
-        <!-- Add more products here to reach desired scale -->
+    <!-- Product 2: Beauty of Joseon -->
+    <div class="product-card">
+        <img src="https://via.placeholder.com/200?text=BOJ+Sunscreen" alt="Beauty of Joseon Relief Sun">
+        <h3>Beauty of Joseon Relief Sun</h3>
+        <p class="price">Rs. 2,100</p>
+        <button>Add to Cart</button>
     </div>
-</section>
 
-<section id="about" class="container">
-    <h2>About Us</h2>
-    <p>GlowNest is based in Butwal, bringing global skincare standards to the heart of Nepal.</p>
-</section>
+    <!-- Product 3: Anua -->
+    <div class="product-card">
+        <img src="https://via.placeholder.com/200?text=Anua+Toner" alt="Anua Heartleaf 77% Toner">
+        <h3>Anua Heartleaf 77% Toner</h3>
+        <p class="price">Rs. 2,800</p>
+        <button>Add to Cart</button>
+    </div>
 
-<section id="contact" class="container">
-    <h2>Contact Us</h2>
-    <p>Location: Traffic Chowk, Butwal, Nepal</p>
+    <!-- Product 4: SKIN1004 -->
+    <div class="product-card">
+        <img src="https://via.placeholder.com/200?text=SKIN1004+Ampoule" alt="SKIN1004 Centella Ampoule">
+        <h3>SKIN1004 Centella Ampoule</h3>
+        <p class="price">Rs. 2,200</p>
+        <button>Add to Cart</button>
+    </div>
+
+    <!-- Product 5: Laneige -->
+    <div class="product-card">
+        <img src="https://via.placeholder.com/200?text=Laneige+Lip+Mask" alt="Laneige Lip Sleeping Mask">
+        <h3>Laneige Lip Sleeping Mask</h3>
+        <p class="price">Rs. 1,800</p>
+        <button>Add to Cart</button>
+    </div>
+
+    <!-- Product 6: Local/Nepali Organic Option -->
+    <div class="product-card">
+        <img src="https://via.placeholder.com/200?text=Nepali+Face+Mask" alt="Nepali Organic Face Pack">
+        <h3>Local Herbal Face Pack</h3>
+        <p class="price">Rs. 650</p>
+        <button>Add to Cart</button>
+    </div>
 </section>
 
 <footer>
-    <p>&copy; 2026 GlowNest Skincare. All rights reserved.</p>
+    <p>📍 GlowNest Skincare - Butwal, Nepal</p>
+    <p>Providing high-quality solutions for all skin types.</p>
 </footer>
 
 </body>
