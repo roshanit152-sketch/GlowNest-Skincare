@@ -3,53 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GlowNest Skincare | Butwal, Nepal</title>
-    <!-- Google Fonts & Lucide Icons -->
+    <title>GlowNest Skincare | Butwal's Premier K-Beauty & Local Skincare Hub</title>
+    <!-- Google Fonts for Minimalist Aesthetic -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/lucide@latest"></script>
+    
     <style>
+        /* CSS RESET & VARIABLES */
         :root {
-            --bg-primary: #FDFBF7;
-            --bg-secondary: #F7F4EB;
-            --text-main: #2C2A29;
-            --text-muted: #6B6661;
-            --accent-warm: #C49A82;
-            --accent-sage: #939E8D;
-            --border-color: #E6E1D6;
+            --bg-color: #FDFBF7;
+            --primary-color: #2C302E;
+            --accent-color: #C2A694;
+            --text-color: #4A4E4B;
             --white: #FFFFFF;
-            --font-serif: 'Playfair Display', serif;
+            --border-color: #EAE5DD;
+            --success-color: #6E8870;
+            --font-serif: 'Playfair Display', Georgia, serif;
             --font-sans: 'Plus Jakarta Sans', sans-serif;
-            --transition-smooth: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+            --shadow: 0 4px 20px rgba(44, 48, 46, 0.04);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            outline: none;
         }
 
         body {
             font-family: var(--font-sans);
-            background-color: var(--bg-primary);
-            color: var(--text-main);
-            overflow-x: hidden;
+            background-color: var(--bg-color);
+            color: var(--text-color);
             line-height: 1.6;
+            overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
         }
 
-        /* Utility Layouts */
-        .container {
-            max-width: 1300px;
-            margin: 0 auto;
-            padding: 0 40px;
+        /* TYPOGRAPHY */
+        h1, h2, h3, h4 {
+            font-family: var(--font-serif);
+            color: var(--primary-color);
+            font-weight: 500;
         }
 
         a {
             text-decoration: none;
             color: inherit;
+            transition: var(--transition);
         }
 
         button {
@@ -57,98 +58,106 @@
             border: none;
             background: none;
             font-family: var(--font-sans);
+            transition: var(--transition);
         }
 
-        /* Minimal Header */
+        /* ANNOUNCEMENT BAR */
+        .announcement-bar {
+            background-color: var(--primary-color);
+            color: var(--bg-color);
+            text-align: center;
+            padding: 8px 16px;
+            font-size: 0.8rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            font-weight: 500;
+        }
+
+        /* HEADER & NAVIGATION */
         header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 100;
-            background-color: rgba(253, 251, 247, 0.85);
-            backdrop-filter: blur(12px);
+            background-color: rgba(253, 251, 247, 0.95);
+            backdrop-filter: blur(10px);
             border-bottom: 1px solid var(--border-color);
-            transition: var(--transition-smooth);
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
 
-        .header-wrap {
+        .nav-container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 20px 40px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            height: 90px;
         }
 
         .logo {
             font-family: var(--font-serif);
-            font-size: 26px;
+            font-size: 1.8rem;
+            letter-spacing: 0.05em;
+            color: var(--primary-color);
             font-weight: 600;
-            letter-spacing: 1px;
         }
-
+        
         .logo span {
-            color: var(--accent-warm);
+            color: var(--accent-color);
         }
 
-        nav {
+        .nav-links {
             display: flex;
-            gap: 40px;
+            gap: 32px;
         }
 
-        .nav-link {
-            font-size: 14px;
-            font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            color: var(--text-muted);
+        .nav-links button {
+            font-size: 0.95rem;
+            font-weight: 400;
+            color: var(--text-color);
             position: relative;
-            padding: 8px 0;
-            transition: var(--transition-smooth);
+            padding: 4px 0;
         }
 
-        .nav-link:hover, .nav-link.active {
-            color: var(--text-main);
-        }
-
-        .nav-link::after {
+        .nav-links button::after {
             content: '';
             position: absolute;
             bottom: 0;
             left: 0;
             width: 0;
             height: 1px;
-            background-color: var(--accent-warm);
-            transition: var(--transition-smooth);
+            background-color: var(--primary-color);
+            transition: var(--transition);
         }
 
-        .nav-link.active::after, .nav-link:hover::after {
+        .nav-links button.active::after,
+        .nav-links button:hover::after {
             width: 100%;
+        }
+
+        .nav-links button.active {
+            color: var(--primary-color);
+            font-weight: 500;
         }
 
         .header-actions {
             display: flex;
             align-items: center;
-            gap: 25px;
+            gap: 24px;
         }
 
-        .icon-btn {
+        .cart-icon-btn {
             position: relative;
-            color: var(--text-main);
-            transition: var(--transition-smooth);
-        }
-
-        .icon-btn:hover {
-            color: var(--accent-warm);
-            transform: translateY(-1px);
+            font-size: 1.1rem;
+            color: var(--primary-color);
+            padding: 8px;
         }
 
         .cart-count {
             position: absolute;
-            top: -6px;
-            right: -8px;
-            background-color: var(--accent-warm);
+            top: -2px;
+            right: -2px;
+            background-color: var(--accent-color);
             color: var(--white);
-            font-size: 10px;
+            font-size: 0.7rem;
             font-weight: 600;
             width: 18px;
             height: 18px;
@@ -158,1373 +167,1517 @@
             justify-content: center;
         }
 
-        /* View Router Management */
-        .app-view {
+        /* PAGE MANAGEMENT SYSTEM */
+        .page-content {
             display: none;
-            padding-top: 90px;
-            animation: fadeIn 0.6s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            min-height: calc(100vh - 350px);
         }
 
-        .app-view.active-view {
+        .page-content.active {
             display: block;
+            opacity: 1;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(15px); }
-            to { opacity: 1; transform: translateY(0); }
+        /* UTILITY LAYOUT COMPONENTS */
+        .section-spacer {
+            padding: 100px 40px;
+            max-width: 1300px;
+            margin: 0 auto;
         }
 
-        /* Hero Section Component */
-        .hero {
-            padding: 100px 0;
-            display: grid;
-            grid-template-columns: 1.1fr 0.9fr;
-            align-items: center;
-            gap: 60px;
-            min-height: calc(100vh - 90px);
-        }
-
-        .hero-text h1 {
-            font-family: var(--font-serif);
-            font-size: 62px;
-            line-height: 1.15;
-            font-weight: 400;
-            margin-between: 24px;
-            color: var(--text-main);
-        }
-
-        .hero-text p {
-            font-size: 16px;
-            color: var(--text-muted);
-            margin-bottom: 40px;
-            max-width: 500px;
-        }
-
-        .btn-primary {
-            display: inline-flex;
-            align-items: center;
-            gap: 12px;
-            background-color: var(--text-main);
-            color: var(--white);
-            padding: 18px 36px;
-            font-size: 14px;
-            font-weight: 500;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            transition: var(--transition-smooth);
-            border: 1px solid var(--text-main);
-        }
-
-        .btn-primary:hover {
-            background-color: transparent;
-            color: var(--text-main);
-        }
-
-        .hero-image-frame {
-            position: relative;
-            border-radius: 4px;
-            overflow: hidden;
-            height: 550px;
-            background-color: var(--bg-secondary);
-        }
-
-        .hero-image-frame img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: var(--transition-smooth);
-        }
-
-        /* Section Headings */
-        .section-title {
+        .section-title-block {
             text-align: center;
             margin-bottom: 60px;
         }
 
-        .section-title h2 {
-            font-family: var(--font-serif);
-            font-size: 42px;
-            font-weight: 400;
-            margin-bottom: 12px;
-        }
-
-        .section-title p {
-            font-size: 14px;
-            color: var(--text-muted);
+        .section-title-block p {
+            font-family: var(--font-sans);
             text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        /* Grid Framework for Curated Categories */
-        .curated-categories {
-            padding: 80px 0;
-            background-color: var(--bg-secondary);
-        }
-
-        .category-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-        }
-
-        .category-card {
-            background-color: var(--white);
-            padding: 40px;
-            border: 1px solid var(--border-color);
-            transition: var(--transition-smooth);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .category-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--accent-warm);
-        }
-
-        .category-card h3 {
-            font-family: var(--font-serif);
-            font-size: 24px;
+            font-size: 0.8rem;
+            letter-spacing: 0.2em;
+            color: var(--accent-color);
             margin-bottom: 12px;
-            font-weight: 400;
         }
 
-        .category-card p {
-            font-size: 14px;
-            color: var(--text-muted);
-            margin-bottom: 25px;
+        .section-title-block h2 {
+            font-size: 2.5rem;
         }
 
-        .category-card .card-link {
-            font-size: 13px;
+        /* HOME PAGE STYLING */
+        .hero-section {
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(to right, rgba(245,240,234,0.9), rgba(245,240,234,0.4)), url('https://images.unsplash.com/photo-1608248597481-496100c8c836?q=80&w=1600&auto=format&fit=crop') no-repeat center center/cover;
+            padding: 0 80px;
+        }
+
+        .hero-text {
+            max-width: 600px;
+        }
+
+        .hero-text p.subtitle {
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            font-size: 0.85rem;
+            color: var(--accent-color);
+            margin-bottom: 16px;
+            font-weight: 500;
+        }
+
+        .hero-text h1 {
+            font-size: 4rem;
+            line-height: 1.15;
+            margin-bottom: 24px;
+        }
+
+        .hero-text p.desc {
+            font-size: 1.1rem;
+            color: var(--text-color);
+            margin-bottom: 40px;
+        }
+
+        .cta-btn {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 16px 36px;
+            font-size: 0.9rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            font-weight: 500;
+            border: 1px solid var(--primary-color);
+        }
+
+        .cta-btn:hover {
+            background-color: transparent;
+            color: var(--primary-color);
+        }
+
+        /* BRAND FILTERING & VALUES Section */
+        .brand-showcase {
+            background-color: #F7F3EC;
+            padding: 60px 40px;
+            text-align: center;
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .brand-logos-grid {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+
+        .brand-node {
+            font-family: var(--font-serif);
+            font-size: 1.4rem;
+            font-style: italic;
+            color: #A39B8F;
+            letter-spacing: 0.05em;
+        }
+
+        /* SHOP PAGE STYLING */
+        .shop-layout {
+            display: grid;
+            grid-template-columns: 240px 1fr;
+            gap: 40px;
+            align-items: start;
+        }
+
+        .shop-sidebar {
+            position: sticky;
+            top: 120px;
+        }
+
+        .filter-group {
+            margin-bottom: 36px;
+        }
+
+        .filter-group h4 {
+            font-family: var(--font-sans);
             font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            color: var(--accent-warm);
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
+            font-size: 0.8rem;
+            letter-spacing: 0.1em;
+            margin-bottom: 16px;
+            color: var(--primary-color);
         }
 
-        /* Shop Controls & Filters */
-        .shop-container {
-            padding: 60px 0 120px 0;
-        }
-
-        .shop-controls {
+        .filter-list {
+            list-style: none;
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 50px;
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 20px;
-        }
-
-        .filter-tabs {
-            display: flex;
-            gap: 30px;
+            flex-direction: column;
+            gap: 12px;
         }
 
         .filter-btn {
-            font-size: 14px;
-            font-weight: 500;
-            color: var(--text-muted);
-            padding: 8px 0;
-            position: relative;
-            transition: var(--transition-smooth);
-        }
-
-        .filter-btn.active, .filter-btn:hover {
-            color: var(--text-main);
-        }
-
-        .filter-btn.active::after {
-            content: '';
-            position: absolute;
-            bottom: -21px;
-            left: 0;
+            text-align: left;
+            font-size: 0.95rem;
+            color: var(--text-color);
             width: 100%;
-            height: 2px;
-            background-color: var(--text-main);
+            padding: 2px 0;
         }
 
-        .search-box {
-            position: relative;
-            width: 300px;
+        .filter-btn:hover, .filter-btn.active {
+            color: var(--accent-color);
+            padding-left: 6px;
         }
 
-        .search-box input {
-            width: 100%;
-            padding: 12px 16px 12px 40px;
-            border: 1px solid var(--border-color);
-            background-color: var(--white);
-            font-size: 14px;
-            transition: var(--transition-smooth);
-        }
-
-        .search-box input:focus {
-            border-color: var(--accent-warm);
-        }
-
-        .search-box i {
-            position: absolute;
-            left: 14px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: var(--text-muted);
-            pointer-events: none;
-        }
-
-        /* Dynamic Product Showcase Grid */
-        .product-grid {
+        /* PRODUCTS GRID SYSTEM */
+        .products-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             gap: 40px 30px;
         }
 
         .product-card {
-            group-origin: relative;
-            transition: var(--transition-smooth);
-        }
-
-        .product-img-wrapper {
-            position: relative;
-            height: 340px;
-            background-color: var(--bg-secondary);
-            overflow: hidden;
-            margin-bottom: 20px;
+            background-color: var(--white);
             border: 1px solid var(--border-color);
+            padding: 16px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
-        .product-img-wrapper img {
+        .product-badge {
+            position: absolute;
+            top: 24px;
+            left: 24px;
+            background-color: var(--primary-color);
+            color: var(--white);
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            padding: 4px 10px;
+            z-index: 10;
+        }
+
+        .product-badge.nepal-badge {
+            background-color: var(--success-color);
+        }
+
+        .product-image-frame {
+            background-color: var(--bg-color);
+            aspect-ratio: 1;
+            margin-bottom: 20px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .product-image-frame img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
-            transition: var(--transition-smooth);
+            object-fit: contain;
+            transition: var(--transition);
         }
 
-        .product-card:hover .product-img-wrapper img {
-            transform: scale(1.04);
+        .product-card:hover .product-image-frame img {
+            transform: scale(1.05);
         }
 
-        .product-tag {
-            position: absolute;
-            top: 15px;
-            left: 15px;
-            background-color: var(--white);
-            padding: 4px 10px;
-            font-size: 11px;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-            text-transform: uppercase;
-            border: 1px solid var(--border-color);
-        }
-
-        .add-to-cart-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            background-color: rgba(255, 255, 255, 0.95);
-            padding: 15px;
-            transform: translateY(100%);
-            transition: var(--transition-smooth);
+        .product-meta {
             text-align: center;
         }
 
-        .product-img-wrapper:hover .add-to-cart-overlay {
-            transform: translateY(0);
-        }
-
-        .overlay-btn {
-            width: 100%;
-            background-color: var(--text-main);
-            color: var(--white);
-            padding: 12px;
-            font-size: 12px;
-            font-weight: 600;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            transition: var(--transition-smooth);
-        }
-
-        .overlay-btn:hover {
-            background-color: var(--accent-warm);
-        }
-
-        .product-info h3 {
-            font-size: 15px;
-            font-weight: 500;
-            margin-bottom: 6px;
-            color: var(--text-main);
-        }
-
         .product-brand {
-            font-size: 12px;
-            color: var(--text-muted);
+            font-size: 0.75rem;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            letter-spacing: 0.1em;
+            color: var(--accent-color);
+            margin-bottom: 6px;
+            font-weight: 600;
+        }
+
+        .product-title {
+            font-size: 1.15rem;
             margin-bottom: 8px;
+            color: var(--primary-color);
+            min-height: 56px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .product-price {
-            font-size: 15px;
-            font-weight: 600;
-            color: var(--text-main);
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--primary-color);
+            margin-bottom: 16px;
         }
 
-        /* About Us Module styling */
-        .about-intro {
-            padding: 100px 0;
+        .add-to-cart-btn {
+            width: 100%;
+            border: 1px solid var(--primary-color);
+            padding: 12px;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-weight: 500;
+            background-color: transparent;
+            color: var(--primary-color);
+        }
+
+        .add-to-cart-btn:hover {
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
+
+        /* ABOUT US PAGE STYLING */
+        .about-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 80px;
             align-items: center;
         }
 
-        .about-intro-text h2 {
-            font-family: var(--font-serif);
-            font-size: 44px;
-            font-weight: 400;
-            margin-bottom: 30px;
+        .about-visual-frame {
+            position: relative;
         }
 
-        .about-intro-text p {
-            font-size: 16px;
-            color: var(--text-muted);
-            margin-bottom: 25px;
-            line-height: 1.8;
+        .about-image {
+            width: 100%;
+            height: 600px;
+            object-fit: cover;
+            border: 1px solid var(--border-color);
         }
 
-        .about-manifesto {
-            background-color: var(--bg-secondary);
-            padding: 100px 0;
-            text-align: center;
+        .about-badge-card {
+            position: absolute;
+            bottom: -30px;
+            right: -30px;
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 40px;
+            max-width: 280px;
+            border: 1px solid rgba(255,255,255,0.1);
         }
 
-        .manifesto-box {
-            max-width: 800px;
-            margin: 0 auto;
+        .about-badge-card h3 {
+            color: var(--white);
+            font-size: 2rem;
+            margin-bottom: 8px;
         }
 
-        .manifesto-box i {
-            color: var(--accent-warm);
-            margin-bottom: 30px;
+        .about-badge-card p {
+            font-size: 0.85rem;
+            color: var(--accent-color);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
         }
 
-        .manifesto-box h3 {
-            font-family: var(--font-serif);
-            font-size: 32px;
-            font-weight: 400;
-            line-height: 1.5;
-            margin-bottom: 30px;
+        .about-text-content h3 {
+            font-size: 2rem;
+            margin-bottom: 24px;
+            line-height: 1.3;
         }
 
-        /* Curated Nepalese Blog Framework */
-        .blog-container {
-            padding: 60px 0 120px 0;
+        .about-text-content p {
+            margin-bottom: 20px;
+            color: var(--text-color);
+            font-size: 1.05rem;
         }
 
+        /* BLOG PAGE STYLING (NEPALESE PERSPECTIVE) */
         .blog-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 40px 30px;
+            grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+            gap: 40px;
         }
 
         .blog-card {
             background-color: var(--white);
             border: 1px solid var(--border-color);
-            transition: var(--transition-smooth);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
         }
 
-        .blog-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--accent-warm);
-        }
-
-        .blog-img-wrapper {
+        .blog-image-frame {
             height: 240px;
             overflow: hidden;
-            background-color: var(--bg-secondary);
         }
 
-        .blog-img-wrapper img {
+        .blog-image-frame img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            transition: var(--transition);
         }
 
-        .blog-content {
+        .blog-card:hover .blog-image-frame img {
+            transform: scale(1.03);
+        }
+
+        .blog-card-body {
             padding: 30px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
         }
 
-        .blog-meta {
-            font-size: 12px;
-            color: var(--accent-warm);
+        .blog-tag {
+            font-size: 0.75rem;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 0.1em;
+            color: var(--accent-color);
+            font-weight: 600;
             margin-bottom: 12px;
-            font-weight: 600;
         }
 
-        .blog-content h3 {
-            font-family: var(--font-serif);
-            font-size: 22px;
-            line-height: 1.4;
-            margin-bottom: 15px;
-            font-weight: 400;
+        .blog-title {
+            font-size: 1.4rem;
+            margin-bottom: 16px;
+            line-height: 1.3;
         }
 
-        .blog-content p {
-            font-size: 14px;
-            color: var(--text-muted);
-            margin-bottom: 20px;
+        .blog-excerpt {
+            font-size: 0.95rem;
+            color: var(--text-color);
+            margin-bottom: 24px;
+            flex-grow: 1;
         }
 
-        .blog-readmore {
-            font-size: 13px;
-            font-weight: 600;
+        .read-more-btn {
+            align-self: flex-start;
+            font-size: 0.85rem;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            color: var(--text-main);
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
+            letter-spacing: 0.1em;
+            font-weight: 600;
+            color: var(--primary-color);
+            border-bottom: 1px solid var(--primary-color);
+            padding-bottom: 2px;
         }
 
-        /* Contact Details & Form Elements */
+        /* CONTACT PAGE STYLING */
         .contact-layout {
             display: grid;
-            grid-template-columns: 0.9fr 1.1fr;
+            grid-template-columns: 1fr 1fr;
             gap: 80px;
-            padding: 60px 0 120px 0;
         }
 
-        .contact-info-panel h3 {
-            font-family: var(--font-serif);
-            font-size: 28px;
-            font-weight: 400;
-            margin-bottom: 30px;
+        .contact-details h3 {
+            font-size: 1.8rem;
+            margin-bottom: 24px;
         }
 
-        .info-item {
+        .contact-info-list {
+            margin-bottom: 48px;
+        }
+
+        .contact-info-node {
             display: flex;
             gap: 20px;
-            margin-bottom: 35px;
+            margin-bottom: 24px;
+            align-items: flex-start;
         }
 
-        .info-item i {
-            color: var(--accent-warm);
-            margin-top: 4px;
+        .contact-info-node div h5 {
+            font-family: var(--font-sans);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent-color);
+            margin-bottom: 4px;
         }
 
-        .info-item h4 {
-            font-size: 16px;
-            font-weight: 500;
-            margin-bottom: 6px;
-        }
-
-        .info-item p {
-            font-size: 14px;
-            color: var(--text-muted);
+        .contact-info-node div p {
+            font-size: 1.05rem;
+            color: var(--primary-color);
         }
 
         .contact-form {
             background-color: var(--white);
-            padding: 50px;
             border: 1px solid var(--border-color);
+            padding: 40px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 20px;
         }
 
         .form-group {
-            margin-bottom: 25px;
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
         }
 
         .form-group label {
-            display: block;
-            font-size: 13px;
-            font-weight: 500;
-            margin-bottom: 8px;
+            font-size: 0.8rem;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            letter-spacing: 0.05em;
+            margin-bottom: 8px;
+            font-weight: 500;
         }
 
         .form-group input, .form-group textarea {
-            width: 100%;
-            padding: 14px;
             border: 1px solid var(--border-color);
+            padding: 12px 16px;
             font-family: var(--font-sans);
-            font-size: 14px;
-            background-color: var(--bg-primary);
-            transition: var(--transition-smooth);
+            background-color: var(--bg-color);
+            color: var(--primary-color);
+            outline: none;
+            transition: var(--transition);
         }
 
         .form-group input:focus, .form-group textarea:focus {
-            border-color: var(--accent-warm);
-            background-color: var(--white);
+            border-color: var(--accent-color);
         }
 
-        /* Shopping Cart Sliding Drawer */
+        .submit-btn {
+            background-color: var(--primary-color);
+            color: var(--white);
+            width: 100%;
+            padding: 16px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .submit-btn:hover {
+            background-color: var(--accent-color);
+        }
+
+        /* MODAL FLYOUT SHOPPING CART */
         .cart-drawer-backdrop {
             position: fixed;
             top: 0;
             left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.3);
+            width: 100vw;
+            height: 100vh;
+            background-color: rgba(44, 48, 46, 0.4);
             z-index: 1000;
+            display: none;
             opacity: 0;
-            pointer-events: none;
-            backdrop-filter: blur(4px);
-            transition: var(--transition-smooth);
+            transition: opacity 0.4s ease;
         }
 
         .cart-drawer-backdrop.open {
+            display: block;
             opacity: 1;
-            pointer-events: auto;
         }
 
         .cart-drawer {
-            position: absolute;
+            position: fixed;
             top: 0;
-            right: 0;
-            width: 460px;
-            height: 100%;
-            background-color: var(--white);
-            box-shadow: -10px 0 30px rgba(0, 0, 0, 0.05);
-            transform: translateX(100%);
-            transition: var(--transition-smooth);
+            right: -450px;
+            width: 450px;
+            height: 100vh;
+            background-color: var(--bg-color);
+            box-shadow: -10px 0 40px rgba(0,0,0,0.05);
+            z-index: 1001;
+            transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             display: flex;
-            flex-content: space-between;
             flex-direction: column;
-            padding: 40px;
         }
 
-        .cart-drawer-backdrop.open .cart-drawer {
-            transform: translateX(0);
+        .cart-drawer.open {
+            right: 0;
         }
 
         .cart-header {
+            padding: 30px;
+            border-bottom: 1px solid var(--border-color);
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 20px;
-            margin-bottom: 20px;
         }
 
         .cart-header h3 {
-            font-family: var(--font-serif);
-            font-size: 24px;
-            font-weight: 400;
+            font-size: 1.5rem;
         }
 
         .close-cart-btn {
-            color: var(--text-main);
-            transition: var(--transition-smooth);
+            font-size: 1.5rem;
+            color: var(--primary-color);
         }
 
-        .close-cart-btn:hover {
-            color: var(--accent-warm);
-        }
-
-        .cart-items-list {
+        .cart-items-container {
             flex-grow: 1;
             overflow-y: auto;
-            margin-bottom: 20px;
-            padding-right: 5px;
+            padding: 30px;
+        }
+
+        .empty-cart-msg {
+            text-align: center;
+            padding: 40px 0;
+            color: var(--accent-color);
         }
 
         .cart-item {
             display: flex;
-            gap: 20px;
-            padding: 20px 0;
+            gap: 16px;
+            margin-bottom: 24px;
+            padding-bottom: 24px;
             border-bottom: 1px solid var(--border-color);
             align-items: center;
         }
 
         .cart-item-img {
-            width: 80px;
-            height: 80px;
-            background-color: var(--bg-secondary);
+            width: 70px;
+            height: 70px;
+            background-color: var(--white);
             border: 1px solid var(--border-color);
-            overflow: hidden;
+            padding: 4px;
+            object-fit: contain;
         }
 
-        .cart-item-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .cart-item-details {
+        .cart-item-info {
             flex-grow: 1;
         }
 
-        .cart-item-details h4 {
-            font-size: 14px;
-            font-weight: 500;
+        .cart-item-title {
+            font-family: var(--font-serif);
+            font-size: 1rem;
+            color: var(--primary-color);
             margin-bottom: 4px;
         }
 
-        .cart-item-details p {
-            font-size: 13px;
-            color: var(--text-muted);
-            margin-bottom: 8px;
+        .cart-item-price {
+            font-size: 0.9rem;
+            color: var(--text-color);
         }
 
-        .cart-item-qty {
+        .cart-item-qty-actions {
             display: flex;
             align-items: center;
             gap: 12px;
-            font-size: 13px;
+            margin-top: 8px;
         }
 
-        .qty-adjust {
+        .qty-adjust-btn {
             width: 24px;
             height: 24px;
             border: 1px solid var(--border-color);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 12px;
-            transition: var(--transition-smooth);
-        }
-
-        .qty-adjust:hover {
-            border-color: var(--text-main);
-        }
-
-        .remove-item-btn {
-            color: var(--text-muted);
-            font-size: 12px;
-            text-decoration: underline;
-            margin-left: auto;
-            transition: var(--transition-smooth);
-        }
-
-        .remove-item-btn:hover {
-            color: var(--accent-warm);
+            font-size: 0.8rem;
+            background-color: var(--white);
         }
 
         .cart-footer {
+            padding: 30px;
             border-top: 1px solid var(--border-color);
-            padding-top: 25px;
+            background-color: var(--white);
         }
 
-        .cart-total-row {
+        .summary-row {
             display: flex;
             justify-content: space-between;
-            font-size: 16px;
-            font-weight: 600;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            font-weight: 500;
         }
 
-        /* Checkout Modal Window Overlay */
+        .checkout-btn {
+            background-color: var(--primary-color);
+            color: var(--white);
+            width: 100%;
+            padding: 16px;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-align: center;
+        }
+
+        .checkout-btn:hover {
+            background-color: var(--accent-color);
+        }
+
+        /* CHECKOUT MODAL WINDOW */
         .checkout-modal-backdrop {
             position: fixed;
             top: 0;
             left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.4);
+            width: 100vw;
+            height: 100vh;
+            background-color: rgba(44, 48, 46, 0.6);
             z-index: 2000;
-            opacity: 0;
-            pointer-events: none;
-            backdrop-filter: blur(5px);
-            display: flex;
+            display: none;
             align-items: center;
             justify-content: center;
-            transition: var(--transition-smooth);
+            padding: 20px;
         }
 
         .checkout-modal-backdrop.open {
-            opacity: 1;
-            pointer-events: auto;
+            display: flex;
         }
 
-        .checkout-modal {
-            background-color: var(--white);
+        .checkout-box {
+            background-color: var(--bg-color);
             width: 100%;
-            max-width: 650px;
-            padding: 50px;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+            max-width: 600px;
+            max-height: 90vh;
+            overflow-y: auto;
+            border: 1px solid var(--border-color);
+            padding: 40px;
             position: relative;
-            transform: scale(0.95);
-            transition: var(--transition-smooth);
         }
 
-        .checkout-modal-backdrop.open .checkout-modal {
-            transform: scale(1);
+        .close-checkout-btn {
+            position: absolute;
+            top: 24px;
+            right: 24px;
+            font-size: 1.5rem;
         }
 
-        .checkout-modal h3 {
-            font-family: var(--font-serif);
-            font-size: 30px;
-            font-weight: 400;
-            margin-bottom: 25px;
+        .checkout-box h3 {
+            font-size: 2rem;
+            margin-bottom: 24px;
             text-align: center;
         }
 
-        /* Footer System */
+        .checkout-summary-block {
+            background-color: var(--white);
+            border: 1px solid var(--border-color);
+            padding: 20px;
+            margin-bottom: 24px;
+        }
+
+        .checkout-summary-block h4 {
+            font-family: var(--font-sans);
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 0.1em;
+            margin-bottom: 12px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 8px;
+        }
+
+        /* FOOTER MODULE */
         footer {
-            background-color: var(--text-main);
-            color: var(--white);
-            padding: 80px 0 40px 0;
+            background-color: var(--primary-color);
+            color: #A39B8F;
+            padding: 80px 40px 40px 40px;
             border-top: 1px solid var(--border-color);
         }
 
         .footer-grid {
+            max-width: 1300px;
+            margin: 0 auto;
             display: grid;
-            grid-template-columns: 1.2fr 0.8fr 0.8fr 1.2fr;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
             gap: 60px;
             margin-bottom: 60px;
         }
 
-        .footer-col h3 {
-            font-family: var(--font-serif);
-            font-size: 22px;
-            margin-bottom: 25px;
-            font-weight: 400;
-        }
-
         .footer-col h4 {
-            font-size: 14px;
+            color: var(--white);
+            font-family: var(--font-sans);
+            font-size: 0.85rem;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 20px;
+            letter-spacing: 0.15em;
+            margin-bottom: 24px;
             font-weight: 600;
-            color: var(--accent-warm);
         }
 
         .footer-col p {
-            font-size: 14px;
-            color: #A39E99;
-            margin-bottom: 15px;
+            font-size: 0.95rem;
             line-height: 1.7;
+            margin-bottom: 16px;
         }
 
         .footer-links {
             list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
         }
 
-        .footer-links li {
-            margin-bottom: 12px;
+        .footer-links button {
+            color: #A39B8F;
+            text-align: left;
+            font-size: 0.95rem;
         }
 
-        .footer-links a {
-            font-size: 14px;
-            color: #A39E99;
-            transition: var(--transition-smooth);
-        }
-
-        .footer-links a:hover {
+        .footer-links button:hover {
             color: var(--white);
-            padding-left: 4px;
+        }
+
+        .newsletter-input-group {
+            display: flex;
+            border-bottom: 1px solid #4A4E4B;
+            padding-bottom: 8px;
+        }
+
+        .newsletter-input-group input {
+            background: transparent;
+            border: none;
+            outline: none;
+            color: var(--white);
+            font-family: var(--font-sans);
+            flex-grow: 1;
+            font-size: 0.9rem;
+        }
+
+        .newsletter-submit-btn {
+            color: var(--white);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
         }
 
         .footer-bottom {
-            border-top: 1px solid #3D3A39;
-            padding-top: 30px;
+            max-width: 1300px;
+            margin: 0 auto;
+            padding-top: 40px;
+            border-top: 1px solid #3A3E3B;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            font-size: 13px;
-            color: #A39E99;
+            font-size: 0.85rem;
         }
 
-        .empty-cart-msg {
-            text-align: center;
-            padding: 40px 0;
-            color: var(--text-muted);
-            font-style: italic;
+        /* RESPONSE MODAL SCREEN */
+        .toast-notification {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 12px 30px;
+            border-radius: 0;
+            font-size: 0.9rem;
+            letter-spacing: 0.05em;
+            z-index: 3000;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            box-shadow: 0 4px 30px rgba(0,0,0,0.1);
         }
 
-        /* Success screen configuration */
-        .success-screen {
-            text-align: center;
-            padding: 30px 0;
+        .toast-notification.show {
+            opacity: 1;
         }
-        .success-screen i {
-            color: var(--accent-sage);
-            margin-bottom: 20px;
+
+        /* RESPONSIVE DESIGN BREAKPOINTS */
+        @media (max-width: 1024px) {
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 40px;
+            }
+            .about-grid, .contact-layout, .shop-layout {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .hero-text h1 {
+                font-size: 3rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-container {
+                padding: 20px;
+                flex-direction: column;
+                gap: 16px;
+            }
+            .hero-section {
+                padding: 0 20px;
+            }
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            .cart-drawer {
+                width: 100%;
+                right: -100%;
+            }
         }
     </style>
 </head>
 <body>
 
-    <!-- Main Navigation Bar -->
+    <!-- ANNOUNCEMENT LINE -->
+    <div class="announcement-bar">
+        Free Delivery across Butwal & Bhairahawa on orders above Rs. 3,500
+    </div>
+
+    <!-- MAIN BRAND APP HEADER -->
     <header>
-        <div class="container header-wrap">
-            <a href="#" class="logo" onclick="navigateTo('home', event)">Glow<span>Nest</span></a>
-            <nav>
-                <a href="#" class="nav-link active" data-view="home" onclick="navigateTo('home', event)">Home</a>
-                <a href="#" class="nav-link" data-view="shop" onclick="navigateTo('shop', event)">Shop</a>
-                <a href="#" class="nav-link" data-view="about" onclick="navigateTo('about', event)">About Us</a>
-                <a href="#" class="nav-link" data-view="blog" onclick="navigateTo('blog', event)">Skincare Tips</a>
-                <a href="#" class="nav-link" data-view="contact" onclick="navigateTo('contact', event)">Contact</a>
+        <div class="nav-container">
+            <a href="#" class="logo" onclick="switchPage('home')">Glow<span>Nest</span></a>
+            <nav class="nav-links">
+                <button class="nav-tab-link active" id="tab-home" onclick="switchPage('home')">Home</button>
+                <button class="nav-tab-link" id="tab-shop" onclick="switchPage('shop')">Shop All</button>
+                <button class="nav-tab-link" id="tab-about" onclick="switchPage('about')">About Us</button>
+                <button class="nav-tab-link" id="tab-blog" onclick="switchPage('blog')">Skincare Tips</button>
+                <button class="nav-tab-link" id="tab-contact" onclick="switchPage('contact')">Contact</button>
             </nav>
             <div class="header-actions">
-                <button class="icon-btn" onclick="toggleCart(true)" aria-label="Open Cart">
-                    <i data-lucide="shopping-bag"></i>
-                    <span class="cart-count" id="cartCount">0</span>
+                <button class="cart-icon-btn" onclick="toggleCart(true)" aria-label="Open Shopping Bag">
+                    Shopping Bag (👜)
+                    <span class="cart-count" id="cart-badge-count">0</span>
                 </button>
             </div>
         </div>
     </header>
 
-    <!-- View Layer 1: Home View -->
-    <main id="homeView" class="app-view active-view">
-        <div class="container">
-            <section class="hero">
+    <!-- MAIN SINGLE PAGE TAB VIEWS CONTAINER -->
+    <main>
+        
+        <!-- HOME PAGE ROUTE -->
+        <div id="page-home" class="page-content active">
+            <section class="hero-section">
                 <div class="hero-text">
-                    <h1>Curated Skincare for Healthy, Radiating Skin.</h1>
-                    <p>Discover an aesthetic blend of highly sought-after Korean clinical solutions and pure, time-tested Nepalese botanical care, perfectly balanced for local skin microclimates.</p>
-                    <button class="btn-primary" onclick="navigateTo('shop', event)">
-                        Explore Collections <i data-lucide="arrow-right"></i>
-                    </button>
+                    <p class="subtitle">Curated Minimalist Skincare Hub</p>
+                    <h1>Honest Ingredients. Radiant Skin.</h1>
+                    <p class="desc">Discover a thoughtfully selected range of global Korean functional skincare and local Nepalese organic remedies, balanced perfectly for Nepalese skin textures.</p>
+                    <button class="cta-btn" onclick="switchPage('shop')">Explore Shop</button>
                 </div>
-                <div class="hero-image-frame">
-                    <img src="https://apackaginggroup.com/cdn/shop/articles/364128755_603289631976372_1185266058704950105_n_f9894c21-0d67-4a8b-8d5a-7b3c21050288_800x.jpg?v=1710804817" alt="Minimalist aesthetic clear cosmetic skincare glass bottles sitting on soft linen textile backdrop">
+            </section>
+
+            <section class="brand-showcase">
+                <div class="brand-logos-grid">
+                    <div class="brand-node">Beauty of Joseon</div>
+                    <div class="brand-node">Anua</div>
+                    <div class="brand-node">Skin1004 Centella</div>
+                    <div class="brand-node">Medicube</div>
+                    <div class="brand-node">Aura Herbs Nepal</div>
+                    <div class="brand-node">Himalayan Essential</div>
+                </div>
+            </section>
+
+            <section class="section-spacer">
+                <div class="section-title-block">
+                    <p>Handpicked Best Sellers</p>
+                    <h2>The Global & Local Cult Favorites</h2>
+                </div>
+                <div class="products-grid" id="homepage-featured-grid">
+                    <!-- Script dynamically renders high priority top-sellers here -->
                 </div>
             </section>
         </div>
 
-        <section class="curated-categories">
-            <div class="container">
-                <div class="section-title">
-                    <p>The Collections</p>
-                    <h2>Expert Curation Just for You</h2>
+        <!-- SHOP PAGE ROUTE -->
+        <div id="page-shop" class="page-content">
+            <div class="section-spacer">
+                <div class="section-title-block">
+                    <p>The Apothecary</p>
+                    <h2>Explore Curated Solutions</h2>
                 </div>
-                <div class="category-grid">
-                    <div class="category-card">
-                        <h3>Korean Clinical Cults</h3>
-                        <p>Experience dynamic glass skin textures with trending formulations including Centella, Anua, and Beauty of Joseon.</p>
-                        <a href="#" class="card-link" onclick="filterShopOrigin('Korean', event)">Shop K-Beauty <i data-lucide="arrow-right"></i></a>
-                    </div>
-                    <div class="category-card">
-                        <h3>Nepalese Himalayan Botanicals</h3>
-                        <p>Locally active therapeutic ingredients formulated by legendary home-grown brands like Aura Herbs & Himalayan essentials.</p>
-                        <a href="#" class="card-link" onclick="filterShopOrigin('Nepalese', event)">Shop Indigenous <i data-lucide="arrow-right"></i></a>
-                    </div>
-                    <div class="category-card">
-                        <h3>Barrier Protection Essentials</h3>
-                        <p>Targeted broad-spectrum sunscreens, deep moisturizers, and repairing toners made for intense high-altitude UV indices.</p>
-                        <a href="#" class="card-link" onclick="filterShopCategory('Sunscreen', event)">Browse Sun Defense <i data-lucide="arrow-right"></i></a>
+                
+                <div class="shop-layout">
+                    <!-- Filters Sidebar -->
+                    <aside class="shop-sidebar">
+                        <div class="filter-group">
+                            <h4>Origin Segment</h4>
+                            <ul class="filter-list">
+                                <li><button class="filter-btn active" id="origin-all" onclick="filterProducts('origin', 'all')">All Products</button></li>
+                                <li><button class="filter-btn" id="origin-korean" onclick="filterProducts('origin', 'korean')">Korean Pioneers (K-Beauty)</button></li>
+                                <li><button class="filter-btn" id="origin-nepalese" onclick="filterProducts('origin', 'nepalese')">Nepalese Botanicals</button></li>
+                            </ul>
+                        </div>
+                        <div class="filter-group">
+                            <h4>Product Categories</h4>
+                            <ul class="filter-list">
+                                <li><button class="filter-btn active" id="cat-all" onclick="filterProducts('category', 'all')">Show Everything</button></li>
+                                <li><button class="filter-btn" id="cat-facewash" onclick="filterProducts('category', 'facewash')">Cleansers & Face Wash</button></li>
+                                <li><button class="filter-btn" id="cat-toner" onclick="filterProducts('category', 'toner')">Hydrating Toners</button></li>
+                                <li><button class="filter-btn" id="cat-serum" onclick="filterProducts('category', 'serum')">Active Serums & Ampoules</button></li>
+                                <li><button class="filter-btn" id="cat-moisturizer" onclick="filterProducts('category', 'moisturizer')">Moisturizers</button></li>
+                                <li><button class="filter-btn" id="cat-sunscreen" onclick="filterProducts('category', 'sunscreen')">Sunscreens (Sun Protection)</button></li>
+                                <li><button class="filter-btn" id="cat-lipbalm" onclick="filterProducts('category', 'lipbalm')">Lip Nutrition</button></li>
+                                <li><button class="filter-btn" id="cat-vitamins" onclick="filterProducts('category', 'vitamins')">Nutritional Skincare & Vitamins</button></li>
+                            </ul>
+                        </div>
+                    </aside>
+
+                    <!-- Catalog Display Grid -->
+                    <div class="products-grid" id="main-catalog-grid">
+                        <!-- Dynamic list loading via JS engine -->
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+
+        <!-- ABOUT US PAGE ROUTE -->
+        <div id="page-about" class="page-content">
+            <div class="section-spacer">
+                <div class="about-grid">
+                    <div class="about-visual-frame">
+                        <img src="https://images.unsplash.com/photo-1556228720-195a672e8a03?q=80&w=800&auto=format&fit=crop" alt="GlowNest Boutique Space Aesthetic" class="about-image">
+                        <div class="about-badge-card">
+                            <h3>Est. 2024</h3>
+                            <p>Based in Milanpath, Butwal, Nepal</p>
+                        </div>
+                    </div>
+                    <div class="about-text-content">
+                        <div class="section-title-block" style="text-align: left; margin-bottom: 30px;">
+                            <p>Our Philosophy</p>
+                            <h2>Bridging Seoul's Advanced Research with Himalayan Purity</h2>
+                        </div>
+                        <p>Welcome to GlowNest Skincare. Born out of the need to provide accessible, genuine, and high-performance skincare solutions to the community of Butwal and beyond, we cut out the noise to focus purely on what works for your skin.</p>
+                        <p>Nepalese skin parameters face unique environmental pressures—extreme UV indexes, dust-heavy urban environments, and intense seasonal transitions from hyper-humid monsoons to dry winters. We realized that standard imports don't always respect these parameters.</p>
+                        <p>That is why we curate a specialized cross-over collection: internationally acclaimed **Korean Skincare** systems (like Anua, Beauty of Joseon, Medicube) known for high soothing properties, paired side-by-side with modern **Nepalese Clean Cosmetics** (Aura Herbs, Himalayan Essentials) that utilize cold-pressed high-altitude herbs.</p>
+                        <p>Every dynamic item in our inventory is guaranteed authentic, temperature-stored safely at our central branch in Butwal, and delivered directly to your doorstep with full component accountability.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- BLOG / SKINCARE TIPS ROUTE (NEPAL SPECIFIC) -->
+        <div id="page-blog" class="page-content">
+            <div class="section-spacer">
+                <div class="section-title-block">
+                    <p>Local Expert Guidance</p>
+                    <h2>The Himalayan Skin Chronicles</h2>
+                </div>
+                
+                <div class="blog-grid">
+                    <!-- Article 1 -->
+                    <article class="blog-card">
+                        <div class="blog-image-frame">
+                            <img src="https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?q=80&w=600&auto=format&fit=crop" alt="Sunscreen Protection concept">
+                        </div>
+                        <div class="blog-card-body">
+                            <span class="blog-tag">UV Defense Tips</span>
+                            <h3 class="blog-title">Surviving the Terai Sun: Why Standard Western Sunscreens Fail in Butwal</h3>
+                            <p class="blog-excerpt">The intense summer heat of Butwal demands sun protection that handles sweat and sebum without blocking pores. Discover why lightweight Korean rice-based sunscreens are perfect for our humid days.</p>
+                            <button class="read-more-btn" onclick="openToast('Full blog framework integration coming soon!')">Read Article</button>
+                        </div>
+                    </article>
+
+                    <!-- Article 2 -->
+                    <article class="blog-card">
+                        <div class="blog-image-frame">
+                            <img src="https://images.unsplash.com/photo-1601049541289-9b1b7bbbfe19?q=80&w=600&auto=format&fit=crop" alt="Centella Asiatica soothing element">
+                        </div>
+                        <div class="blog-card-body">
+                            <span class="blog-tag">Barrier Repairs</span>
+                            <h3 class="blog-title">Centella Asiatica vs. Local Neem: Calming Aggressive Dust Allergies</h3>
+                            <p class="blog-excerpt">Urban pollution along the Siddhartha Highway can compromise your skin barrier quickly. Learn how combining local Ayurvedic principles with Korean structural Centella ampoules can drastically cut down chronic redness.</p>
+                            <button class="read-more-btn" onclick="openToast('Full blog framework integration coming soon!')">Read Article</button>
+                        </div>
+                    </article>
+
+                    <!-- Article 3 -->
+                    <article class="blog-card">
+                        <div class="blog-image-frame">
+                            <img src="https://images.unsplash.com/photo-1526947425960-945c6e72858f?q=80&w=600&auto=format&fit=crop" alt="Double cleansing method">
+                        </div>
+                        <div class="blog-card-body">
+                            <span class="blog-tag">Routine Basics</span>
+                            <h3 class="blog-title">The Complete Guide to Double Cleansing for the Everyday Nepalese Commuter</h3>
+                            <p class="blog-excerpt">Water alone cannot lift vehicle emissions and persistent sunscreen residue off your skin. We break down the absolute minimum steps needed to perform a damage-free oil-to-foam cleanse at night.</p>
+                            <button class="read-more-btn" onclick="openToast('Full blog framework integration coming soon!')">Read Article</button>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </div>
+
+        <!-- CONTACT PAGE ROUTE -->
+        <div id="page-contact" class="page-content">
+            <div class="section-spacer">
+                <div class="contact-layout">
+                    <!-- Info Panel -->
+                    <div class="contact-details">
+                        <div class="section-title-block" style="text-align: left; margin-bottom: 40px;">
+                            <p>Connect With Us</p>
+                            <h2>We Are Stationed in the Heart of Butwal</h2>
+                        </div>
+                        <p style="margin-bottom: 30px; font-size: 1.05rem;">Need personalized guidance on building a regime? Drop by our apothecary or message our team directly. We provide free personal assessments at our experience center.</p>
+                        
+                        <div class="contact-info-list">
+                            <div class="contact-info-node">
+                                <p style="font-size: 1.5rem;">📍</p>
+                                <div>
+                                    <h5>Flagship Experience Nest</h5>
+                                    <p>Milanpath, Ward No. 9 (Near Traffic Chowk), Butwal, Rupandehi, Nepal</p>
+                                </div>
+                            </div>
+                            <div class="contact-info-node">
+                                <p style="font-size: 1.5rem;">📞</p>
+                                <div>
+                                    <h5>Direct Hotline Support</h5>
+                                    <p>+977-71-550123 / +977-98570XXXXX</p>
+                                </div>
+                            </div>
+                            <div class="contact-info-node">
+                                <p style="font-size: 1.5rem;">✉️</p>
+                                <div>
+                                    <h5>Electronic Mail Concierge</h5>
+                                    <p>care@glownestnepal.com</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Interactive Form Wrapper -->
+                    <div class="contact-form">
+                        <form id="contact-form-element" onsubmit="handleContactSubmit(event)">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="c-name">Your full name</label>
+                                    <input type="text" id="c-name" placeholder="Sita Shrestha" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="c-phone">Phone Number</label>
+                                    <input type="tel" id="c-phone" placeholder="98XXXXXXXX" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="c-email">Email Address</label>
+                                <input type="email" id="c-email" placeholder="sita@gmail.com" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="c-message">Your Skin Concerns or Inquiries</label>
+                                <textarea id="c-message" rows="5" placeholder="Tell us about your skin type (e.g., oily skin, dry skin) or query..." required></textarea>
+                            </div>
+                            <button type="submit" class="submit-btn">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </main>
 
-    <!-- View Layer 2: Shop View -->
-    <div id="shopView" class="app-view">
-        <div class="container shop-container">
-            <div class="section-title">
-                <p>Curated Catalog</p>
-                <h2>Premium Skincare Selection</h2>
+    <!-- SLIDEOUT MODAL CART SYSTEM -->
+    <div class="cart-drawer-backdrop" id="cart-drawer-bg" onclick="toggleCart(false)"></div>
+    <div class="cart-drawer" id="cart-drawer-element">
+        <div class="cart-header">
+            <h3>Shopping Bag</h3>
+            <button class="close-cart-btn" onclick="toggleCart(false)">✕</button>
+        </div>
+        <div class="cart-items-container" id="cart-items-list-root">
+            <!-- Items injected by JS script logic -->
+            <div class="empty-cart-msg">Your bag is currently empty.</div>
+        </div>
+        <div class="cart-footer">
+            <div class="summary-row">
+                <span>Estimated Subtotal:</span>
+                <span id="cart-total-amount">Rs. 0</span>
             </div>
-
-            <div class="shop-controls">
-                <div class="filter-tabs">
-                    <button class="filter-btn active" onclick="filterProducts('all', this)">All Formulation</button>
-                    <button class="filter-btn" onclick="filterProducts('Korean', this)">Korean Routine</button>
-                    <button class="filter-btn" onclick="filterProducts('Nepalese', this)">Nepalese Botanical</button>
-                    <button class="filter-btn" onclick="filterProducts('Serum', this)">Serums & Ampoules</button>
-                    <button class="filter-btn" onclick="filterProducts('Sunscreen', this)">Sunscreens</button>
-                </div>
-                <div class="search-box">
-                    <i data-lucide="search"></i>
-                    <input type="text" id="productSearch" placeholder="Search brands, products..." oninput="handleSearch()">
-                </div>
-            </div>
-
-            <div class="product-grid" id="productGridContainer">
-                <!-- Products dynamically injected via JavaScript engine -->
-            </div>
+            <button class="checkout-btn" onclick="openCheckoutModal()">Proceed to Order Checkout</button>
         </div>
     </div>
 
-    <!-- View Layer 3: About Us View -->
-    <div id="aboutView" class="app-view">
-        <section class="container about-intro">
-            <div class="about-intro-text">
-                <h2>Bridging Eastern Innovation with Traditional Roots.</h2>
-                <p>Based in the vibrant heart of Butwal, GlowNest Skincare emerged from a clear necessity: providing authenticated, climate-appropriate global skin therapies to modern consumers across Nepal.</p>
-                <p>We realize that the interplay of high atmospheric UV exposure, seasonal urban dust, and shifting humidity trends requires customized regimens. That's why we carefully integrate top-tier Korean skincare systems with pure Himalayan botanical active formulas.</p>
-            </div>
-            <div class="hero-image-frame" style="height: 480px;">
-                <img src="https://res.cloudinary.com/jnto/image/upload/w_720,h_480,c_fill,f_auto,fl_lossy,q_60/v1/media/filer_public/3b/6a/3b6ac198-8be2-46be-bf5d-374770eba857/blog_1_cosmetics_03_1_sawcnr" alt="Organic plant leaves and herbal extracts surrounding natural wellness cosmetics bottles">
-            </div>
-        </section>
-
-        <section class="about-manifesto">
-            <div class="container manifesto-box">
-                <i data-lucide="sparkles" size="36"></i>
-                <h3>"We promise unequivocal raw authentication. Every drop, every formulation is officially registered, carefully vetted, and stored in precision temperature-regulated environments in Butwal."</h3>
-                <p>— The GlowNest Founders</p>
-            </div>
-        </section>
-    </div>
-
-    <!-- View Layer 4: Blog View (Climate Skincare for Nepalese Skin) -->
-    <div id="blogView" class="app-view">
-        <div class="container blog-container">
-            <div class="section-title">
-                <p>The Glow Journal</p>
-                <h2>Skincare Insights for Nepalese Skin</h2>
-            </div>
-            <div class="blog-grid">
-                <article class="blog-card">
-                    <div class="blog-img-wrapper">
-                        <img src="http://www.theprettypicks.com/cdn/shop/articles/BOJ_vs_Anua_blog_cover_1.webp?v=1761830067" alt="Aesthetic pastel tone display of Korean skincare brand products comparison">
-                    </div>
-                    <div class="blog-content">
-                        <div class="blog-meta">Climate Therapy • Monsoon Edition</div>
-                        <h3>Managing Butwal's Humidity: The K-Beauty Layering Strategy</h3>
-                        <p>How to use lightweight watery toners like Anua 77% and Centella ampoules to keep skin hydrated without causing pore clogging or breakouts during extreme seasonal shifts.</p>
-                        <a href="#" class="blog-readmore" onclick="alert('Full research articles coming soon! Keep following the Glow Journal.')">Read Article <i data-lucide="arrow-right"></i></a>
-                    </div>
-                </article>
-
-                <article class="blog-card">
-                    <div class="blog-img-wrapper">
-                        <img src="https://img.magnific.com/premium-photo/happy-man-face-cream-skincare-portrait-moisturizer-healthy-aesthetic-glowing-skin-grey-studio-background-smile-headshot-male-model-facial-dermatology-product-cosmetics-wellness_590464-94316.jpg?semt=ais_hybrid&w=740&q=80" alt="Male skin model with dynamic bright glow wearing facial cream dots smiling">
-                    </div>
-                    <div class="blog-content">
-                        <div class="blog-meta">UV Protection • Essential</div>
-                        <h3>Defeating High Altitude UV Radiation in Terai Plains</h3>
-                        <p>Sunscreens aren't optional. Learn why broad-spectrum Korean filters combined with local calming antioxidants keep dark spots and premature aging away.</p>
-                        <a href="#" class="blog-readmore" onclick="alert('Full research articles coming soon! Keep following the Glow Journal.')">Read Article <i data-lucide="arrow-right"></i></a>
-                    </div>
-                </article>
-
-                <article class="blog-card">
-                    <div class="blog-img-wrapper">
-                        <img src="https://apackaginggroup.com/cdn/shop/articles/364128755_603289631976372_1185266058704950105_n_f9894c21-0d67-4a8b-8d5a-7b3c21050288_800x.jpg?v=1710804817" alt="Clean white skincare products aesthetic shot">
-                    </div>
-                    <div class="blog-content">
-                        <div class="blog-meta">Indigenous Science • Botanicals</div>
-                        <h3>The Skin Repair Power of Aura Herbs Neem & Turmeric</h3>
-                        <p>Diving into traditional wisdom. Why local extracts have incredible anti-inflammatory value when dealing with modern urban airborne pollutants.</p>
-                        <a href="#" class="blog-readmore" onclick="alert('Full research articles coming soon! Keep following the Glow Journal.')">Read Article <i data-lucide="arrow-right"></i></a>
-                    </div>
-                </article>
-            </div>
-        </div>
-    </div>
-
-    <!-- View Layer 5: Contact View -->
-    <div id="contactView" class="app-view">
-        <div class="container contact-layout">
-            <div class="contact-info-panel">
-                <h3>Visit The GlowNest Nest</h3>
-                <p style="color: var(--text-muted); margin-bottom: 40px;">Have structural questions regarding product combinations or order tracking? Drop by our physical boutique or write to our support team.</p>
-                
-                <div class="info-item">
-                    <i data-lucide="map-pin"></i>
-                    <div>
-                        <h4>Boutique Location</h4>
-                        <p>Milanchowk-08, Butwal, Rupandehi, Nepal</p>
-                    </div>
-                </div>
-                <div class="info-item">
-                    <i data-lucide="phone"></i>
-                    <div>
-                        <h4>Direct Line</h4>
-                        <p>+977-71-550123 / +977-98570XXXXX</p>
-                    </div>
-                </div>
-                <div class="info-item">
-                    <i data-lucide="mail"></i>
-                    <div>
-                        <h4>Digital Mailbox</h4>
-                        <p>care@glownestnepal.com</p>
-                    </div>
+    <!-- PERSISTENT CHECKOUT MODAL WINDOW -->
+    <div class="checkout-modal-backdrop" id="checkout-modal-root">
+        <div class="checkout-box">
+            <button class="close-checkout-btn" onclick="closeCheckoutModal()">✕</button>
+            <h3>Complete Purchase</h3>
+            
+            <div class="checkout-summary-block">
+                <h4>Items Ordered</h4>
+                <div id="checkout-items-breakdown"></div>
+                <div class="summary-row" style="margin-top:16px; font-size:1rem; border-top:1px solid #F5F0EA; padding-top:12px;">
+                    <span>Total Bill:</span>
+                    <strong id="checkout-grand-total">Rs. 0</strong>
                 </div>
             </div>
 
-            <form class="contact-form" onsubmit="handleContactSubmit(event)">
+            <form onsubmit="processFinalOrder(event)">
                 <div class="form-group">
-                    <label for="c_name">Full Name</label>
-                    <input type="text" id="c_name" required placeholder="Aayush Shrestha">
+                    <label for="bill-name">Receiver Full Name</label>
+                    <input type="text" id="bill-name" required placeholder="Ram Bahadur">
                 </div>
                 <div class="form-group">
-                    <label for="c_email">Email Address</label>
-                    <input type="email" id="c_email" required placeholder="aayush@gmail.com">
+                    <label for="bill-phone">Contact Mobile Number</label>
+                    <input type="tel" id="bill-phone" required placeholder="98470XXXXX">
                 </div>
                 <div class="form-group">
-                    <label for="c_msg">Your Consultation Message</label>
-                    <textarea id="c_msg" rows="5" required placeholder="Describe your skin type or inquiry..."></textarea>
+                    <label for="bill-address">Delivery Address within Butwal Area</label>
+                    <input type="text" id="bill-address" required placeholder="Golpark, Butwal-3">
                 </div>
-                <button type="submit" class="btn-primary" style="width: 100%; justify-content: center;">Send Message</button>
+                <div class="form-group">
+                    <label for="bill-payment">Payment Method Selection</label>
+                    <select id="bill-payment" style="border: 1px solid var(--border-color); padding: 12px; background-color: var(--white); outline:none;" required>
+                        <option value="cod">Cash on Delivery (COD) inside Butwal</option>
+                        <option value="fonepay">FonePay QR Transfer on Delivery</option>
+                        <option value="esewa">eSewa Wallet Pre-payment</option>
+                    </select>
+                </div>
+                <button type="submit" class="submit-btn" style="background-color: var(--success-color); margin-top: 10px;">Place Order Now</button>
             </form>
         </div>
     </div>
 
-    <!-- Component: Shopping Cart Slide-out Drawer Panel -->
-    <div class="cart-drawer-backdrop" id="cartDrawerBackdrop" onclick="toggleCart(false)">
-        <div class="cart-drawer" onclick="event.stopPropagation()">
-            <div class="cart-header">
-                <h3>Your Nest Cart</h3>
-                <button class="close-cart-btn" onclick="toggleCart(false)"><i data-lucide="x"></i></button>
-            </div>
-            <div class="cart-items-list" id="cartItemsContainer">
-                <!-- Cart items dynamically rendered -->
-            </div>
-            <div class="cart-footer">
-                <div class="cart-total-row">
-                    <span>Subtotal:</span>
-                    <span id="cartSubtotalText">Rs. 0</span>
-                </div>
-                <button class="btn-primary" style="width: 100%; justify-content: center; padding: 20px;" onclick="openCheckoutModal()">Proceed to Checkout</button>
-            </div>
-        </div>
-    </div>
+    <!-- NOTIFICATION INTERFACE SYSTEM -->
+    <div class="toast-notification" id="toast-root-banner">Product added to bag successfully</div>
 
-    <!-- Component: Minimal Checkout Overlay Modal -->
-    <div class="checkout-modal-backdrop" id="checkoutModalBackdrop" onclick="closeCheckoutModal()">
-        <div class="checkout-modal" onclick="event.stopPropagation()">
-            <button class="close-cart-btn" style="position: absolute; top:25px; right:25px;" onclick="closeCheckoutModal()"><i data-lucide="x"></i></button>
-            <div id="checkoutModalContent">
-                <h3>Secure Settlement</h3>
-                <form onsubmit="processOrderPlacement(event)">
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
-                        <div class="form-group">
-                            <label>First Name</label>
-                            <input type="text" required placeholder="Sita">
-                        </div>
-                        <div class="form-group">
-                            <label>Last Name</label>
-                            <input type="text" required placeholder="Thapa">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label>Delivery Destination Address (Within Butwal / Nepal)</label>
-                        <input type="text" required placeholder="Amarpath, Ward 4, Butwal">
-                    </div>
-                    <div class="form-group">
-                        <label>Contact Phone Number</label>
-                        <input type="tel" required placeholder="98XXXXXXXX">
-                    </div>
-                    <div class="form-group">
-                        <label>Payment Selection</label>
-                        <select style="width:100%; padding:14px; border:1px solid var(--border-color); background-color: var(--bg-primary); font-family:var(--font-sans);" required>
-                            <option value="cod">Cash on Delivery (Available across Butwal)</option>
-                            <option value="esewa">eSewa / Khalti Digital Transfer</option>
-                        </select>
-                    </div>
-                    <button type="submit" class="btn-primary" style="width:100%; justify-content:center; margin-top:15px; padding:18px;">Confirm and Place Order</button>
-                </form>
-            </div>
-        </div>
-    </div>
-
-    <!-- Footer Module -->
+    <!-- FOOTER PRESENTATION MODULE -->
     <footer>
-        <div class="container footer-grid">
+        <div class="footer-grid">
             <div class="footer-col">
-                <h3 class="logo" style="color: var(--white)">Glow<span>Nest</span></h3>
-                <p>Curating authentic local botanical science and global skincare solutions to safeguard skin health across Nepal.</p>
+                <a href="#" class="logo" style="color:var(--white); margin-bottom:20px; display:inline-block;">Glow<span>Nest</span></a>
+                <p>Curating clean, result-oriented, functional cosmetics for the modern Nepalese demographic. Proudly working from Butwal to support honest formulation awareness.</p>
             </div>
             <div class="footer-col">
-                <h4>Discover</h4>
+                <h4>Explore Links</h4>
                 <ul class="footer-links">
-                    <li><a href="#" onclick="filterShopOrigin('Korean', event)">Korean Routine</a></li>
-                    <li><a href="#" onclick="filterShopOrigin('Nepalese', event)">Nepalese Essentials</a></li>
-                    <li><a href="#" onclick="filterShopCategory('Serum', event)">Serums & Actives</a></li>
-                    <li><a href="#" onclick="filterShopCategory('Sunscreen', event)">Sun Protection</a></li>
+                    <li><button onclick="switchPage('home')">Home View</button></li>
+                    <li><button onclick="switchPage('shop')">Online Boutique Catalog</button></li>
+                    <li><button onclick="switchPage('about')">Our Roots & Ethics</button></li>
+                    <li><button onclick="switchPage('blog')">Skin Blog Content</button></li>
+                    <li><button onclick="switchPage('contact')">Connect Address</button></li>
                 </ul>
             </div>
             <div class="footer-col">
-                <h4>Boutique</h4>
-                <ul class="footer-links">
-                    <li><a href="#" onclick="navigateTo('about', event)">Our Philosophy</a></li>
-                    <li><a href="#" onclick="navigateTo('blog', event)">The Glow Journal</a></li>
-                    <li><a href="#" onclick="navigateTo('contact', event)">Connect</a></li>
+                <h4>Brands Stocked</h4>
+                <ul class="footer-links" style="pointer-events: none;">
+                    <li>Anua Skincare</li>
+                    <li>Beauty of Joseon</li>
+                    <li>Skin1004 Centella</li>
+                    <li>Medicube Lab</li>
+                    <li>Aura Herbs Nepal</li>
                 </ul>
             </div>
             <div class="footer-col">
-                <h4>Hours</h4>
-                <p>Sunday - Friday: 10:00 AM - 7:30 PM</p>
-                <p>Saturday: Closed / Virtual consultation open</p>
-                <p style="font-size: 13px; color: var(--accent-warm);"><i data-lucide="map-pin" size="12" style="display:inline; vertical-align:middle; margin-right:4px;"></i>Butwal, Rupandehi, Nepal</p>
+                <h4>Community Dispatch</h4>
+                <p>Subscribe to receive custom high-altitude routine adjustments, sales drop access alerts, and expert guides.</p>
+                <div class="newsletter-input-group">
+                    <input type="email" placeholder="yourname@gmail.com" aria-label="Newsletter email input">
+                    <button class="newsletter-submit-btn" onclick="openToast('Thank you for connecting with us!')">Join</button>
+                </div>
             </div>
         </div>
-        <div class="container footer-bottom">
-            <p>&copy; 2026 GlowNest Skincare Inc. Crafted for absolute purity.</p>
-            <p>Authentication Guaranteed • Registered Imports</p>
+        <div class="footer-bottom">
+            <p>&copy; 2026 GlowNest Skincare Inc. All Rights Reserved. Located at Milanpath, Butwal, Nepal.</p>
+            <p>Designed Minimalist &bull; Hand-packaged with care</p>
         </div>
     </footer>
 
-    <!-- Comprehensive Business Logic System & State Architecture -->
+    <!-- INTERACTIVE JAVASCRIPT APPLICATION CORE MODULE -->
     <script>
-        // Central Repository of Market Products (K-Beauty & Native Nepalese favorites)
-        const PRODUCT_DATABASE = [
-            { id: 1, name: "Centella Ampoule 100ml", brand: "Skin1004", category: "Serum", origin: "Korean", price: 3200, img: "https://http://www.theprettypicks.com/cdn/shop/articles/BOJ_vs_Anua_blog_cover_1.webp?v=1761830067", tag: "Best Seller" },
-            { id: 2, name: "Relief Sun : Rice + Probiotics SPF50", brand: "Beauty of Joseon", category: "Sunscreen", origin: "Korean", price: 2900, img: "https://apackaginggroup.com/cdn/shop/articles/364128755_603289631976372_1185266058704950105_n_f9894c21-0d67-4a8b-8d5a-7b3c21050288_800x.jpg?v=1710804817", tag: "Trending" },
-            { id: 3, name: "Heartleaf 77% Soothing Toner", brand: "Anua", category: "Toner", origin: "Korean", price: 3100, img: "https://http://www.theprettypicks.com/cdn/shop/articles/BOJ_vs_Anua_blog_cover_1.webp?v=1761830067", tag: "Hydrating Cult" },
-            { id: 4, name: "Zero Pore Pad 2.0", brand: "Medicube", category: "Toner", origin: "Korean", price: 3800, img: "https://apackaginggroup.com/cdn/shop/articles/364128755_603289631976372_1185266058704950105_n_f9894c21-0d67-4a8b-8d5a-7b3c21050288_800x.jpg?v=1710804817", tag: "Pore Control" },
-            { id: 5, name: "Himalayan Neem Face Wash", brand: "Himalaya Essentials", category: "Face Wash", origin: "Nepalese", price: 450, img: "https://res.cloudinary.com/jnto/image/upload/w_720,h_480,c_fill,f_auto,fl_lossy,q_60/v1/media/filer_public/3b/6a/3b6ac198-8be2-46be-bf5d-374770eba857/blog_1_cosmetics_03_1_sawcnr", tag: "Classic Care" },
-            { id: 6, name: "Pure Sandalwood & Neem Elixir", brand: "Aura Herbs", category: "Serum", origin: "Nepalese", price: 1650, img: "https://res.cloudinary.com/jnto/image/upload/w_720,h_480,c_fill,f_auto,fl_lossy,q_60/v1/media/filer_public/3b/6a/3b6ac198-8be2-46be-bf5d-374770eba857/blog_1_cosmetics_03_1_sawcnr", tag: "Local Ingredient" },
-            { id: 7, name: "Intense Hydration Peptide Cream", brand: "Aura Herbs", category: "Moisturizer", origin: "Nepalese", price: 1800, img: "https://apackaginggroup.com/cdn/shop/articles/364128755_603289631976372_1185266058704950105_n_f9894c21-0d67-4a8b-8d5a-7b3c21050288_800x.jpg?v=1710804817", tag: "Barrier Repair" },
-            { id: 8, name: "Himalayan Intense Mint Lip Balm", brand: "Himalaya Essentials", category: "Lip Balms", origin: "Nepalese", price: 250, img: "https://res.cloudinary.com/jnto/image/upload/w_720,h_480,c_fill,f_auto,fl_lossy,q_60/v1/media/filer_public/3b/6a/3b6ac198-8be2-46be-bf5d-374770eba857/blog_1_cosmetics_03_1_sawcnr", tag: "Daily Pocket" }
+        // COMPREHENSIVE DATA MODEL OF PRODUCTS
+        const PRODUCT_CATALOG = [
+            {
+                id: "k1",
+                title: "Heartleaf 77% Soothing Toner",
+                brand: "Anua",
+                origin: "korean",
+                category: "toner",
+                price: 2850,
+                badge: "Cult Favorite",
+                image: "image_agent_tag_8791009658895209000",
+                featured: true
+            },
+            {
+                id: "k2",
+                title: "Relief Sun : Rice + Probiotics SPF50",
+                brand: "Beauty of Joseon",
+                origin: "korean",
+                category: "sunscreen",
+                price: 2400,
+                badge: "Best Seller",
+                image: "image_agent_tag_8791009658895210478",
+                featured: true
+            },
+            {
+                id: "k3",
+                title: "Madagascar Centella Ampoule Serum",
+                brand: "Skin1004",
+                origin: "korean",
+                category: "serum",
+                price: 3100,
+                badge: "Barrier Cure",
+                image: "image_agent_tag_8791009658895211787",
+                featured: true
+            },
+            {
+                id: "k4",
+                title: "Deep Vita C Ampoule Pure Vitamin Complex",
+                brand: "Medicube",
+                origin: "korean",
+                category: "serum",
+                price: 4200,
+                badge: "Advanced Tech",
+                image: "image_agent_tag_8791009658895209169",
+                featured: false
+            },
+            {
+                id: "n1",
+                title: "Aurora Bloom Natural Intense Perfume Oil",
+                brand: "Aura Herbs",
+                origin: "nepalese",
+                category: "lipbalm", 
+                price: 950,
+                badge: "Himalayan Native",
+                image: "image_agent_tag_8791009658895211956",
+                featured: true
+            },
+            {
+                id: "n2",
+                title: "Organic Neem & Tea Tree Clarifying Face Wash",
+                brand: "Himalayan Essential",
+                origin: "nepalese",
+                category: "facewash",
+                price: 680,
+                badge: "Pure Organic",
+                image: "https://images.unsplash.com/photo-1601612628452-9e99ced43524?q=80&w=400&auto=format&fit=crop",
+                featured: false
+            },
+            {
+                id: "n3",
+                title: "Intense Nourishing Rosehip Seed Treatment Cream",
+                brand: "Aura Herbs",
+                origin: "nepalese",
+                category: "moisturizer",
+                price: 1850,
+                badge: "Local Sourced",
+                image: "https://images.unsplash.com/photo-1608248597481-496100c8c836?q=80&w=400&auto=format&fit=crop",
+                featured: false
+            },
+            {
+                id: "n4",
+                title: "Radiance Defense Skin Glow Multi-Vitamin Supplement",
+                brand: "Himalayan Essential",
+                origin: "nepalese",
+                category: "vitamins",
+                price: 2150,
+                badge: "Wellness",
+                image: "https://images.unsplash.com/photo-1616671285454-e8c95a287a2a?q=80&w=400&auto=format&fit=crop",
+                featured: false
+            }
         ];
 
-        // Reactive Application State
-        let currentCart = [];
-        let ActiveFilterCriteria = "all";
-        let CurrentSearchQuery = "";
+        // GLOBAL APPLICATION CART SYSTEM VARIABLES
+        let SHOPPING_CART = [];
+        let CURRENT_FILTER_ORIGIN = 'all';
+        let CURRENT_FILTER_CATEGORY = 'all';
 
-        // Application Startup Initialization
-        window.addEventListener('DOMContentLoaded', () => {
-            lucide.createIcons();
-            renderProductGrid();
+        // APPLICATION START INITIALIZATION
+        document.addEventListener("DOMContentLoaded", () => {
+            renderProductsGrid(PRODUCT_CATALOG.filter(p => p.featured), "homepage-featured-grid");
+            renderProductsGrid(PRODUCT_CATALOG, "main-catalog-grid");
+            syncCartDOM();
         });
 
-        // View Router Controller Engine
-        function navigateTo(viewId, event) {
-            if(event) event.preventDefault();
+        // ROUTING SYSTEM: INSTANT TAB PAGE NAVIGATION ENGINE
+        function switchPage(pageKey) {
+            // Remove active classes from all sections and header links
+            document.querySelectorAll(".page-content").forEach(page => page.classList.remove("active"));
+            document.querySelectorAll(".nav-tab-link").forEach(link => link.classList.remove("active"));
             
-            // Toggle active classes on view containers
-            document.querySelectorAll('.app-view').forEach(view => {
-                view.classList.remove('active-view');
-            });
-            const targetedView = document.getElementById(`${viewId}View`);
-            if(targetedView) targetedView.classList.add('active-view');
-
-            // Synchronize Navigation Links State
-            document.querySelectorAll('.nav-link').forEach(link => {
-                link.classList.remove('active');
-                if(link.getAttribute('data-view') === viewId) {
-                    link.classList.add('active');
-                }
-            });
-
-            // Smooth Scroll Window to top level on transition execution
+            // Activate core matching route segments
+            const targetPage = document.getElementById(`page-${pageKey}`);
+            const targetTab = document.getElementById(`tab-${pageKey}`);
+            
+            if (targetPage) targetPage.classList.add("active");
+            if (targetTab) targetTab.classList.add("active");
+            
+            // Instantly auto scroll window back to top comfortably
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // Product Catalog Display Engine
-        function renderProductGrid() {
-            const container = document.getElementById('productGridContainer');
-            if(!container) return;
+        // CATALOG VIEW CONTROLLER: DOM STRUCTURAL COMPONENT COMPILER
+        function renderProductsGrid(productsArray, targetElementId) {
+            const gridContainer = document.getElementById(targetElementId);
+            if (!gridContainer) return;
 
-            // Compute Filtered Subsets
-            const workingDataset = PRODUCT_DATABASE.filter(item => {
-                const matchesFilter = (ActiveFilterCriteria === "all") || 
-                                      (item.origin === ActiveFilterCriteria) || 
-                                      (item.category === ActiveFilterCriteria);
-                const matchesSearch = item.name.toLowerCase().includes(CurrentSearchQuery.toLowerCase()) || 
-                                      item.brand.toLowerCase().includes(CurrentSearchQuery.toLowerCase());
-                return matchesFilter && matchesSearch;
-            });
-
-            if(workingDataset.length === 0) {
-                container.innerHTML = `<div style="grid-column: 1/-1; text-align:center; padding: 60px 0; color: var(--text-muted);">No products found matching the criteria.</div>`;
+            if (productsArray.length === 0) {
+                gridContainer.innerHTML = `<div style="grid-column: 1/-1; text-align: center; padding: 60px; color: var(--accent-color);">No matching custom items found under this combination selection.</div>`;
                 return;
             }
 
-            container.innerHTML = workingDataset.map(prod => `
-                <div class="product-card">
-                    <div class="product-img-wrapper">
-                        <span class="product-tag">${prod.tag}</span>
-                        <img src="${prod.img}" alt="${prod.name}" loading="lazy">
-                        <div class="add-to-cart-overlay">
-                            <button class="overlay-btn" onclick="addItemToCart(${prod.id})">Add To Cart</button>
+            gridContainer.innerHTML = productsArray.map(product => {
+                const badgeClass = product.origin === 'nepalese' ? 'product-badge nepal-badge' : 'product-badge';
+                return `
+                    <div class="product-card">
+                        <div>
+                            <span class="${badgeClass}">${product.badge}</span>
+                            <div class="product-image-frame">
+                                <img src="${product.image}" alt="${product.title} product unit presentation container" loading="lazy">
+                            </div>
+                            <div class="product-meta">
+                                <div class="product-brand">${product.brand} &bull; ${product.origin.toUpperCase()}</div>
+                                <h3 class="product-title">${product.title}</h3>
+                            </div>
+                        </div>
+                        <div class="product-meta">
+                            <div class="product-price">Rs. ${product.price.toLocaleString()}</div>
+                            <button class="add-to-cart-btn" onclick="addToCart('${product.id}')">Add To Bag</button>
                         </div>
                     </div>
-                    <div class="product-info">
-                        <p class="product-brand">${prod.brand}</p>
-                        <h3>${prod.name}</h3>
-                        <p class="product-price">Rs. ${prod.price.toLocaleString()}</p>
-                    </div>
-                </div>
-            `).join('');
+                `;
+            }).join('');
         }
 
-        // Interactive Filter Methods
-        function filterProducts(filterMode, element) {
-            ActiveFilterCriteria = filterMode;
-            if(element) {
-                document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
-                element.classList.add('active');
+        // DYNAMIC SORTING AND FILTER CONTROLLER Engine
+        function filterProducts(filterType, selectionValue) {
+            // Manage UI Button state changes cleanly
+            if (filterType === 'origin') {
+                document.querySelectorAll("[id^='origin-']").forEach(b => b.classList.remove('active'));
+                document.getElementById(`origin-${selectionValue}`).classList.add('active');
+                CURRENT_FILTER_ORIGIN = selectionValue;
+            } else if (filterType === 'category') {
+                document.querySelectorAll("[id^='cat-']").forEach(b => b.classList.remove('active'));
+                document.getElementById(`cat-${selectionValue}`).classList.add('active');
+                CURRENT_FILTER_CATEGORY = selectionValue;
             }
-            renderProductGrid();
-        }
 
-        function filterShopOrigin(originKey, event) {
-            navigateTo('shop', event);
-            ActiveFilterCriteria = originKey;
-            
-            // Sync Control Tabs
-            document.querySelectorAll('.filter-btn').forEach(btn => {
-                btn.classList.remove('active');
-                if(btn.getAttribute('onclick').includes(`'${originKey}'`)) btn.classList.add('active');
+            // Execute cross join evaluation array filter math logic
+            let subset = PRODUCT_CATALOG.filter(item => {
+                const matchOrigin = (CURRENT_FILTER_ORIGIN === 'all' || item.origin === CURRENT_FILTER_ORIGIN);
+                const matchCategory = (CURRENT_FILTER_CATEGORY === 'all' || item.category === CURRENT_FILTER_CATEGORY);
+                return matchOrigin && matchCategory;
             });
-            renderProductGrid();
+
+            renderProductsGrid(subset, "main-catalog-grid");
         }
 
-        function filterShopCategory(catKey, event) {
-            navigateTo('shop', event);
-            ActiveFilterCriteria = catKey;
-            
-            document.querySelectorAll('.filter-btn').forEach(btn => {
-                btn.classList.remove('active');
-                if(btn.getAttribute('onclick').includes(`'${catKey}'`)) btn.classList.add('active');
-            });
-            renderProductGrid();
-        }
-
-        function handleSearch() {
-            CurrentSearchQuery = document.getElementById('productSearch').value;
-            renderProductGrid();
-        }
-
-        // Cart Drawer Architecture Business Rules
+        // SHOPPING CART CONTROLLER FUNCTIONS
         function toggleCart(shouldOpen) {
-            const drawer = document.getElementById('cartDrawerBackdrop');
-            if(shouldOpen) drawer.classList.add('open');
-            else drawer.classList.remove('open');
+            const drawerBg = document.getElementById("cart-drawer-bg");
+            const drawerElement = document.getElementById("cart-drawer-element");
+            
+            if (shouldOpen) {
+                drawerBg.classList.add("open");
+                drawerElement.classList.add("open");
+            } else {
+                drawerBg.classList.remove("open");
+                drawerElement.classList.remove("open");
+            }
         }
 
-        function addItemToCart(productId) {
-            const productMatch = PRODUCT_DATABASE.find(p => p.id === productId);
-            if(!productMatch) return;
+        function addToCart(productId) {
+            const matchedProduct = PRODUCT_CATALOG.find(p => p.id === productId);
+            if (!matchedProduct) return;
 
-            const existingCartItem = currentCart.find(item => item.product.id === productId);
-            if(existingCartItem) {
+            const existingCartItem = SHOPPING_CART.find(item => item.product.id === productId);
+            if (existingCartItem) {
                 existingCartItem.quantity += 1;
             } else {
-                currentCart.push({ product: productMatch, quantity: 1 });
+                SHOPPING_CART.push({ product: matchedProduct, quantity: 1 });
             }
-            updateCartState();
+
+            syncCartDOM();
+            openToast(`Added ${matchedProduct.title} successfully.`);
             toggleCart(true);
         }
 
-        function adjustItemQty(productId, incrementAmount) {
-            const targetedItem = currentCart.find(item => item.product.id === productId);
-            if(!targetedItem) return;
+        function adjustQty(productId, changeAmount) {
+            const cartItemIndex = SHOPPING_CART.findIndex(item => item.product.id === productId);
+            if (cartItemIndex === -1) return;
 
-            targetedItem.quantity += incrementAmount;
-            if(targetedItem.quantity <= 0) {
-                currentCart = currentCart.filter(item => item.product.id !== productId);
+            SHOPPING_CART[cartItemIndex].quantity += changeAmount;
+            
+            if (SHOPPING_CART[cartItemIndex].quantity <= 0) {
+                SHOPPING_CART.splice(cartItemIndex, 1);
             }
-            updateCartState();
+
+            syncCartDOM();
         }
 
-        function purgeCartItem(productId) {
-            currentCart = currentCart.filter(item => item.product.id !== productId);
-            updateCartState();
-        }
+        function syncCartDOM() {
+            const cartBadge = document.getElementById("cart-badge-count");
+            const cartItemsRoot = document.getElementById("cart-items-list-root");
+            const totalLabel = document.getElementById("cart-total-amount");
 
-        function updateCartState() {
-            // Recalculate Totals
-            const totalCount = currentCart.reduce((acc, item) => acc + item.quantity, 0);
-            const totalVal = currentCart.reduce((acc, item) => acc + (item.product.price * item.quantity), 0);
+            // Calculate aggregated numeric units totals
+            let uniqueItemsCount = 0;
+            let finalPriceAccumulator = 0;
 
-            // Sync UI Nodes
-            document.getElementById('cartCount').innerText = totalCount;
-            document.getElementById('cartSubtotalText').innerText = `Rs. ${totalVal.toLocaleString()}`;
+            SHOPPING_CART.forEach(item => {
+                uniqueItemsCount += item.quantity;
+                finalPriceAccumulator += (item.product.price * item.quantity);
+            });
 
-            const container = document.getElementById('cartItemsContainer');
-            if(currentCart.length === 0) {
-                container.innerHTML = `<div class="empty-cart-msg">Your skincare nest is empty.</div>`;
+            cartBadge.innerText = uniqueItemsCount;
+            totalLabel.innerText = `Rs. ${finalPriceAccumulator.toLocaleString()}`;
+
+            if (SHOPPING_CART.length === 0) {
+                cartItemsRoot.innerHTML = `<div class="empty-cart-msg">Your bag is currently empty.</div>`;
                 return;
             }
 
-            container.innerHTML = currentCart.map(item => `
+            cartItemsRoot.innerHTML = SHOPPING_CART.map(item => `
                 <div class="cart-item">
-                    <div class="cart-item-img">
-                        <img src="${item.product.img}" alt="${item.product.name}">
-                    </div>
-                    <div class="cart-item-details">
-                        <h4>${item.product.name}</h4>
-                        <p>Rs. ${item.product.price.toLocaleString()}</p>
-                        <div class="cart-item-qty">
-                            <button class="qty-adjust" onclick="adjustItemQty(${item.product.id}, -1)">-</button>
-                            <span>${item.quantity}</span>
-                            <button class="qty-adjust" onclick="adjustItemQty(${item.product.id}, 1)">+</button>
+                    <img src="${item.product.image}" alt="${item.product.title}" class="cart-item-img">
+                    <div class="cart-item-info">
+                        <h4 class="cart-item-title">${item.product.title}</h4>
+                        <div class="cart-item-price">Rs. ${item.product.price.toLocaleString()} &times; ${item.quantity}</div>
+                        <div class="cart-item-qty-actions">
+                            <button class="qty-adjust-btn" onclick="adjustQty('${item.product.id}', -1)">&minus;</button>
+                            <span style="font-size:0.9rem; font-weight:500;">${item.quantity}</span>
+                            <button class="qty-adjust-btn" onclick="adjustQty('${item.product.id}', 1)">&plus;</button>
                         </div>
                     </div>
-                    <button class="remove-item-btn" onclick="purgeCartItem(${item.product.id})">Remove</button>
                 </div>
             `).join('');
         }
 
-        // Checkout & Modal Interaction Systems
+        // SYSTEM MODAL CHECKOUT APPLICATION INTERACTION BRIDGE
         function openCheckoutModal() {
-            if(currentCart.length === 0) {
-                alert("Your cart is empty. Add items from the Shop first!");
+            if (SHOPPING_CART.length === 0) {
+                openToast("Please load items into your shopping bag before seeking checkout access.");
                 return;
             }
             toggleCart(false);
-            document.getElementById('checkoutModalBackdrop').classList.add('open');
+            
+            const modal = document.getElementById("checkout-modal-root");
+            const itemsBreakdown = document.getElementById("checkout-items-breakdown");
+            const grandTotalText = document.getElementById("checkout-grand-total");
+            
+            let billSum = 0;
+            let itemLinesHTML = SHOPPING_CART.map(item => {
+                const subCost = item.product.price * item.quantity;
+                billSum += subCost;
+                return `<div style="display:flex; justify-content:space-between; font-size:0.9rem; margin-bottom:8px;">
+                            <span>${item.product.title} (x${item.quantity})</span>
+                            <span>Rs. ${subCost.toLocaleString()}</span>
+                        </div>`;
+            }).join('');
+
+            itemsBreakdown.innerHTML = itemLinesHTML;
+            grandTotalText.innerText = `Rs. ${billSum.toLocaleString()}`;
+            modal.classList.add("open");
         }
 
         function closeCheckoutModal() {
-            document.getElementById('checkoutModalBackdrop').classList.remove('open');
-            // Timeout delay allows transition animation frames to close perfectly before structural resets
-            setTimeout(() => {
-                document.getElementById('checkoutModalContent').innerHTML = `
-                    <h3>Secure Settlement</h3>
-                    <form onsubmit="processOrderPlacement(event)">
-                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
-                            <div class="form-group">
-                                <label>First Name</label>
-                                <input type="text" required placeholder="Sita">
-                            </div>
-                            <div class="form-group">
-                                <label>Last Name</label>
-                                <input type="text" required placeholder="Thapa">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label>Delivery Destination Address (Within Butwal / Nepal)</label>
-                            <input type="text" required placeholder="Amarpath, Ward 4, Butwal">
-                        </div>
-                        <div class="form-group">
-                            <label>Contact Phone Number</label>
-                            <input type="tel" required placeholder="98XXXXXXXX">
-                        </div>
-                        <div class="form-group">
-                            <label>Payment Selection</label>
-                            <select style="width:100%; padding:14px; border:1px solid var(--border-color); background-color: var(--bg-primary); font-family:var(--font-sans);" required>
-                                <option value="cod">Cash on Delivery (Available across Butwal)</option>
-                                <option value="esewa">eSewa / Khalti Digital Transfer</option>
-                            </select>
-                        </div>
-                        <button type="submit" class="btn-primary" style="width:100%; justify-content:center; margin-top:15px; padding:18px;">Confirm and Place Order</button>
-                    </form>
-                `;
-            }, 400);
+            document.getElementById("checkout-modal-root").classList.remove("open");
         }
 
-        function processOrderPlacement(event) {
+        // TRANSACTION CONTROL RESPONSE MANAGEMENT
+        function processFinalOrder(event) {
             event.preventDefault();
-            // Perform simulated dispatch transactional success screen injection
-            document.getElementById('checkoutModalContent').innerHTML = `
-                <div class="success-screen">
-                    <i data-lucide="check-circle" size="56" style="stroke-width: 1.5px;"></i>
-                    <h3 style="font-family: var(--font-serif); font-size: 28px; margin-bottom: 12px;">Order Placed Successfully!</h3>
-                    <p style="color: var(--text-muted); font-size:14px; margin-bottom:25px; max-width: 400px; margin-left:auto; margin-right:auto;">Thank you for nesting with us. Our Butwal fulfillment hub is assembling your premium curation package now.</p>
-                    <button class="btn-primary" onclick="completeCheckoutPipeline()">Continue Browsing</button>
-                </div>
-            `;
-            lucide.createIcons();
-        }
+            
+            const buyerName = document.getElementById("bill-name").value;
+            const buyerDest = document.getElementById("bill-address").value;
+            const payMethod = document.getElementById("bill-payment").value.toUpperCase();
 
-        function completeCheckoutPipeline() {
-            currentCart = [];
-            updateCartState();
+            // Fire response sequence completion feedback
+            alert(`🎉 Order successful!\n\nThank you, ${buyerName}. Your order has been registered for deployment tracking to ${buyerDest}, Butwal.\nPayment Option Registered: ${payMethod}.\n\nOur service desk will message confirmation code within 30 minutes.`);
+            
+            // Clean global transactional tracking matrices
+            SHOPPING_CART = [];
+            syncCartDOM();
             closeCheckoutModal();
-            navigateTo('home');
         }
 
         function handleContactSubmit(event) {
             event.preventDefault();
-            alert("Thank you for reaching out to GlowNest. Our customer experience expert team in Butwal will respond to your consultation via email within 24 hours.");
-            document.getElementById('c_name').value = '';
-            document.getElementById('c_email').value = '';
-            document.getElementById('c_msg').value = '';
+            const inputSender = document.getElementById("c-name").value;
+            alert(`Thank you, ${inputSender}. Your skin assessment profile parameters have been uploaded securely. A structural aesthetician from the Milanpath, Butwal experience hub will address your logs shortly via phone/mail.`);
+            document.getElementById("contact-form-element").reset();
+        }
+
+        // TOAST ENGINE CONTROLLER SYSTEM
+        function openToast(messageString) {
+            const element = document.getElementById("toast-banner-root") || document.getElementById("toast-root-banner");
+            if (!element) return;
+            
+            element.innerText = messageString;
+            element.classList.add("show");
+            
+            setTimeout(() => {
+                element.classList.remove("show");
+            }, 3000);
         }
     </script>
 </body>
